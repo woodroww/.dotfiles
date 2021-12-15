@@ -36,3 +36,5 @@ source /usr/local/opt/fzf/shell/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Enable vi mode
+#bindkey -v

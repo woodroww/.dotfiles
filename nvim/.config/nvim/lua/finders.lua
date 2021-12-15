@@ -36,9 +36,17 @@ function fd()
   require'telescope.builtin'.fd(opts)
 end
 
+finders.browse = function()
+  local opts = vim.deepcopy(with_previw)
+  opts.hidded = true
+  require'telescope.builtin'.file_browser(opts)
+end
+
+end
+
 return finders
 
 -- make sure to map it:
 -- nnoremap <leader>ff :lua require'finders'.fd_in_nvim()<cr>
 -- nnoremap <leader>ff :lua require'finders'.fd()<cr>
-
+-- nnoremap <leader>fd :lua require'finders'.browse()<cr>

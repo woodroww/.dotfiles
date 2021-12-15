@@ -28,7 +28,6 @@ nnoremap ^ 0
 vnoremap 0 $
 vnoremap 1 ^
 vnoremap ^ 0
-"nnoremap k k
 nnoremap l <Down>
 nnoremap j h
 nnoremap ; l
@@ -39,18 +38,12 @@ nnoremap <c-l> <c-d>
 nnoremap <c-k> <c-u>
 " find python defs
 nnoremap <Leader>fu :g/^def<CR> 
-"nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>bb <c-^> 
-"nnoremap <Leader>f :FZF<CR>
 
 " delete visual selection without putting that in the register
 " it sends it to the void register _
 " then paste from implicit " register
 vnoremap <leader>p "_dP
-
-"nnoremap <Leader>f :<CR>
-xnoremap <Leader>p :w !python<CR>
-nnoremap <Leader>r :REPLToggle<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -62,8 +55,10 @@ nnoremap a i
 nnoremap I A
 nnoremap A I
 
-noremap p P
-noremap P p
+"noremap p P
+"noremap P p
+
+nnoremap <Leader>v Vgq
 
 " terminal remap to escape from the comand line
 " tnoremap <Esc> <c-\><c-n>
@@ -76,7 +71,7 @@ set tabstop=4       " number of visual spaces per TAB
 " set shiftwidth=4    " number of spaces to use for autoindent
 " set expandtab       " tabs are space
 set autoindent
-set copyindent      " copy indent from the previous line
+" set copyindent      " copy indent from the previous line
 
 set scrolloff=4 " center cursor in middle when scrolling
 set nowrap " word wrapping
@@ -92,7 +87,7 @@ vnoremap > >gv
 
 " this starts the Plug section
 " - For Neovim: stdpath('data') . '/plugged'
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
 "Plug 'morhetz/gruvbox'		" theme
 Plug 'preservim/nerdtree'           " side bar file tree
@@ -122,9 +117,24 @@ Plug 'hrsh7th/cmp-cmdline'
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
 
 " colorize color names/number in text 
 Plug 'norcalli/nvim-colorizer.lua'
+
+" Cheat sheet
+Plug 'dbeniamine/cheat.sh-vim'
+
+Plug 'rust-lang/rust.vim'
+"Plug 'vim-syntastic/syntastic'
+Plug 'simrat39/rust-tools.nvim'
+
+" Debugger Plugins from ThePrimeagen
+" Plug 'puremourning/vimspector'
+" Plug 'szw/vim-maximizer'
+
+" clipboard in telescope
+" Plug 'AckslD/nvim-neoclip.lua'
 
 "Plug 'ncm2/ncm2'                     " completion [dep]: nvim-0.2.2, nvim-yarp, python3
 "Plug 'roxma/nvim-yarp'               " remote plugin framework required for ncm2
@@ -148,6 +158,16 @@ Plug 'mhinz/vim-startify'            " A start menu for vim
 " this ends the Plug section
 call plug#end()
 
+nnoremap <silent> <C-d> :call comfortable_motion#flick(150)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
+
+nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
+
+let g:comfortable_motion_interval = 1000.0 / 60
+let g:comfortable_motion_friction = 80.0
+let g:comfortable_motion_air_drag = 3.0
+
 
 " set colorscheme to gruvbox
 colorscheme gruvbox
@@ -155,6 +175,9 @@ colorscheme gruvbox
 syntax on
 " use dark mode of gruvbox
 set bg=dark
+
+" rust
+filetype plugin indent on
 
 lua << EOF
 require'lspconfig'.pyright.setup{}
@@ -166,9 +189,12 @@ require("treesyntax")
 require("plug-colorizer")
 require("telescope_config")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-\ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-\ { virtual_text = true, })
+--require'neoclip'.setup()
+--require("clipboard")
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] =
+-- \ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+-- \ { virtual_text = true, })
 
 EOF
 
@@ -190,13 +216,14 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ft <cmd>Telescope treesitter<cr>
 nnoremap <leader>fp <cmd>Telescope oldfiles<cr>
-nnoremap <leader>fd <cmd>Telescope file_browser<cr>
+"nnoremap <leader>fd <cmd>Telescope file_browser<cr>
+nnoremap <leader>fd :lua require'telescope.builtin'.file_browser({hidden=true})<cr>
 
-" change current working directory to current file
+" change current working directory to current file and print change
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " more setup for code completion
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,preview ",noselect
 
 " Window Splits
 set splitright splitbelow
@@ -205,12 +232,26 @@ nnoremap <C-w>j <C-w>h
 nnoremap <C-w>l <C-w>j
 nnoremap <C-w>k <C-w>k
 nnoremap <C-w>; <C-w>l
+
+"nmap <silent> <A-Up> :wincmd k<CR>
+"nmap <silent> <A-Down> :wincmd j<CR>
+"nmap <silent> <A-Left> :wincmd h<CR>
+"nmap <silent> <A-Right> :wincmd l<CR>
+
+
 " Make adjusing split sizes a bit more friendly
-noremap <silent> <M-j> :vertical resize +3<CR>
-noremap <silent> <M-;> :vertical resize -3<CR>
-noremap <silent> <M-l> :resize -3<CR>
-noremap <silent> <M-k> :resize +3<CR>
-" move line(s) up or down
+"noremap <silent> <M-j> :vertical resize +3<CR>
+"noremap <silent> <M-;> :vertical resize -3<CR>
+"noremap <silent> <M-l> :resize -3<CR>
+"noremap <silent> <M-k> :resize +3<CR>
+
+noremap <silent> <A-Left> :vertical resize +3<CR>
+noremap <silent> <A-Right> :vertical resize -3<CR>
+noremap <silent> <A-Up> :resize -3<CR>
+noremap <silent> <A-Down> :resize +3<CR>
+
+
+" move line(s) up or dow
 nnoremap <M-l> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==
 inoremap <M-l> <Esc>:m .+1<CR>==gi
@@ -228,3 +269,4 @@ map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
 " map <Leader>tj :new term://zsh<CR>ijulia<CR><C-\><C-n><C-w>k
 " map <Leader>ts :new term://zsh<CR>iscala<CR><C-\><C-n><C-w>k
 au! BufWritePost $MYVIMRC source %
+
