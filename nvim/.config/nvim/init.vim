@@ -22,12 +22,12 @@ set termguicolors
 " nmap - normal mode map
 " nnoremap - normal mode non-recursive map
 " inoremap - insert mode non-recursive map
-nnoremap 0 $
-nnoremap 1 ^
-nnoremap ^ 0
-vnoremap 0 $
-vnoremap 1 ^
-vnoremap ^ 0
+"nnoremap 0 $
+"nnoremap 1 ^
+"nnoremap ^ 0
+"vnoremap 0 $
+"vnoremap 1 ^
+"vnoremap ^ 0
 nnoremap l <Down>
 nnoremap j h
 nnoremap ; l
@@ -67,11 +67,11 @@ tnoremap <c-[> <c-\><c-n><c-w><c-w>
 
 set signcolumn=yes
 set tabstop=4       " number of visual spaces per TAB
-" set softtabstop=4   " number of spaces in tab when editing
-" set shiftwidth=4    " number of spaces to use for autoindent
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " number of spaces to use for autoindent
 " set expandtab       " tabs are space
 set autoindent
-" set copyindent      " copy indent from the previous line
+set copyindent      " copy indent from the previous line
 
 set scrolloff=4 " center cursor in middle when scrolling
 set nowrap " word wrapping
@@ -198,16 +198,16 @@ require("telescope_config")
 
 EOF
 
-" nnoremap <leader>ef <cmd>lua vim.lsp.handlers["textDocument/publishDiagnostics"] =
-" \ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-" \ { virtual_text = false, })<cr>
-" nnoremap <leader>et <cmd>lua vim.lsp.handlers["textDocument/publishDiagnostics"] =
-" \ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-" \ { virtual_text = true, })<cr>
-
-nnoremap <leader>et <cmd>lua vim.diagnostic.show()<cr>
-nnoremap <leader>ef <cmd>lua vim.diagnostic.hide()<cr>
-
+nnoremap <leader>ef <cmd>lua vim.lsp.handlers["textDocument/publishDiagnostics"] =
+\ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+\ { virtual_text = false, })<cr>
+nnoremap <leader>et <cmd>lua vim.lsp.handlers["textDocument/publishDiagnostics"] =
+\ vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+\ { virtual_text = true, })<cr>
+"nnoremap <leader>et <cmd>lua vim.diagnostic.show()<cr>
+"nnoremap <leader>ef <cmd>lua vim.diagnostic.hide()<cr>
+"nnoremap <leader>et <cmd>lua vim.diagnostic.enable()<cr>
+"nnoremap <leader>ef <cmd>lua vim.diagnostic.disable()<cr>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

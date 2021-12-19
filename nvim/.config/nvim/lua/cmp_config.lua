@@ -61,5 +61,6 @@
     capabilities = capabilities
   }
 
+require'lspconfig'.clangd.setup{}
 
 

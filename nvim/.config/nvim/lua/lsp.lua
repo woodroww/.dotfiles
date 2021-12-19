@@ -82,8 +82,10 @@ local opts = {
 require('rust-tools').setup(opts)
 
 
+require'lspconfig'.clangd.setup{}
 
 
+require'lspconfig'.r_language_server.setup{}
 
 
 
