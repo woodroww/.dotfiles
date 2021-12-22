@@ -89,7 +89,6 @@ vnoremap > >gv
 " - For Neovim: stdpath('data') . '/plugged'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
-"Plug 'morhetz/gruvbox'		" theme
 Plug 'preservim/nerdtree'           " side bar file tree
 Plug 'itchyny/lightline.vim'         " minmal status bar
 Plug 'tpope/vim-fugitive'            " allows git commands in vim session
@@ -107,7 +106,7 @@ Plug 'nvim-treesitter/playground'
 
 " LSP config
 " Base plugin
-Plug 'neovim/nvim-lspconfig'
+"Plug 'neovim/nvim-lspconfig'
 " code completions chrisatmachine
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -126,33 +125,10 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'dbeniamine/cheat.sh-vim'
 
 Plug 'rust-lang/rust.vim'
-"Plug 'vim-syntastic/syntastic'
+"""""Plug 'vim-syntastic/syntastic'
 Plug 'simrat39/rust-tools.nvim'
 
-" Debugger Plugins from ThePrimeagen
-" Plug 'puremourning/vimspector'
-" Plug 'szw/vim-maximizer'
-
-" clipboard in telescope
-" Plug 'AckslD/nvim-neoclip.lua'
-
-"Plug 'ncm2/ncm2'                     " completion [dep]: nvim-0.2.2, nvim-yarp, python3
-"Plug 'roxma/nvim-yarp'               " remote plugin framework required for ncm2
-"Plug 'ncm2/ncm2-bufword'             " complete words in buffer
-"Plug 'ncm2/ncm2-path'                " complete paths
-"Plug 'ncm2/ncm2-jedi'                " Python completion
-"Plug 'gaalcaras/ncm-R'               " R completion [dep]: ncm2, Nvim-R
-"Plug 'jalvesaq/Nvim-R'               " required for ncm-R
-"Plug 'dense-analysis/ale'            " linting [dep]: pip3 install flake8, install.packages('lintr')
-"Plug 'fisadev/vim-isort'             " Python sort imports [dep]: pip3 install isort
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mhinz/vim-startify'            " A start menu for vim
-"Plug 'tpope/vim-surround'            " replace surrounding characters
-"Plug 'filipekiss/ncm2-look.vim'      " ncm2 spelling
-"Plug 'SirVer/ultisnips'              " hotkeys for chunks of code
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy Finder
-"Plug 'junegunn/fzf.vim'              " Fuzzy Finder
-"Plug 'sillybun/vim-repl'
 
 
 " this ends the Plug section
@@ -160,10 +136,8 @@ call plug#end()
 
 nnoremap <silent> <C-d> :call comfortable_motion#flick(150)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
-
 nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
-
 let g:comfortable_motion_interval = 1000.0 / 60
 let g:comfortable_motion_friction = 80.0
 let g:comfortable_motion_air_drag = 3.0
@@ -180,9 +154,8 @@ set bg=dark
 filetype plugin indent on
 
 lua << EOF
-require'lspconfig'.pyright.setup{}
-
-require("lsp")
+-- require'lspconfig'.pyright.setup{}
+-- require("lsp")
 require("cmp_config")
 require("treesitter_playground")
 require("treesyntax")
