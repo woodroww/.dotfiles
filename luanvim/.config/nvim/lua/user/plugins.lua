@@ -30,28 +30,32 @@ Plug('nvim-treesitter/nvim-treesitter', {
 Plug 'nvim-treesitter/playground'
 
 -- LSP config Base plugin
--- Plug 'neovim/nvim-lspconfig'
+-- https://github.com/neovim/nvim-lspconfig
+Plug 'neovim/nvim-lspconfig'
+-- Chris@Machine
+-- https://github.com/williamboman/nvim-lsp-installer
+Plug 'williamboman/nvim-lsp-installer'
 
 -- code completions chrisatmachine
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
+--Plug 'hrsh7th/cmp-nvim-lsp'
+--Plug 'hrsh7th/cmp-buffer'
+--Plug 'hrsh7th/nvim-cmp'
+--Plug 'hrsh7th/cmp-path'
+--Plug 'hrsh7th/cmp-cmdline'
 -- For vsnip users.
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'rafamadriz/friendly-snippets'
+--Plug 'hrsh7th/cmp-vsnip'
+--Plug 'hrsh7th/vim-vsnip'
+--Plug 'rafamadriz/friendly-snippets'
 
 -- colorize color names/number in text 
 Plug 'norcalli/nvim-colorizer.lua'
 
 -- Cheat sheet
-Plug 'dbeniamine/cheat.sh-vim'
+-- Plug 'dbeniamine/cheat.sh-vim'
 
-Plug 'rust-lang/rust.vim'
--- Plug 'vim-syntastic/syntastic'
-Plug 'simrat39/rust-tools.nvim'
+-- Rust
+--Plug 'rust-lang/rust.vim'
+--Plug 'simrat39/rust-tools.nvim'
 
 Plug 'mhinz/vim-startify' -- A start menu for vim
 

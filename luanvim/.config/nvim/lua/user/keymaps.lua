@@ -46,10 +46,10 @@ keymap("n", "<c-w>l", "<c-w>j", opts)
 --keymap("n", "<c-w>k", "<c-w>k", opts)
 keymap("n", "<c-w>;", "<c-w>l", opts)
 
-keymap("n", "<A-Left>", ":vertical resize +3<CR>", opts)
-keymap("n", "<A-Right>;", ":vertical resize -3<CR>", opts)
-keymap("n", "<A-Up>;", ":resize -3<CR>", opts)
-keymap("n", "<A-Down>;", ":resize +3<CR>", opts)
+keymap("n", "<M-Left>", ":vertical resize +3<CR>", opts)
+keymap("n", "<M-Right>", ":vertical resize -3<CR>", opts)
+keymap("n", "<M-Up>", ":resize -3<CR>", opts)
+keymap("n", "<M-Down>", ":resize +3<CR>", opts)
 
 -- move line(s) up or down
 keymap("n", "<M-l>", ":m .+1<cr>", opts)
@@ -61,7 +61,7 @@ keymap("v", "<M-k>" ,":m '<-2<CR>gv-gv", opts)
 
 -- escape from the terminal
 -- maybe try leader and something
--- keymap("t", "<c-[>", "<c-\><c-n><c-w><c-w>", opts)
+keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 
 
 -- Leader things
@@ -75,7 +75,7 @@ keymap("n", "<leader>bb", "<c-^>", opts)
 -- then paste from implicit " register
 -- Chris@machine just remapped this to p
 -- does this need a visual mode too?
-keymap("n", "<leader>p", "_dP", opts)
+keymap("v", "<leader>p", "\"_dP", opts)
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 -- format line to 80 chars set somewhere but where?
@@ -92,7 +92,7 @@ keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
 
---keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.vim<cr>", opts)
+keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<cr>", opts)
 
 --[[ old non lua vim
 " Change 2 split windows from vert to horiz or horiz to vert

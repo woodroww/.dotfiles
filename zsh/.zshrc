@@ -18,5 +18,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Enable vi mode
 #bindkey -v
 
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

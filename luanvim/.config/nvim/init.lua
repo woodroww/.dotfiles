@@ -1,12 +1,31 @@
 -- This adds in ~/.config/nvim/lua/user/options.lua
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
 
-require "user.cmp_config"
-require "user.treesitter_playground"
-require "user.treesyntax"
-require "user.plug-colorizer"
-require "user.telescope_config"
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
+require "user.keymaps"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
+require "user.plugins" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
+require "user.colorscheme" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
+require "user.lsp" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp_config.lua
+--require "user.cmp_config" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesitter_playground.lua
+require "user.treesitter_playground" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
+require "user.treesyntax" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
+require "user.plug-colorizer" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
+require "user.telescope_config" 
