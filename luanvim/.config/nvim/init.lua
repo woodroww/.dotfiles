@@ -15,8 +15,8 @@ require "user.colorscheme"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp" 
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp_config.lua
---require "user.cmp_config" 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
+require "user.cmp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesitter_playground.lua
 require "user.treesitter_playground" 

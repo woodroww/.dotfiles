@@ -4,8 +4,11 @@ PROMPT='%F{2}%n %f- '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
-alias la="ls -la"
-alias ll="ls -ltr"
+# LS_COLORS environment variable sets the colors
+
+alias ls="ls --color=auto"
+alias la="ls  --color=auto -la"
+alias ll="ls  --color=auto -ltr"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
@@ -20,3 +23,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"

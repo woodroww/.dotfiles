@@ -1,3 +1,5 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
 	return
@@ -22,7 +24,8 @@ lsp_installer.on_server_ready(function(server)
 	 end
 
 	 if server.name == "pyright" then
-	 	local pyright_opts = require("user.lsp.settings.pyright")
+	 	print("pyright handler called")
+		local pyright_opts = require("user.lsp.settings.pyright")
 	 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	 end
 
