@@ -29,3 +29,7 @@ require "user.plug-colorizer"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config" 
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
+require "user.startify"
+

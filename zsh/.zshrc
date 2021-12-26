@@ -23,4 +23,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+#export PATH="/usr/local/opt/tcl-tk/bin:$PATH"

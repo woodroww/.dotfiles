@@ -1,10 +1,20 @@
 -- https://github.com/neovim/nvim-lspconfig/
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
 require'lspconfig'.pylsp.setup{}
 --require'lspconfig'.pyright.setup{}
 
+require('rust-tools').setup(opts)
 
 
+require'lspconfig'.clangd.setup{}
+
+
+require'lspconfig'.r_language_server.setup{}
+
+-- Swift c/c++/objective-c
+-- https://github.com/apple/sourcekit-lsp
+-- require'lspconfig'.sourcekit.setup{}
 
 
 

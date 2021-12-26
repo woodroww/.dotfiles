@@ -63,8 +63,9 @@ keymap("v", "<M-k>" ,":m '<-2<CR>gv-gv", opts)
 -- maybe try leader and something
 keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 
-
+--------------------------------------------------------------------------------
 -- Leader things
+--------------------------------------------------------------------------------
 
 -- find python def
 keymap("n", "<leader>fu", ":g/^def<cr>", opts)
@@ -88,6 +89,7 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
+keymap("n", "<leader>fn", ":Telescope find_files cwd=~/prog/notes<cr>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
