@@ -5,16 +5,35 @@ local Plug = vim.fn['plug#']
 -- https://github.com/junegunn/vim-plug
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
+-- https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify' -- A start menu for vim
+-- https://github.com/gruvbox-community/gruvbox
 Plug 'gruvbox-community/gruvbox'
+-- https://github.com/preservim/nerdtree
 Plug 'preservim/nerdtree'            -- side bar file tree
+-- https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'         -- minmal status bar
+-- https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-fugitive'            -- allows git commands in vim session
+-- https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
+-- https://github.com/yuttie/comfortable-motion.vim
 Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
+-- https://github.com/norcalli/nvim-colorizer.lua
 Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text 
+-- Markdown --
+-- https://github.com/godlygeek/tabular
+--Plug 'godlygeek/tabular'
+-- https://github.com/plasticboy/vim-markdown
+--Plug 'plasticboy/vim-markdown'
+-- https://github.com/iamcco/markdown-preview.nvim
+--Plug('iamcco/markdown-preview.nvim', {
+--	['do'] = function()
+--		vim.cmd('cd app && yarn install')
+--	end
+--})
 
--- Telescope
+-- Telescope --
 Plug('nvim-telescope/telescope-fzf-native.nvim', {
 	['do'] = function()
 		vim.cmd('make')
@@ -23,34 +42,32 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', {
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
--- Treesitter
+-- Treesitter --
 Plug('nvim-treesitter/nvim-treesitter', {
 	['do'] = function()
 		vim.cmd(':TSUpdate')
 	end
 })  -- We recommend updating the parsers on update
-
 Plug 'nvim-treesitter/playground'
 
 
 -- Plug('neoclide/coc.nvim', {branch = 'release'})
 
--- LSP config Base plugin
+-- LSP config Base plugin -- 
 -- https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
--- Chris@Machine
--- https://github.com/williamboman/nvim-lsp-installer
--- Plug 'williamboman/nvim-lsp-installer'
-
--- code completions chrisatmachine
+-- completions
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'rafamadriz/friendly-snippets'
-
+Plug 'saadparwaiz1/cmp_luasnip' -- snippet completions
+--Plug 'hrsh7th/cmp-vsnip'
+-- https://github.com/L3MON4D3/LuaSnip
+Plug 'L3MON4D3/LuaSnip' -- snippet engine
+-- https://github.com/rafamadriz/friendly-snippets
+Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'

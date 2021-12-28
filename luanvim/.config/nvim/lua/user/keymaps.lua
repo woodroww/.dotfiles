@@ -94,7 +94,11 @@ keymap("n", "<leader>fn", ":Telescope find_files cwd=~/prog/notes<cr>", opts)
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
 
-keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<cr>", opts)
+keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
+
+-- to open a little window with the errors
+keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
+
 
 --[[ old non lua vim
 " Change 2 split windows from vert to horiz or horiz to vert

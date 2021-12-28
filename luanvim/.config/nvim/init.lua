@@ -1,4 +1,5 @@
--- This adds in ~/.config/nvim/lua/user/options.lua
+-- Helpful blog for lua and nvim config
+-- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
@@ -12,6 +13,10 @@ require "user.plugins"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
 require "user.colorscheme" 
 
+vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
+
+--vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.vim')
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp" 
 
@@ -24,6 +29,7 @@ require "user.treesitter_playground"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
 require "user.treesyntax" 
 
+-- the colors show up when your write the hex or rgb
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 require "user.plug-colorizer" 
 
@@ -33,3 +39,5 @@ require "user.telescope_config"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
 require "user.startify"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
+require "user.markdown"
