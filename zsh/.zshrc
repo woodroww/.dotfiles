@@ -1,8 +1,12 @@
 #export RSTUDIO_WHICH_R=/Users/matt/opt/miniconda3/envs/tensorflow/bin/R
 
+export MANPAGER='nvim +Man!'
+
 PROMPT='%F{2}%n %f- '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
+
+zle_highlight=('paste:none')
 
 # LS_COLORS environment variable sets the colors
 

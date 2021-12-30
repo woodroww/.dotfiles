@@ -20,6 +20,8 @@ vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp" 
 
+-- added my python snip dir to 
+-- ~/.local/share/nvim/plugged/friendly-snippets/package.json
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"
 

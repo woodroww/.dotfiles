@@ -100,6 +100,10 @@ keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
 
 
+keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
+
+keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
+
 --[[ old non lua vim
 " Change 2 split windows from vert to horiz or horiz to vert
 map <Leader>th <C-w>t<C-w>H
