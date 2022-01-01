@@ -23,7 +23,7 @@ local options = {
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   autoindent = true,                       -- the :help said this should normally be on with smartindent
   smartindent = true,                      -- make indenting smarter again
-
+  background = 'dark',
 --[[
   undofile = true,                         -- enable persistent undo
   backup = false,                          -- creates a backup file
