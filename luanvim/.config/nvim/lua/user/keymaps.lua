@@ -83,6 +83,7 @@ keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 -- format line to 80 chars set somewhere but where?
 keymap("n", "<leader>v", "Vgq", opts)
 
+-- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
@@ -91,19 +92,18 @@ keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/notes<cr>", opts)
-thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ObsidianNotes"
+thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
+
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
-
+-- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 
 -- to open a little window with the errors
 keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
-
-
+-- to turn on and off annoying erros (e)rror (f)alse and (e)rror (t)true
 keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
-
 keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
 
 --[[ old non lua vim
