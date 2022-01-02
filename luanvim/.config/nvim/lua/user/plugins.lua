@@ -30,6 +30,7 @@ Plug 'godlygeek/tabular'
 -- https://github.com/plasticboy/vim-markdown
 Plug 'plasticboy/vim-markdown'
 -- https://github.com/iamcco/markdown-preview.nvim
+-- :MarkdownPreview
 Plug('iamcco/markdown-preview.nvim', {
 	['do'] = function()
 		vim.cmd('cd app && yarn install')

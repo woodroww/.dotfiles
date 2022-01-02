@@ -83,6 +83,26 @@ keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 -- format line to 80 chars set somewhere but where?
 keymap("n", "<leader>v", "Vgq", opts)
 
+todays_note = function()
+	local d = os.date("*t")
+	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
+	local directory = "/Users/matt/notes/obsidian/QuickNotes/"
+	local file_name = directory .. today .. "-quick_note.md"
+	local file = io.open(file_name, "r")
+	local command = ":e " .. file_name .. "<cr>"
+	if file ~= nil then
+		io.close(file)
+		--print("Found today's note")
+	else
+		--print("Creating today's note")
+		new_file = io.open(file_name, "w")
+		new_file:write("Matt's sexy note time.")
+		new_file:close()
+	end
+	return command 
+end
+keymap("n", "<leader>qn", todays_note(), opts)
+
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
@@ -92,8 +112,10 @@ keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/notes<cr>", opts)
+keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/notes<cr>", opts)
 thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
+keymap("n", "<leader>foo", ":Telescope live_grep cwd=" .. thepath .. "<cr>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)

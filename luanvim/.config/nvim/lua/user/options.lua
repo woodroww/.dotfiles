@@ -23,7 +23,8 @@ local options = {
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   autoindent = true,                       -- the :help said this should normally be on with smartindent
   smartindent = true,                      -- make indenting smarter again
-  background = 'dark',
+  background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
+  conceallevel = 2,						   -- for hiding markdown 
 --[[
   undofile = true,                         -- enable persistent undo
   backup = false,                          -- creates a backup file
