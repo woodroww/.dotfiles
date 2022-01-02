@@ -96,12 +96,12 @@ todays_note = function()
 	else
 		--print("Creating today's note")
 		new_file = io.open(file_name, "w")
-		new_file:write("Matt's sexy note time.")
+		new_file:write("# Matt's Daily Note " .. today)
 		new_file:close()
 	end
 	return command 
 end
-keymap("n", "<leader>qn", todays_note(), opts)
+keymap("n", "<leader>qn", todays_note() .. "Go", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
