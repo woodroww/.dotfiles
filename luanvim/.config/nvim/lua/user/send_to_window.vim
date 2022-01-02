@@ -2,6 +2,11 @@
 " Maintainer: Karolis Koncevičius (karolis.koncevicius@gmail.com)
 " Website: https://github.com/karoliskoncevicius/vim-sendtowindow
 
+" SendRight l
+" SendLeft h
+" SendUp k
+" Send Down j
+
 
 if exists("g:loaded_sendtowindow") || &compatible
   finish
