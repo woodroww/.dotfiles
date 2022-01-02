@@ -86,7 +86,8 @@ keymap("n", "<leader>v", "Vgq", opts)
 todays_note = function()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory = "/Users/matt/notes/obsidian/QuickNotes/"
+
+	local directory = "/Users/matt/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Notes/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -111,8 +112,8 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
-keymap("n", "<leader>fn", ":Telescope find_files cwd=~/notes<cr>", opts)
-keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/notes<cr>", opts)
+keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
+keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
 thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
 keymap("n", "<leader>foo", ":Telescope live_grep cwd=" .. thepath .. "<cr>", opts)
