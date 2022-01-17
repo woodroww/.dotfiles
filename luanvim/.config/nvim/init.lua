@@ -8,35 +8,36 @@ require "user.options"
 require "user.keymaps"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
-require "user.plugins" 
+require "user.plugins"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
+require "user.lsp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
-require "user.colorscheme" 
+require "user.colorscheme"
 
 vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
 
 --vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.vim')
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
-require "user.lsp" 
 
--- added my python snip dir to 
+-- added my python snip dir to
 -- ~/.local/share/nvim/plugged/friendly-snippets/package.json
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
-require "user.cmp"
+--require "user.cmp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesitter_playground.lua
-require "user.treesitter_playground" 
+require "user.treesitter_playground"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
-require "user.treesyntax" 
+require "user.treesyntax"
 
 -- the colors show up when your write the hex or rgb
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
-require "user.plug-colorizer" 
+require "user.plug-colorizer"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
-require "user.telescope_config" 
+require "user.telescope_config"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
 require "user.startify"

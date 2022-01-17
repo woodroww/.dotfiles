@@ -37,7 +37,7 @@
 # faded-orange : #af3a03;
 
 figure.facecolor: 282828
-figure.figsize: 25.0, 8.0
+#figure.figsize: 25.0, 8.0
 text.color: F2E5BC
 axes.labelcolor: F2E5BC
 legend.frameon: False

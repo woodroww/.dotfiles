@@ -4,7 +4,7 @@
 local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   termguicolors = true,                    -- set term gui colors (most terminals support this)
-  cursorline = true,                       -- highlight the current line
+--  cursorline = true,                       -- highlight the current line
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   scrolloff = 5,                           -- is one of my fav
@@ -22,7 +22,7 @@ local options = {
   errorbells = false,
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   autoindent = true,                       -- the :help said this should normally be on with smartindent
-  smartindent = true,                      -- make indenting smarter again
+--smartindent = true,                      -- make indenting smarter again
   background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
   conceallevel = 2,						   -- for hiding markdown 
 --[[
@@ -48,6 +48,11 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd [[
+let g:loaded_matchparen = 1
+]]
+
+ -- loaded_matchparen = 1,				   -- don't highlight matching parenthesis
 --[[
 " Remove previous setting:
 ":set guicursor-=a:blinkon0

@@ -2,7 +2,10 @@
 
 export MANPAGER='nvim +Man!'
 
-PROMPT='%F{2}%n %f- '
+# F foreground color
+# f reset to default color
+# PROMPT='%F{2}%n@%m %f- '
+PROMPT='%F{2}%2~ %#%f '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
@@ -40,4 +43,3 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-#export PATH="/usr/local/opt/tcl-tk/bin:$PATH"

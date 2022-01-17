@@ -1,4 +1,5 @@
 -- plugins
+-- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 local Plug = vim.fn['plug#']
 
@@ -23,14 +24,30 @@ Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
 Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text 
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
+-- https://github.com/dhruvmanila/telescope-bookmarks.nvim
+Plug 'dhruvmanila/telescope-bookmarks.nvim'
 
 -- Markdown --
 -- https://github.com/godlygeek/tabular
 Plug 'godlygeek/tabular'
+
 -- https://github.com/plasticboy/vim-markdown
-Plug 'plasticboy/vim-markdown'
+--Plug 'plasticboy/vim-markdown'
+
+-- https://github.com/tpope/vim-markdown
+--Plug 'tpope/vim-markdown'
+
+-- https://github.com/SidOfc/mkdx
+--Plug 'SidOfc/mkdx'
+
+-- https://github.com/vim-pandoc/vim-pandoc
+--Plug 'vim-pandoc/vim-pandoc'
+-- https://github.com/vim-pandoc/vim-pandoc-syntax
+--Plug 'vim-pandoc/vim-pandoc-syntax' 
+
+
 -- https://github.com/iamcco/markdown-preview.nvim
--- :MarkdownPreview
+-- usage :MarkdownPreview
 Plug('iamcco/markdown-preview.nvim', {
 	['do'] = function()
 		vim.cmd('cd app && yarn install')
@@ -43,10 +60,15 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', {
 		vim.cmd('make')
 	end
 })
+-- https://github.com/nvim-lua/plenary.nvim
 Plug 'nvim-lua/plenary.nvim'
+-- https://github.com/nvim-telescope/telescope.nvim
 Plug 'nvim-telescope/telescope.nvim'
+-- https://github.com/nvim-telescope/telescope-file-browser.nvim
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 -- Treesitter --
+-- https://github.com/nvim-treesitter/nvim-treesitter
 Plug('nvim-treesitter/nvim-treesitter', {
 	['do'] = function()
 		vim.cmd(':TSUpdate')
@@ -55,11 +77,12 @@ Plug('nvim-treesitter/nvim-treesitter', {
 Plug 'nvim-treesitter/playground'
 
 
--- Plug('neoclide/coc.nvim', {branch = 'release'})
+Plug('neoclide/coc.nvim', {branch = 'release'})
 
 -- LSP config Base plugin -- 
 -- https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
+--[[
 -- completions
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -72,6 +95,7 @@ Plug 'saadparwaiz1/cmp_luasnip' -- snippet completions
 Plug 'L3MON4D3/LuaSnip' -- snippet engine
 -- https://github.com/rafamadriz/friendly-snippets
 Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
+--]]
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'
