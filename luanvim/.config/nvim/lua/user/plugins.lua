@@ -43,7 +43,7 @@ Plug 'godlygeek/tabular'
 -- https://github.com/vim-pandoc/vim-pandoc
 --Plug 'vim-pandoc/vim-pandoc'
 -- https://github.com/vim-pandoc/vim-pandoc-syntax
---Plug 'vim-pandoc/vim-pandoc-syntax' 
+--Plug 'vim-pandoc/vim-pandoc-syntax'
 
 
 -- https://github.com/iamcco/markdown-preview.nvim
@@ -77,12 +77,12 @@ Plug('nvim-treesitter/nvim-treesitter', {
 Plug 'nvim-treesitter/playground'
 
 
-Plug('neoclide/coc.nvim', {branch = 'release'})
+--Plug('neoclide/coc.nvim', {branch = 'release'})
 
--- LSP config Base plugin -- 
+-- LSP config Base plugin --
 -- https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
---[[
+
 -- completions
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -95,10 +95,11 @@ Plug 'saadparwaiz1/cmp_luasnip' -- snippet completions
 Plug 'L3MON4D3/LuaSnip' -- snippet engine
 -- https://github.com/rafamadriz/friendly-snippets
 Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
---]]
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'
+-- https://github.com/keith/swift.vim
+--Plug 'keith/swift.vim'
 
 -- Rust
 Plug 'rust-lang/rust.vim'

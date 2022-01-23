@@ -43,3 +43,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# completion
+# to delete the cache file
+# rm -f ~/.zcompdump% compinit
+
+
+# nit zsh completion this should be last, after rules
+autoload -Uz compinit && compinit
+
+eval "$(zoxide init zsh)"
+
+

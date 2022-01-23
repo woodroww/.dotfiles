@@ -52,7 +52,28 @@ vim.cmd [[
 let g:loaded_matchparen = 1
 ]]
 
- -- loaded_matchparen = 1,				   -- don't highlight matching parenthesis
+-- Highlight on yank
+vim.api.nvim_exec(
+  [[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]],
+  false
+)
+
+-- turn on cursorline, cursorcolumn when searching, sync with hlsearch
+vim.api.nvim_exec(
+  [[
+augroup nvim-incsearch-cursorline
+	autocmd!
+	autocmd CmdlineEnter /,\? :set cursorline cursorcolumn hlsearch
+augroup END
+]],
+  false
+)
+-- loaded_matchparen = 1,				   -- don't highlight matching parenthesis
 --[[
 " Remove previous setting:
 ":set guicursor-=a:blinkon0

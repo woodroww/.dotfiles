@@ -68,6 +68,8 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 -- Leader things
 --------------------------------------------------------------------------------
 
+keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
+
 -- find python def
 keymap("n", "<leader>fu", ":g/^def<cr>", opts)
 -- go to previous buffer
@@ -83,7 +85,7 @@ keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 -- format line to 80 chars set somewhere but where?
 keymap("n", "<leader>v", "Vgq", opts)
 
-todays_note = function()
+local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
 
@@ -96,29 +98,62 @@ todays_note = function()
 		--print("Found today's note")
 	else
 		--print("Creating today's note")
-		new_file = io.open(file_name, "w")
+		local new_file = io.open(file_name, "w")
 		new_file:write("# Matt's Daily Note " .. today)
 		new_file:close()
 	end
-	return command 
+	return command
 end
 keymap("n", "<leader>qn", todays_note() .. "Go", opts)
+
+
+function grep_notes()
+	local note_opts = {
+		noremap = true,
+		silent = true,
+		hidden = true,
+		search_dirs = {
+			"~/Documents/notes/",
+			"~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes",
+		},
+		prompt_prefix = "   ",
+		prompt_title = " Grep Notes",
+		path_display = { "smart" }
+	}
+	require("telescope.builtin").live_grep(note_opts)
+end
+
+--[[
+function M.find_notes()
+  require("telescope.builtin").find_files {
+    prompt_title = " Find Notes",
+    path_display = { "smart" },
+    cwd = "~/notes/",
+    layout_strategy = "horizontal",
+    layout_config = { preview_width = 0.65, width = 0.75 },
+  }
+end
+--]]
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
-keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
+keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
+--keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 --keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
 keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>", opts)
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
-thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
+local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
-keymap("n", "<leader>foo", ":Telescope live_grep cwd=" .. thepath .. "<cr>", opts)
-keymap("n", "<leader>fbb", ":Telescope bookmarks<cr>", opts)
+
+--keymap("n", "<leader>foo", ":Telescope live_grep cwd=" .. thepath .. "<cr>", opts)
+--keymap("n", "<leader>foo", ":lua require('telescope.builtin').live_grep(note_opts)<cr>", opts)
+
+keymap("n", "<leader>foo", [[<Cmd>lua grep_notes()<CR>]], opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
