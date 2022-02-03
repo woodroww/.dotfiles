@@ -1,20 +1,13 @@
 -- https://github.com/neovim/nvim-lspconfig/
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+local status_ok, _ = pcall(require, "lspconfig")
+if not status_ok then
+	print("Something has gone wrong with lspconfig")
+	return
+end
 
---local status_ok, _ = pcall(require, "lspconfig")
---if not status_ok then
---	return
---end
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/lsp-installer.lua
---require("user.lsp.lsp-installer")
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/handlers.lua
---require("user.lsp.handlers").setup()
---
---
-
-local nvim_lsp = require('lspconfig')
-
+-- This is the famous on attach function
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -45,43 +38,54 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'rust_analyzer' } --'clangd' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+local cc = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require'cmp_nvim_lsp'.update_capabilities(cc)
+
+require'lspconfig'.clangd.setup{
+	capabilities = capabilities,
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
-end
+
+require'lspconfig'.rust_analyzer.setup{
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+require('rust-tools').setup()
 
 --require'lspconfig'.pylsp.setup{}
---require('rust-tools').setup(opts)
---require'lspconfig'.clangd.setup{}
-
 --require'lspconfig'.pyright.setup{}
+--require'lspconfig'.clangd.setup{}
 --require'lspconfig'.r_language_server.setup{}
+
 -- Swift c/c++/objective-c
 -- https://github.com/apple/sourcekit-lsp
 require'lspconfig'.sourcekit.setup{
-	--filetypes = { "swift" },
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
+  capabilities = capabilities,
+  filetypes = { "swift" },
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
 }
-
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 require'lspconfig'.sumneko_lua.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
   settings = {
     Lua = {
       runtime = {
@@ -107,3 +111,17 @@ require'lspconfig'.sumneko_lua.setup {
 }
 
 
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+--[[
+local servers = { 'clangd' } -- 'rust_analyzer',
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+--]]
+--

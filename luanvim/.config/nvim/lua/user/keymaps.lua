@@ -67,6 +67,18 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 --------------------------------------------------------------------------------
 -- Leader things
 --------------------------------------------------------------------------------
+-- :lua vim.lsp.buf.rename
+
+--[[
+    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+--]]
+
+keymap("n", "<leader>t", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
+--keymap("n", "<leader>t", "", opts)
+
 
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
 
@@ -116,8 +128,8 @@ function grep_notes()
 			"~/Documents/notes/",
 			"~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes",
 		},
-		prompt_prefix = "   ",
-		prompt_title = " Grep Notes",
+		--prompt_prefix = "   ",
+		prompt_title = " Grep Notes",
 		path_display = { "smart" }
 	}
 	require("telescope.builtin").live_grep(note_opts)
@@ -138,7 +150,7 @@ end
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+keymap("n", "<leader>b", ":Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 --keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
@@ -166,7 +178,8 @@ keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
 keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
 -- code actions error action
-keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
+--keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
 
 --[[ old non lua vim
 " Change 2 split windows from vert to horiz or horiz to vert

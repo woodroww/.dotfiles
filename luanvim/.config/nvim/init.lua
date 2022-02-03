@@ -10,6 +10,9 @@ require "user.keymaps"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
+require "user.cmp"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp"
 
@@ -20,11 +23,8 @@ vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
 
 --vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.vim')
 
-
--- added my python snip dir to
--- ~/.local/share/nvim/plugged/friendly-snippets/package.json
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
---require "user.cmp"
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/toggleterm.lua
+require "user.toggleterm"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesitter_playground.lua
 require "user.treesitter_playground"

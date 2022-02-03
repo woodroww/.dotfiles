@@ -26,6 +26,9 @@ Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
 Plug 'dhruvmanila/telescope-bookmarks.nvim'
+-- https://github.com/akinsho/toggleterm.nvim
+Plug 'akinsho/toggleterm.nvim'
+
 
 -- Markdown --
 -- https://github.com/godlygeek/tabular
@@ -101,7 +104,12 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 -- https://github.com/keith/swift.vim
 --Plug 'keith/swift.vim'
 
+-- debugger dap
+-- https://github.com/mfussenegger/nvim-dap
+-- Plug 'mfussenegger/nvim-dap'
+
 -- Rust
+-- https://github.com/rust-lang/rust.vim
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 
