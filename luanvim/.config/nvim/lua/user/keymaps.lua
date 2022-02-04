@@ -11,11 +11,21 @@ vim.g.maplocalleader = " "
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
+--   select mode = "s"
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
-
+--
+    --like after you press y for yank or d for delete then you want to make a move
+--	 operator pending mode = "o"
 -- keymap(mode, key you want to remap, to do what)
+
+keymap("n", "0", "$", opts)
+keymap("n", "$", "0", opts)
+keymap("v", "0", "$", opts)
+keymap("v", "$", "0", opts)
+keymap("o", "0", "$", opts)
+keymap("o", "$", "0", opts)
 
 keymap("n", "l", "<Down>", opts)
 keymap("n", "j", "h", opts)
