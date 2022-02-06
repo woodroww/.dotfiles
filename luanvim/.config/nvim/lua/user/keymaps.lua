@@ -191,6 +191,10 @@ keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostic
 --keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
 
+-- buffer delete without closing window
+-- "nmap <C-W>! <Plug>Kwbd
+keymap("n", "<leader>w", ":Kwbd<CR>", opts)
+
 --[[ old non lua vim
 " Change 2 split windows from vert to horiz or horiz to vert
 map <Leader>th <C-w>t<C-w>H
