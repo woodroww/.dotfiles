@@ -77,7 +77,7 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 --------------------------------------------------------------------------------
 -- Leader things
 --------------------------------------------------------------------------------
--- :lua vim.lsp.buf.rename
+-- :lua vim.lsp.buf.rename()
 
 --[[
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
@@ -86,7 +86,8 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 --]]
 
-keymap("n", "<leader>t", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
+--keymap("n", "<leader>t", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
+keymap("n", "<leader>t", "<cmd>lua _TERMINAL()<cr>", opts)
 --keymap("n", "<leader>t", "", opts)
 
 
@@ -158,9 +159,11 @@ end
 --]]
 
 -- Telescope
+keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>b", ":Telescope buffers<cr>", opts)
+--keymap("n", "<leader>b", ":Telescope buffers<cr>", opts)
+keymap("n", "<C-f>", ":Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 --keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)

@@ -8,8 +8,14 @@ vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
 -- https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify' -- A start menu for vim
+
 -- https://github.com/gruvbox-community/gruvbox
-Plug 'gruvbox-community/gruvbox'
+-- Plug 'gruvbox-community/gruvbox'
+
+-- https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
+--Plug 'chriskempson/base16-vim'
+
 -- https://github.com/preservim/nerdtree
 Plug 'preservim/nerdtree'            -- side bar file tree
 -- https://github.com/itchyny/lightline.vim
@@ -111,6 +117,7 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 -- Rust
 -- https://github.com/rust-lang/rust.vim
 Plug 'rust-lang/rust.vim'
+-- https://github.com/simrat39/rust-tools.nvim
 Plug 'simrat39/rust-tools.nvim'
 
 

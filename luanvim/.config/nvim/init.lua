@@ -1,14 +1,14 @@
 -- Helpful blog for lua and nvim config
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
-require "user.options"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
 require "user.keymaps"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
+require "user.options"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"

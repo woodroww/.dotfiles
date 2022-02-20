@@ -1,8 +1,23 @@
 -- this is where you set all the options
 -- like word wrap and such and termcolors and tabspaces
+--[[
+vim.cmd [[
+set rtp+=/Users/matt/.config/base16-vim/colors
+" let g:base16_shell_path="/Users/matt/.config/base16-shell/scripts"
+let g:base16_shell_path="/Users/matt/.local/share/nvim/plugged/base16-vim/colors"
+colorscheme base16-gruvbox-dark-hard
+" colorscheme base16-gruvbox-dark-medium
+" colorscheme base16-gruvbox-dark-pale
+" colorscheme base16-gruvbox-dark-soft
+" colorscheme base16-gruvbox-light-hard
+" colorscheme base16-gruvbox-light-medium
+" colorscheme base16-gruvbox-light-soft
+" base16colorspace=256,
+]]--
 
 local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
+  background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
   termguicolors = true,                    -- set term gui colors (most terminals support this)
 --  cursorline = true,                       -- highlight the current line
   splitbelow = true,                       -- force all horizontal splits to go below current window
@@ -22,8 +37,8 @@ local options = {
   errorbells = false,
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   autoindent = true,                       -- the :help said this should normally be on with smartindent
-  smartindent = true,                      -- make indenting smarter again
-  background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
+  cindent = true,
+--  smartindent = true,                      -- make indenting smarter again
   conceallevel = 2,						   -- for hiding markdown 
 --[[
   undofile = true,                         -- enable persistent undo
@@ -47,6 +62,8 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+
 
 vim.cmd [[
 let g:loaded_matchparen = 1
