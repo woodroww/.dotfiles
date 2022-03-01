@@ -79,17 +79,9 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 --------------------------------------------------------------------------------
 -- :lua vim.lsp.buf.rename()
 
---[[
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
---]]
-
---keymap("n", "<leader>t", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
-keymap("n", "<leader>t", "<cmd>lua _TERMINAL()<cr>", opts)
---keymap("n", "<leader>t", "", opts)
-
+--keymap("n", "<leader>t", "<cmd>lua _TERMINAL()<cr>", opts)
+keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
+keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
 
@@ -163,7 +155,18 @@ keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 --keymap("n", "<leader>b", ":Telescope buffers<cr>", opts)
-keymap("n", "<C-f>", ":Telescope buffers<cr>", opts)
+
+function matts_buffer_path_display(opts, path)
+	local tail = require("telescope.utils").path_tail(path)
+	return string.format("%s", tail)
+end
+
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
+
+--keymap("n", "<C-f>", ":Telescope buffers<cr>", opts)
+
+keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
+
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 --keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
@@ -182,6 +185,8 @@ keymap("n", "<leader>foo", [[<Cmd>lua grep_notes()<CR>]], opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
+keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
+
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 

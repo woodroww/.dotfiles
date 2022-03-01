@@ -10,10 +10,10 @@ vim.call('plug#begin', '~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify' -- A start menu for vim
 
 -- https://github.com/gruvbox-community/gruvbox
--- Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 -- https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
+--Plug 'morhetz/gruvbox'
 --Plug 'chriskempson/base16-vim'
 
 -- https://github.com/preservim/nerdtree

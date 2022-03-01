@@ -11,6 +11,8 @@ export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
 zle_highlight=('paste:none')
 
+alias fortuna="fortune /Users/matt/Documents/obliquestrategies"
+
 # LS_COLORS environment variable sets the colors
 
 alias ls="ls --color=auto"
@@ -55,3 +57,9 @@ autoload -Uz compinit && compinit
 eval "$(zoxide init zsh)"
 
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc'; fi
