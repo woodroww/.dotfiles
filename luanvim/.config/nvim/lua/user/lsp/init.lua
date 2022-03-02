@@ -50,15 +50,19 @@ require'lspconfig'.clangd.setup{
       debounce_text_changes = 150,
     }
   }
-
+--[[
 require'lspconfig'.rust_analyzer.setup{
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   }
-}
-require('rust-tools').setup()
+}--]]
+require('rust-tools').setup({
+  server = {
+    on_attach = on_attach
+  }
+})
 
 --require'lspconfig'.pylsp.setup{}
 --require'lspconfig'.pyright.setup{}

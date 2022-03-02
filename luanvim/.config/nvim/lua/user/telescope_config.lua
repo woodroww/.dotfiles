@@ -31,6 +31,7 @@ require('telescope').setup{
   }
 }
 
+--[[
 require('telescope').setup {
   extensions = {
     bookmarks = {
@@ -50,6 +51,9 @@ require('telescope').setup {
   }
 }
 require('telescope').load_extension('bookmarks')
+--]]
+
+
 -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 require("telescope").load_extension("file_browser")
 
