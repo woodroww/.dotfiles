@@ -84,6 +84,8 @@ keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
+keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
+
 
 -- find python def
 keymap("n", "<leader>fu", ":g/^def<cr>", opts)
@@ -114,7 +116,7 @@ local function todays_note()
 	else
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
-		new_file:write("# Matt's Daily Note " .. today)
+		new_file:write("# Matt's Daily Note " .. today .. "\n\nAcceptance:\nGratitude:\nFaith:\n")
 		new_file:close()
 	end
 	return command
@@ -161,35 +163,31 @@ function matts_buffer_path_display(opts, path)
 	return string.format("%s", tail)
 end
 
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
-
---keymap("n", "<C-f>", ":Telescope buffers<cr>", opts)
-
 keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
 
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
---keymap("n", "<leader>ft", ":Telescope treesitter<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
---keymap("n", "<leader>fd", ":lua require'telescope.builtin'.file_browser({hidden=true})<cr>", opts)
 keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>", opts)
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
 local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
-
---keymap("n", "<leader>foo", ":Telescope live_grep cwd=" .. thepath .. "<cr>", opts)
---keymap("n", "<leader>foo", ":lua require('telescope.builtin').live_grep(note_opts)<cr>", opts)
-
 keymap("n", "<leader>foo", [[<Cmd>lua grep_notes()<CR>]], opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
+-- copy the current buffer's file path to the clipboard
 keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
 
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 
+--nnoremap <leader>et <cmd>lua vim.diagnostic.show()<cr>
+--nnoremap <leader>ef <cmd>lua vim.diagnostic.hide()<cr>
+--nnoremap <leader>et <cmd>lua vim.diagnostic.enable()<cr>
+--nnoremap <leader>ef <cmd>lua vim.diagnostic.disable()<cr>
 -- to open a little window with the errors
 keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
 -- to turn on and off annoying erros (e)rror (f)alse and (e)rror (t)true
@@ -210,3 +208,18 @@ map <Leader>tk <C-w>t<C-w>K
 
 map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
 --]]
+
+
+vim.cmd [[
+nnoremap <Leader>dd :call vimspector#Launch()<CR>
+nnoremap <Leader>de :call vimspector#Reset()<CR>
+nnoremap <Leader>dc :call vimspector#Continue()<CR>
+
+nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
+
+nmap <Leader>dk <Plug>VimspectorRestart
+nmap <Leader>dh <Plug>VimspectorStepOut
+nmap <Leader>dl <Plug>VimspectorStepInto
+nmap <Leader>dj <Plug>VimspectorStepOver
+]]

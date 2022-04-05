@@ -81,15 +81,17 @@ vim.api.nvim_exec(
 )
 
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
-vim.api.nvim_exec(
-  [[
-augroup nvim-incsearch-cursorline
-	autocmd!
-	autocmd CmdlineEnter /,\? :set cursorline cursorcolumn hlsearch
-augroup END
-]],
-  false
-)
+--vim.api.nvim_exec(
+--  [[
+--augroup nvim-incsearch-cursorline
+--	autocmd!
+--	autocmd CmdlineEnter /,\? :set cursorline cursorcolumn hlsearch
+--augroup END
+--]],
+  --false
+--)
+
+
 -- loaded_matchparen = 1,				   -- don't highlight matching parenthesis
 --[[
 " Remove previous setting:

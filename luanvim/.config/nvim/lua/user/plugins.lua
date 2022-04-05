@@ -35,6 +35,8 @@ Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
 Plug 'akinsho/toggleterm.nvim'
 
+-- https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
 
 -- Markdown --
 -- https://github.com/godlygeek/tabular
@@ -113,6 +115,9 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 -- debugger dap
 -- https://github.com/mfussenegger/nvim-dap
 -- Plug 'mfussenegger/nvim-dap'
+
+-- https://github.com/puremourning/vimspector
+Plug 'puremourning/vimspector'
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim

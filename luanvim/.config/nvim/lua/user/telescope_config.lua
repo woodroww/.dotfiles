@@ -9,13 +9,12 @@ require('telescope').setup{
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     layout_strategy = "flex",
     pickers = {
-
         find_files = {
 	    theme = "dropdown",
-	},
-	colorscheme = {
-	    theme = "dropdown",
-	},
+		},
+		colorscheme = {
+	    	theme = "dropdown",
+		},
     },
     mappings = {
       n = {
