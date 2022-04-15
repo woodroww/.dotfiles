@@ -38,11 +38,12 @@ local options = {
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   autoindent = true,                       -- the :help said this should normally be on with smartindent
   cindent = true,
---  smartindent = true,                      -- make indenting smarter again
   conceallevel = 2,						   -- for hiding markdown 
---[[
-  undofile = true,                         -- enable persistent undo
+  swapfile = false,                        -- creates a swapfile
   backup = false,                          -- creates a backup file
+--[[
+  smartindent = true,                      -- make indenting smarter again
+  undofile = true,                         -- enable persistent undo
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
@@ -50,7 +51,6 @@ local options = {
   pumheight = 10,                          -- pop up menu height
   showtabline = 2,                         -- always show tabs
   smartcase = true,                        -- smart case
-  swapfile = false,                        -- creates a swapfile
   timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -66,7 +66,17 @@ end
 
 
 vim.cmd [[
+" this disables completly highlighting matchin parenthesis
+" comment it out to have highlighting
 let g:loaded_matchparen = 1
+" then you can use these to turn it on and off
+" :NoMatchParen :DoMatchParen
+
+nnoremap <silent> <C-l> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
+
+" nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
+" nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
 ]]
 
 -- Highlight on yank
@@ -79,6 +89,8 @@ vim.api.nvim_exec(
 ]],
   false
 )
+
+
 
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
 --vim.api.nvim_exec(

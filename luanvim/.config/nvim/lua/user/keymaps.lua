@@ -34,16 +34,20 @@ keymap("v", "l", "<Down>", opts)
 keymap("v", "j", "h", opts)
 keymap("v", ";", "l", opts)
 
-keymap("i", "jk", "<Esc>", opts)
-keymap("i", "kj", "<Esc>", opts)
-keymap("v", "jk", "<Esc>", opts)
-keymap("v", "kj", "<Esc>", opts)
+--keymap("i", "jk", "<Esc>", opts)
+--keymap("i", "kj", "<Esc>", opts)
+--keymap("v", "jk", "<Esc>", opts)
+--keymap("v", "kj", "<Esc>", opts)
+
+--keymap("n", "<c-o>", "<c-i>", opts)
+--keymap("n", "<c-i>", "<c-o>", opts)
 
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
 
+-- scroll
 keymap("n", "<c-l>", "<c-d>", opts)
 keymap("n", "<c-k>", "<c-u>", opts)
 
@@ -51,15 +55,20 @@ keymap("n", "<c-k>", "<c-u>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- move between windows
 keymap("n", "<c-w>j", "<c-w>h", opts)
 keymap("n", "<c-w>l", "<c-w>j", opts)
---keymap("n", "<c-w>k", "<c-w>k", opts)
+-- keymap("n", "<c-w>k", "<c-w>k", opts)
 keymap("n", "<c-w>;", "<c-w>l", opts)
+-- escape from the terminal
+-- maybe try leader and something
+keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 
-keymap("n", "<M-Left>", ":vertical resize +3<CR>", opts)
-keymap("n", "<M-Right>", ":vertical resize -3<CR>", opts)
-keymap("n", "<M-Up>", ":resize -3<CR>", opts)
-keymap("n", "<M-Down>", ":resize +3<CR>", opts)
+-- resize windows
+keymap("n", "<c-Left>", ":vertical resize +3<CR>", opts)
+keymap("n", "<c-Right>", ":vertical resize -3<CR>", opts)
+keymap("n", "<c-Up>", ":resize -3<CR>", opts)
+keymap("n", "<c-Down>", ":resize +3<CR>", opts)
 
 -- move line(s) up or down
 keymap("n", "<M-l>", ":m .+1<cr>", opts)
@@ -68,10 +77,6 @@ keymap("i", "<M-l>", "<Esc>:m .+1<cr>==gi", opts)
 keymap("i", "<M-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("v", "<M-l>" ,":m '>+1<CR>gv-gv", opts)
 keymap("v", "<M-k>" ,":m '<-2<CR>gv-gv", opts)
-
--- escape from the terminal
--- maybe try leader and something
-keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 
 
 --------------------------------------------------------------------------------
@@ -83,29 +88,33 @@ keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
+-- turn on and off the line highlighting and the search highlighting
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
 keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 
-
 -- find python def
 keymap("n", "<leader>fu", ":g/^def<cr>", opts)
+
 -- go to previous buffer
 keymap("n", "<leader>bb", "<c-^>", opts)
+
 -- delete visual selection without putting that in the register
 -- it sends it to the void register _
 -- then paste from implicit " register
 -- Chris@machine just remapped this to p
 -- does this need a visual mode too?
 keymap("v", "<leader>p", "\"_dP", opts)
+
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
+
 -- format line to 80 chars set somewhere but where?
 keymap("n", "<leader>v", "Vgq", opts)
 
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-
 	local directory = "/Users/matt/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Notes/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
@@ -116,7 +125,7 @@ local function todays_note()
 	else
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
-		new_file:write("# Matt's Daily Note " .. today .. "\n\nAcceptance:\nGratitude:\nFaith:\n")
+		new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n## Gratitude:\n## Faith:\n\n# Work notes:")
 		new_file:close()
 	end
 	return command
@@ -162,10 +171,8 @@ function matts_buffer_path_display(opts, path)
 	local tail = require("telescope.utils").path_tail(path)
 	return string.format("%s", tail)
 end
-
-keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
-
 keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
+
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
@@ -209,6 +216,9 @@ map <Leader>tk <C-w>t<C-w>K
 map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
 --]]
 
+-- move between buffers
+keymap("n", "<c-o>", ":bnext<cr>", opts)
+keymap("n", "<c-i>", ":bprev<cr>", opts)
 
 vim.cmd [[
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
