@@ -1,4 +1,4 @@
--- plugins
+
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 local Plug = vim.fn['plug#']
@@ -27,7 +27,7 @@ Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
 -- https://github.com/yuttie/comfortable-motion.vim
 Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
 -- https://github.com/norcalli/nvim-colorizer.lua
---Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/dhruvmanila/telescope-bookmarks.nvim
@@ -41,9 +41,8 @@ Plug 'tpope/vim-surround'
 -- Markdown --
 -- https://github.com/godlygeek/tabular
 --Plug 'godlygeek/tabular'
-
 -- https://github.com/plasticboy/vim-markdown
---Plug 'plasticboy/vim-markdown'
+--Plug 'preservim/vim-markdown'
 
 -- https://github.com/tpope/vim-markdown
 --Plug 'tpope/vim-markdown'

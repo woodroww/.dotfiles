@@ -7,6 +7,13 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- format line to 80 chars set somewhere but where?
+keymap("n", "<leader>v", "Vgq", opts)
+-- open the nvim main config file
+keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
+-- save buffer
+keymap("n", "<F8>", ":w<cr>", opts)
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -15,11 +22,12 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
---
-    --like after you press y for yank or d for delete then you want to make a move
+--   operator pending mode like after you press y for yank or d for delete then
+--   you want to make a move
 --	 operator pending mode = "o"
 -- keymap(mode, key you want to remap, to do what)
 
+--[[ From before the Kinesis
 keymap("n", "0", "$", opts)
 keymap("n", "$", "0", opts)
 keymap("v", "0", "$", opts)
@@ -34,22 +42,27 @@ keymap("v", "l", "<Down>", opts)
 keymap("v", "j", "h", opts)
 keymap("v", ";", "l", opts)
 
---keymap("i", "jk", "<Esc>", opts)
---keymap("i", "kj", "<Esc>", opts)
---keymap("v", "jk", "<Esc>", opts)
---keymap("v", "kj", "<Esc>", opts)
+keymap("i", "jk", "<Esc>", opts)
+keymap("i", "kj", "<Esc>", opts)
+keymap("v", "jk", "<Esc>", opts)
+keymap("v", "kj", "<Esc>", opts)
+--]]
 
---keymap("n", "<c-o>", "<c-i>", opts)
---keymap("n", "<c-i>", "<c-o>", opts)
+-- move between buffers
+--keymap("n", "<c-o>", ":bnext<cr>", opts)
+--keymap("n", "<c-i>", ":bprev<cr>", opts)
+keymap("n", "<c-o>", "<c-i>", opts)
+keymap("n", "<c-i>", "<c-o>", opts)
 
+-- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
 
 -- scroll
-keymap("n", "<c-l>", "<c-d>", opts)
-keymap("n", "<c-k>", "<c-u>", opts)
+--keymap("n", "<c-j>", "<c-d>", opts)
+--keymap("n", "<c-k>", "<c-u>", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -58,11 +71,23 @@ keymap("v", ">", ">gv", opts)
 -- move between windows
 keymap("n", "<c-w>j", "<c-w>h", opts)
 keymap("n", "<c-w>l", "<c-w>j", opts)
+
 -- keymap("n", "<c-w>k", "<c-w>k", opts)
-keymap("n", "<c-w>;", "<c-w>l", opts)
+-- keymap("n", "<c-w>;", "<c-w>l", opts)
+
 -- escape from the terminal
--- maybe try leader and something
 keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
+
+keymap('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+keymap('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+keymap('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+
+keymap('n', '<C-h>', '<C-W>h', opts)
+keymap('n', '<C-j>', '<C-W>j', opts)
+keymap('n', '<C-k>', '<C-W>k', opts)
+keymap('n', '<C-l>', '<C-W>l', opts)
+
 
 -- resize windows
 keymap("n", "<c-Left>", ":vertical resize +3<CR>", opts)
@@ -71,12 +96,12 @@ keymap("n", "<c-Up>", ":resize -3<CR>", opts)
 keymap("n", "<c-Down>", ":resize +3<CR>", opts)
 
 -- move line(s) up or down
-keymap("n", "<M-l>", ":m .+1<cr>", opts)
-keymap("n", "<M-k>", ":m .-2<cr>", opts)
-keymap("i", "<M-l>", "<Esc>:m .+1<cr>==gi", opts)
-keymap("i", "<M-k>", "<Esc>:m .-2<CR>==gi", opts)
-keymap("v", "<M-l>" ,":m '>+1<CR>gv-gv", opts)
-keymap("v", "<M-k>" ,":m '<-2<CR>gv-gv", opts)
+keymap("n", "<m-j>", ":m .+1<cr>", opts)
+keymap("n", "<m-k>", ":m .-2<cr>", opts)
+keymap("i", "<m-j>", "<Esc>:m .+1<cr>==gi", opts)
+keymap("i", "<m-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("v", "<m-j>" ,":m '>+1<CR>gv-gv", opts)
+keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 
 
 --------------------------------------------------------------------------------
@@ -103,14 +128,13 @@ keymap("n", "<leader>bb", "<c-^>", opts)
 -- then paste from implicit " register
 -- Chris@machine just remapped this to p
 -- does this need a visual mode too?
-keymap("v", "<leader>p", "\"_dP", opts)
+keymap("v", "p", "\"_dP", opts)
+keymap("v", "<leader>p", "P", opts)
 
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
 
--- format line to 80 chars set somewhere but where?
-keymap("n", "<leader>v", "Vgq", opts)
 
 local function todays_note()
 	local d = os.date("*t")
@@ -188,9 +212,6 @@ keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
 -- copy the current buffer's file path to the clipboard
 keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
 
--- open the nvim main config file
-keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
-
 --nnoremap <leader>et <cmd>lua vim.diagnostic.show()<cr>
 --nnoremap <leader>ef <cmd>lua vim.diagnostic.hide()<cr>
 --nnoremap <leader>et <cmd>lua vim.diagnostic.enable()<cr>
@@ -216,9 +237,6 @@ map <Leader>tk <C-w>t<C-w>K
 map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
 --]]
 
--- move between buffers
-keymap("n", "<c-o>", ":bnext<cr>", opts)
-keymap("n", "<c-i>", ":bprev<cr>", opts)
 
 vim.cmd [[
 nnoremap <Leader>dd :call vimspector#Launch()<CR>

@@ -36,13 +36,13 @@ local options = {
   relativenumber = true,                   -- set relative numbered lines
   errorbells = false,
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  autoindent = true,                       -- the :help said this should normally be on with smartindent
-  cindent = true,
   conceallevel = 2,						   -- for hiding markdown 
   swapfile = false,                        -- creates a swapfile
   backup = false,                          -- creates a backup file
---[[
+  autoindent = true,                       -- the :help said this should normally be on with smartindent
+  cindent = true,
   smartindent = true,                      -- make indenting smarter again
+--[[
   undofile = true,                         -- enable persistent undo
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   conceallevel = 0,                        -- so that `` is visible in markdown files
@@ -72,9 +72,8 @@ let g:loaded_matchparen = 1
 " then you can use these to turn it on and off
 " :NoMatchParen :DoMatchParen
 
-nnoremap <silent> <C-l> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
-
+" nnoremap <silent> <C-j> :call comfortable_motion#flick(100)<CR>
+" nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
 " nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 " nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
 ]]

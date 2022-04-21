@@ -36,7 +36,7 @@ require "user.treesyntax"
 
 -- the colors show up when your write the hex or rgb
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
---require "user.plug-colorizer"
+require "user.plug-colorizer"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"
