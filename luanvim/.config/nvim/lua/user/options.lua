@@ -76,6 +76,14 @@ let g:loaded_matchparen = 1
 " nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
 " nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 " nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
+
+" below for vimwiki
+set nocompatible
+filetype plugin on
+syntax on
+let g:vimwiki_list = [{'path': '/Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Notes/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 ]]
 
 -- Highlight on yank
@@ -120,8 +128,6 @@ let g:comfortable_motion_friction = 80.0
 let g:comfortable_motion_air_drag = 3.0
 
 colorscheme gruvbox -- set colorscheme to gruvbox
-" syntax coloring I think
-syntax on
 " use dark mode of gruvbox
 set bg=dark
 

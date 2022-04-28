@@ -43,18 +43,16 @@ Plug 'tpope/vim-surround'
 --Plug 'godlygeek/tabular'
 -- https://github.com/plasticboy/vim-markdown
 --Plug 'preservim/vim-markdown'
-
 -- https://github.com/tpope/vim-markdown
 --Plug 'tpope/vim-markdown'
-
 -- https://github.com/SidOfc/mkdx
 --Plug 'SidOfc/mkdx'
-
 -- https://github.com/vim-pandoc/vim-pandoc
 --Plug 'vim-pandoc/vim-pandoc'
 -- https://github.com/vim-pandoc/vim-pandoc-syntax
 --Plug 'vim-pandoc/vim-pandoc-syntax'
-
+-- https://github.com/vimwiki/vimwiki
+Plug 'vimwiki/vimwiki'
 
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview

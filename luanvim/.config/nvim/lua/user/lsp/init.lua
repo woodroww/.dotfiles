@@ -41,6 +41,7 @@ local on_attach = function(client, bufnr)
 end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
+cc.textDocument.completion.completionItem.snippetSupport = true
 local capabilities = require'cmp_nvim_lsp'.update_capabilities(cc)
 
 require'lspconfig'.clangd.setup{
@@ -51,6 +52,7 @@ require'lspconfig'.clangd.setup{
     }
   }
 --[[
+--rust-tools calls this
 require'lspconfig'.rust_analyzer.setup{
   capabilities = capabilities,
   on_attach = on_attach,
@@ -77,6 +79,10 @@ require'lspconfig'.sourcekit.setup{
   flags = {
     debounce_text_changes = 150,
   },
+}
+
+require'lspconfig'.cssls.setup{
+  capabilities = capabilities,
 }
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua

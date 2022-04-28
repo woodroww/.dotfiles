@@ -22,6 +22,10 @@ alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
+alias real() {
+	realpath "$1" | pbcopy
+}
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHITST=1000

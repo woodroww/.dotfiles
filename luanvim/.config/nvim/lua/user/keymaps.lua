@@ -13,6 +13,8 @@ keymap("n", "<leader>v", "Vgq", opts)
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 -- save buffer
 keymap("n", "<F8>", ":w<cr>", opts)
+-- how about easier to enter command mode?
+keymap("n", ";", ":", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -49,10 +51,10 @@ keymap("v", "kj", "<Esc>", opts)
 --]]
 
 -- move between buffers
---keymap("n", "<c-o>", ":bnext<cr>", opts)
---keymap("n", "<c-i>", ":bprev<cr>", opts)
-keymap("n", "<c-o>", "<c-i>", opts)
-keymap("n", "<c-i>", "<c-o>", opts)
+keymap("n", "<c-i>", ":bnext<cr>", opts)
+keymap("n", "<c-o>", ":bprev<cr>", opts)
+--keymap("n", "<c-o>", "<c-i>", opts)
+--keymap("n", "<c-i>", "<c-o>", opts)
 
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
@@ -133,6 +135,7 @@ keymap("v", "<leader>p", "P", opts)
 
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<leader>nn", ":NERDTreeRefreshRoot<CR>", opts)
 keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
 
 
