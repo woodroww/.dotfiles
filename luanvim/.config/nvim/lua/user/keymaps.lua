@@ -51,10 +51,9 @@ keymap("v", "kj", "<Esc>", opts)
 --]]
 
 -- move between buffers
-keymap("n", "<c-i>", ":bnext<cr>", opts)
-keymap("n", "<c-o>", ":bprev<cr>", opts)
---keymap("n", "<c-o>", "<c-i>", opts)
---keymap("n", "<c-i>", "<c-o>", opts)
+keymap("n", "<c-i>", "<c-^>", opts)
+keymap("n", "<c-o>", ":bnext<cr>", opts)
+--keymap("n", "<c-i>", ":bprev<cr>", opts)
 
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
@@ -110,8 +109,8 @@ keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 -- Leader things
 --------------------------------------------------------------------------------
 -- :lua vim.lsp.buf.rename()
+keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
---keymap("n", "<leader>t", "<cmd>lua _TERMINAL()<cr>", opts)
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
@@ -242,6 +241,14 @@ map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
 
 
 vim.cmd [[
+inoremap " ""<Left>
+inoremap < <><Left>
+inoremap ' ''<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
 nnoremap <Leader>de :call vimspector#Reset()<CR>
 nnoremap <Leader>dc :call vimspector#Continue()<CR>
@@ -253,4 +260,5 @@ nmap <Leader>dk <Plug>VimspectorRestart
 nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
+
 ]]

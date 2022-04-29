@@ -1,6 +1,7 @@
 local action_layout = require('telescope.actions.layout')
 local actions = require('telescope.actions')
 local previewers = require("telescope.previewers")
+local browser = require "telescope".extensions.file_browser
 
 require('telescope').setup{
   defaults = {
@@ -21,14 +22,16 @@ require('telescope').setup{
         ['<M-p>'] = action_layout.toggle_preview
       },
       i = {
-        ['<M-p>'] = action_layout.toggle_preview
+        ['<M-p>'] = action_layout.toggle_preview,
+		['<M-s>'] = browser.actions.sort_by_date
       },
---      i = {
---        ["<esc>"] = actions.close
---      },
     },
   }
 }
+
+-- https://github.com/nvim-telescope/telescope-file-browser.nvim
+require("telescope").load_extension("file_browser")
+
 
 --[[
 require('telescope').setup {
@@ -53,8 +56,6 @@ require('telescope').load_extension('bookmarks')
 --]]
 
 
--- https://github.com/nvim-telescope/telescope-file-browser.nvim
-require("telescope").load_extension("file_browser")
 
 
 
