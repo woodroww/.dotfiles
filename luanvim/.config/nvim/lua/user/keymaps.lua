@@ -29,31 +29,10 @@ keymap("n", ";", ":", opts)
 --	 operator pending mode = "o"
 -- keymap(mode, key you want to remap, to do what)
 
---[[ From before the Kinesis
-keymap("n", "0", "$", opts)
-keymap("n", "$", "0", opts)
-keymap("v", "0", "$", opts)
-keymap("v", "$", "0", opts)
-keymap("o", "0", "$", opts)
-keymap("o", "$", "0", opts)
-
-keymap("n", "l", "<Down>", opts)
-keymap("n", "j", "h", opts)
-keymap("n", ";", "l", opts)
-keymap("v", "l", "<Down>", opts)
-keymap("v", "j", "h", opts)
-keymap("v", ";", "l", opts)
-
-keymap("i", "jk", "<Esc>", opts)
-keymap("i", "kj", "<Esc>", opts)
-keymap("v", "jk", "<Esc>", opts)
-keymap("v", "kj", "<Esc>", opts)
---]]
-
 -- move between buffers
-keymap("n", "<c-i>", "<c-^>", opts)
+--keymap("n", "<c-i>", "<c-^>", opts)
 keymap("n", "<c-o>", ":bnext<cr>", opts)
---keymap("n", "<c-i>", ":bprev<cr>", opts)
+keymap("n", "<c-i>", ":bprev<cr>", opts)
 
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
@@ -156,7 +135,7 @@ local function todays_note()
 	end
 	return command
 end
-keymap("n", "<leader>qn", todays_note() .. "Go", opts)
+keymap("n", "<leader>qn", todays_note() .. "G", opts)
 
 
 function grep_notes()
@@ -224,8 +203,10 @@ keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
 keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
 -- code actions error action
---keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
+keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
+-- deprecated keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
+--keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
+
 
 -- buffer delete without closing window
 -- "nmap <C-W>! <Plug>Kwbd
