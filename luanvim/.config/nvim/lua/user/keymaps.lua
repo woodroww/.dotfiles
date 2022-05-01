@@ -40,34 +40,22 @@ keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
 
--- scroll
---keymap("n", "<c-j>", "<c-d>", opts)
---keymap("n", "<c-k>", "<c-u>", opts)
-
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- move between windows
-keymap("n", "<c-w>j", "<c-w>h", opts)
-keymap("n", "<c-w>l", "<c-w>j", opts)
-
--- keymap("n", "<c-w>k", "<c-w>k", opts)
--- keymap("n", "<c-w>;", "<c-w>l", opts)
-
 -- escape from the terminal
-keymap("t", "<c-[>", "<c-\\><c-n><c-w><c-w>", opts)
+keymap("t", "<esc>", "<c-\\><c-n>", opts)
 
+-- move between windows
 keymap('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
 keymap('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
 keymap('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
 keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-
 keymap('n', '<C-h>', '<C-W>h', opts)
 keymap('n', '<C-j>', '<C-W>j', opts)
 keymap('n', '<C-k>', '<C-W>k', opts)
 keymap('n', '<C-l>', '<C-W>l', opts)
-
 
 -- resize windows
 keymap("n", "<c-Left>", ":vertical resize +3<CR>", opts)
@@ -83,11 +71,9 @@ keymap("i", "<m-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("v", "<m-j>" ,":m '>+1<CR>gv-gv", opts)
 keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 
-
 --------------------------------------------------------------------------------
 -- Leader things
 --------------------------------------------------------------------------------
--- :lua vim.lsp.buf.rename()
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
@@ -97,17 +83,8 @@ keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
 keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 
--- find python def
-keymap("n", "<leader>fu", ":g/^def<cr>", opts)
-
--- go to previous buffer
-keymap("n", "<leader>bb", "<c-^>", opts)
-
 -- delete visual selection without putting that in the register
--- it sends it to the void register _
--- then paste from implicit " register
--- Chris@machine just remapped this to p
--- does this need a visual mode too?
+-- it sends it to the void register, then paste from implicit " register
 keymap("v", "p", "\"_dP", opts)
 keymap("v", "<leader>p", "P", opts)
 
@@ -115,7 +92,6 @@ keymap("v", "<leader>p", "P", opts)
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 keymap("n", "<leader>nn", ":NERDTreeRefreshRoot<CR>", opts)
 keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
-
 
 local function todays_note()
 	local d = os.date("*t")
@@ -137,7 +113,6 @@ local function todays_note()
 end
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
 
-
 function grep_notes()
 	local note_opts = {
 		noremap = true,
@@ -153,18 +128,6 @@ function grep_notes()
 	}
 	require("telescope.builtin").live_grep(note_opts)
 end
-
---[[
-function M.find_notes()
-  require("telescope.builtin").find_files {
-    prompt_title = " Find Notes",
-    path_display = { "smart" },
-    cwd = "~/notes/",
-    layout_strategy = "horizontal",
-    layout_config = { preview_width = 0.65, width = 0.75 },
-  }
-end
---]]
 
 -- Telescope
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
@@ -207,19 +170,8 @@ keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
 -- deprecated keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
 --keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
 
-
 -- buffer delete without closing window
--- "nmap <C-W>! <Plug>Kwbd
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
-
---[[ old non lua vim
-" Change 2 split windows from vert to horiz or horiz to vert
-map <Leader>th <C-w>t<C-w>H
-map <Leader>tk <C-w>t<C-w>K
-
-map <Leader>tp :new term://zsh<CR>ipython3<CR><C-\><C-n><C-w>k
---]]
-
 
 vim.cmd [[
 inoremap " ""<Left>
@@ -233,13 +185,10 @@ inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
 nnoremap <Leader>de :call vimspector#Reset()<CR>
 nnoremap <Leader>dc :call vimspector#Continue()<CR>
-
 nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
-
 nmap <Leader>dk <Plug>VimspectorRestart
 nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
-
 ]]

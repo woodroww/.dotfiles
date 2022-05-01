@@ -59,7 +59,8 @@ cmp.setup {
   },
 -- don't autocomplete press C-Space when you want completions
   completion = {
-    autocomplete = false,
+--    autocomplete = false, -- comment out whole line to autocomplete
+	completeopt = "menu, menuone, preview", -- noselect,
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
