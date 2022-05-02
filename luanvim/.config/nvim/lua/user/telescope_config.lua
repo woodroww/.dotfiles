@@ -23,8 +23,11 @@ require('telescope').setup{
       },
       i = {
         ['<M-p>'] = action_layout.toggle_preview,
-		['<M-s>'] = browser.actions.sort_by_date
-      },
+		['<M-s>'] = browser.actions.sort_by_date,
+		['<C-j>'] = actions.move_selection_next,
+		['<C-k>'] = actions.move_selection_previous,
+		['<C-/>'] = actions.which_key, -- keys from pressing <C-/>
+	  },
     },
   }
 }

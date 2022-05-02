@@ -52,7 +52,11 @@ Plug 'tpope/vim-surround'
 -- https://github.com/vim-pandoc/vim-pandoc-syntax
 --Plug 'vim-pandoc/vim-pandoc-syntax'
 -- https://github.com/vimwiki/vimwiki
-Plug 'vimwiki/vimwiki'
+--Plug 'vimwiki/vimwiki'
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview

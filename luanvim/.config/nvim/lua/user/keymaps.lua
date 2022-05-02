@@ -32,7 +32,7 @@ keymap("n", ";", ":", opts)
 -- move between buffers
 --keymap("n", "<c-i>", "<c-^>", opts)
 keymap("n", "<c-o>", ":bnext<cr>", opts)
-keymap("n", "<c-i>", ":bprev<cr>", opts)
+keymap("n", "<c-p>", ":bprev<cr>", opts)
 
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
@@ -74,7 +74,12 @@ keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 --------------------------------------------------------------------------------
 -- Leader things
 --------------------------------------------------------------------------------
+
+keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
+keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
+
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
@@ -129,27 +134,28 @@ function grep_notes()
 	require("telescope.builtin").live_grep(note_opts)
 end
 
--- Telescope
-keymap("n", "<leader>f", ":Telescope<cr>", opts)
-keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
---keymap("n", "<leader>b", ":Telescope buffers<cr>", opts)
-
 function matts_buffer_path_display(opts, path)
 	local tail = require("telescope.utils").path_tail(path)
 	return string.format("%s", tail)
 end
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
 
+-- Telescope
+keymap("n", "<leader>f", ":Telescope<cr>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
+--keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>", opts)
+-- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
 local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
 keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
 keymap("n", "<leader>foo", [[<Cmd>lua grep_notes()<CR>]], opts)
+keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)

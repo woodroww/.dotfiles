@@ -72,17 +72,21 @@ let g:loaded_matchparen = 1
 " then you can use these to turn it on and off
 " :NoMatchParen :DoMatchParen
 
-" nnoremap <silent> <C-j> :call comfortable_motion#flick(100)<CR>
-" nnoremap <silent> <C-k> :call comfortable_motion#flick(-100)<CR>
-" nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
-" nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
-
-" below for vimwiki
+" vimwiki
 set nocompatible
 filetype plugin on
 syntax on
 let g:vimwiki_list = [{'path': '/Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" goyo
+let g:goyo_width = 80
+let g:limelight_default_coefficient = 0.7
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" stop the commenting on a <cr>
+set formatoptions-=cro
 
 ]]
 
@@ -97,40 +101,18 @@ vim.api.nvim_exec(
   false
 )
 
-
-
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
---vim.api.nvim_exec(
 --  [[
+--vim.api.nvim_exec(
 --augroup nvim-incsearch-cursorline
 --	autocmd!
 --	autocmd CmdlineEnter /,\? :set cursorline cursorcolumn hlsearch
 --augroup END
---]],
   --false
+--]],
 --)
 
-
--- loaded_matchparen = 1,				   -- don't highlight matching parenthesis
 --[[
-" Remove previous setting:
-":set guicursor-=a:blinkon0
-" Restore default setting:
-":set guicursor&
-
-set hidden " keep hidden buffers, ie. you don't need to save when switching buffers
-set softtabstop=4   " number of spaces in tab when editing
-set autoindent
-set copyindent      " copy indent from the previous line
-
-let g:comfortable_motion_interval = 1000.0 / 60
-let g:comfortable_motion_friction = 80.0
-let g:comfortable_motion_air_drag = 3.0
-
-colorscheme gruvbox -- set colorscheme to gruvbox
-" use dark mode of gruvbox
-set bg=dark
-
 " rust
 filetype plugin indent on
 
