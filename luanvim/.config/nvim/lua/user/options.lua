@@ -57,13 +57,6 @@ let g:loaded_matchparen = 1
 " then you can use these to turn it on and off
 " :NoMatchParen :DoMatchParen
 
-" vimwiki
-set nocompatible
-filetype plugin on
-syntax on
-let g:vimwiki_list = [{'path': '/Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Notes/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
 " goyo
 let g:goyo_width = 82
 let g:limelight_default_coefficient = 0.7

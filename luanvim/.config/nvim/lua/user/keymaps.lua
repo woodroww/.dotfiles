@@ -75,6 +75,8 @@ keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 -- Leader things
 --------------------------------------------------------------------------------
 
+--keymap("n", "<leader>fo", "<cmd>!open <cr>", opts)
+
 keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 

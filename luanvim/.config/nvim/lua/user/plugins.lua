@@ -51,14 +51,17 @@ Plug 'mbbill/undotree'
 --Plug 'preservim/vim-markdown'
 -- https://github.com/tpope/vim-markdown
 --Plug 'tpope/vim-markdown'
+
+-- doesn't mess up highlighting
 -- https://github.com/SidOfc/mkdx
 --Plug 'SidOfc/mkdx'
+
 -- https://github.com/vim-pandoc/vim-pandoc
 --Plug 'vim-pandoc/vim-pandoc'
 -- https://github.com/vim-pandoc/vim-pandoc-syntax
 --Plug 'vim-pandoc/vim-pandoc-syntax'
 -- https://github.com/vimwiki/vimwiki
---Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
