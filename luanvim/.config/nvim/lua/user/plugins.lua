@@ -41,6 +41,8 @@ Plug 'akinsho/toggleterm.nvim'
 -- https://github.com/mbbill/undotree
 Plug 'mbbill/undotree'
 
+-- https://github.com/NTBBloodbath/rest.nvim
+Plug 'NTBBloodbath/rest.nvim'
 
 --Plug 'rcarriga/nvim-notify'
 

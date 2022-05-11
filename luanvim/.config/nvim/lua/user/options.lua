@@ -51,6 +51,8 @@ end
 
 
 vim.cmd [[
+set spell spelllang=en_us,es,de
+
 " this disables completly highlighting matchin parenthesis
 " comment it out to have highlighting
 let g:loaded_matchparen = 1
