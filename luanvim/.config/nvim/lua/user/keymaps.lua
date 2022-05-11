@@ -30,9 +30,9 @@ keymap("n", ";", ":", opts)
 -- keymap(mode, key you want to remap, to do what)
 
 -- move between buffers
---keymap("n", "<c-i>", "<c-^>", opts)
-keymap("n", "<c-o>", ":bnext<cr>", opts)
-keymap("n", "<c-p>", ":bprev<cr>", opts)
+--keymap("n", "<c-o>", "<c-^>", opts)
+keymap("n", "<c-p>", ":bnext<cr>", opts)
+keymap("n", "<c-o>", ":bprev<cr>", opts)
 
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
@@ -111,8 +111,10 @@ local function todays_note()
 	else
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
-		new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n## Gratitude:\n## Faith:\n\n# Work notes:")
-		new_file:close()
+		if new_file~=nil then
+			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Work notes:\n\n")
+			new_file:close()
+		end
 	end
 	return command
 end
@@ -142,6 +144,7 @@ end
 -- Telescope
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 --keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
 keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
@@ -153,8 +156,8 @@ keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.fil
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
 local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
-keymap("n", "<leader>fo", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
-keymap("n", "<leader>foo", [[<Cmd>lua grep_notes()<CR>]], opts)
+keymap("n", "<leader>o", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
+keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 
 -- change current working directory to current file and print change
@@ -162,31 +165,26 @@ keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
 -- copy the current buffer's file path to the clipboard
 keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
 
---nnoremap <leader>et <cmd>lua vim.diagnostic.show()<cr>
---nnoremap <leader>ef <cmd>lua vim.diagnostic.hide()<cr>
---nnoremap <leader>et <cmd>lua vim.diagnostic.enable()<cr>
---nnoremap <leader>ef <cmd>lua vim.diagnostic.disable()<cr>
 -- to open a little window with the errors
 keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
--- to turn on and off annoying erros (e)rror (f)alse and (e)rror (t)true
+-- to turn on and off annoying errors (e)rror (f)alse and (e)rror (t)true
 keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
 keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
 -- code actions error action
 keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
--- deprecated keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
---keymap("n", "<leader>ea", ":Telescope lsp_code_actions<CR>", opts)
 
+keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
 vim.cmd [[
-inoremap " ""<Left>
-inoremap < <><Left>
-inoremap ' ''<Left>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+" inoremap " ""<Left>
+" inoremap < <><Left>
+" inoremap ' ''<Left>
+" inoremap ( ()<Left>
+" inoremap [ []<Left>
+" inoremap { {}<Left>
+" inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
 
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
 nnoremap <Leader>de :call vimspector#Reset()<CR>
@@ -197,4 +195,6 @@ nmap <Leader>dk <Plug>VimspectorRestart
 nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
+
+nnoremap <silent> <Leader>sp :set spell!<CR>
 ]]

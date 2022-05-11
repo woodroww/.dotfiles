@@ -8,7 +8,7 @@ require('telescope').setup{
 	path_display={ "truncate" },
     previewer = true,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    layout_strategy = "flex",
+    layout_strategy = "vertical",
     pickers = {
         find_files = {
 	    theme = "dropdown",

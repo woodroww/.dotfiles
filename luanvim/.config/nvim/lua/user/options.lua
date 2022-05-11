@@ -1,19 +1,5 @@
 -- this is where you set all the options
 -- like word wrap and such and termcolors and tabspaces
---[[
-vim.cmd [[
-set rtp+=/Users/matt/.config/base16-vim/colors
-" let g:base16_shell_path="/Users/matt/.config/base16-shell/scripts"
-let g:base16_shell_path="/Users/matt/.local/share/nvim/plugged/base16-vim/colors"
-colorscheme base16-gruvbox-dark-hard
-" colorscheme base16-gruvbox-dark-medium
-" colorscheme base16-gruvbox-dark-pale
-" colorscheme base16-gruvbox-dark-soft
-" colorscheme base16-gruvbox-light-hard
-" colorscheme base16-gruvbox-light-medium
-" colorscheme base16-gruvbox-light-soft
-" base16colorspace=256,
-]]--
 
 local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
@@ -36,14 +22,14 @@ local options = {
   relativenumber = true,                   -- set relative numbered lines
   errorbells = false,
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  conceallevel = 2,						   -- for hiding markdown 
+  conceallevel = 2,						   -- for hiding markdown
   swapfile = false,                        -- creates a swapfile
   backup = false,                          -- creates a backup file
   autoindent = true,                       -- the :help said this should normally be on with smartindent
-  cindent = true,
   smartindent = true,                      -- make indenting smarter again
+  undofile = true,                         -- enable persistent undo across saves and sessions
 --[[
-  undofile = true,                         -- enable persistent undo
+  cindent = true,
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
@@ -64,7 +50,6 @@ for k, v in pairs(options) do
 end
 
 
-
 vim.cmd [[
 " this disables completly highlighting matchin parenthesis
 " comment it out to have highlighting
@@ -80,14 +65,16 @@ let g:vimwiki_list = [{'path': '/Users/matt/Library/Mobile\ Documents/iCloud~md~
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " goyo
-let g:goyo_width = 80
+let g:goyo_width = 82
 let g:limelight_default_coefficient = 0.7
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+autocmd User GoyoEnter Limelight
+autocmd User GoyoEnter set wrap
+autocmd User GoyoEnter set linebreak
+autocmd User GoyoLeave Limelight!
+autocmd User GoyoLeave set nowrap
 
 " stop the commenting on a <cr>
-set formatoptions-=cro
-
+autocmd FileType * setlocal formatoptions-=cro
 ]]
 
 -- Highlight on yank

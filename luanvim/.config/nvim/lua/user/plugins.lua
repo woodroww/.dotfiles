@@ -36,7 +36,13 @@ Plug 'szw/vim-g' -- :Google from the command line thing
 Plug 'akinsho/toggleterm.nvim'
 
 -- https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
+--Plug 'tpope/vim-surround'
+
+-- https://github.com/mbbill/undotree
+Plug 'mbbill/undotree'
+
+
+--Plug 'rcarriga/nvim-notify'
 
 -- Markdown --
 -- https://github.com/godlygeek/tabular
