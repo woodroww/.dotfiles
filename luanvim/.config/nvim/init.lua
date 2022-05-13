@@ -32,5 +32,5 @@ require "user.startify"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
 require "user.markdown"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/rest.lua
-require "user.rest"
+--require "user.rest"
 
