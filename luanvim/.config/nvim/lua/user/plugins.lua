@@ -25,24 +25,20 @@ Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
 Plug 'akinsho/toggleterm.nvim'
-
---Plug 'sindrets/diffview.nvim'
-
--- https://github.com/bennypowers/nvim-regexplainer
--- Plug 'bennypowers/nvim-regexplainer'
-
 -- https://github.com/tpope/vim-surround
---Plug 'tpope/vim-surround'
-
+Plug 'tpope/vim-surround'
 -- https://github.com/mbbill/undotree
 Plug 'mbbill/undotree'
-
 -- https://github.com/vimwiki/vimwiki
-Plug 'vimwiki/vimwiki'
-
+--Plug 'vimwiki/vimwiki'
+-- https://github.com/junegunn/goyo.vim
 Plug 'junegunn/goyo.vim'
+-- https://github.com/junegunn/limelight.vim
 Plug 'junegunn/limelight.vim'
-
+-- https://github.com/bennypowers/nvim-regexplainer
+-- Plug 'bennypowers/nvim-regexplainer'
+-- https://github.com/sindrets/diffview.nvim
+-- Plug 'sindrets/diffview.nvim'
 
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview
@@ -97,8 +93,9 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 -- debugger dap
 -- https://github.com/mfussenegger/nvim-dap
 -- Plug 'mfussenegger/nvim-dap'
+-- commented out to see if speed up loading
 -- https://github.com/puremourning/vimspector
-Plug 'puremourning/vimspector'
+--Plug 'puremourning/vimspector'
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim

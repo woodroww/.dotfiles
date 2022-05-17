@@ -31,7 +31,6 @@ local options = {
 --[[
   cindent = true,
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
-  conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
   ignorecase = true,                       -- ignore case in search patterns
   pumheight = 10,                          -- pop up menu height
@@ -62,14 +61,22 @@ let g:loaded_matchparen = 1
 " goyo
 let g:goyo_width = 82
 let g:limelight_default_coefficient = 0.7
-autocmd User GoyoEnter Limelight
-autocmd User GoyoEnter set wrap
-autocmd User GoyoEnter set linebreak
-autocmd User GoyoLeave Limelight!
-autocmd User GoyoLeave set nowrap
 
-" stop the commenting on a <cr>
-autocmd FileType * setlocal formatoptions-=cro
+augroup MyAutoCommands
+	autocmd!
+	autocmd User GoyoEnter Limelight
+	autocmd User GoyoEnter set wrap
+	autocmd User GoyoEnter set linebreak
+	autocmd User GoyoLeave Limelight!
+	autocmd User GoyoLeave set nowrap
+
+	" because trunk wasm watch server doesn't recognize when nvim saves
+	" autocmd BufWritePost * !touch <afile>
+	" stop the commenting on a <cr>
+	autocmd FileType * setlocal formatoptions-=cro
+	" for some reason rust files were much wider fix that here
+	autocmd FileType rust set textwidth=80
+augroup end
 ]]
 
 -- Highlight on yank

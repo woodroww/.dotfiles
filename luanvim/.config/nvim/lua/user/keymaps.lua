@@ -1,9 +1,5 @@
 local opts = { noremap = true , silent = true }
 local keymap = vim.api.nvim_set_keymap
-local term_opts = { silent = true }
-
-
-
 --keymap("", "", "", opts)
 
 
@@ -12,14 +8,12 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- format line to 80 chars set somewhere but where?
+-- split lines to `:set textwidth?`
 keymap("n", "<leader>v", "Vgq", opts)
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 -- save buffer
 keymap("n", "<F8>", ":w<cr>", opts)
--- how about easier to enter command mode?
--- keymap("n", ";", ":", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -35,7 +29,7 @@ keymap("n", "<F8>", ":w<cr>", opts)
 -- keymap(mode, key you want to remap, to do what)
 
 keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
-keymap("n", "<C-f>", ":call comfortable_motion#flick(-100)<CR>", opts)
+keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
 -- move between buffers
 --keymap("n", "<c-o>", "<c-^>", opts)
@@ -157,7 +151,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 --keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
-keymap("n", "<C-u>", ":lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)

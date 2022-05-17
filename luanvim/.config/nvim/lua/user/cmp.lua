@@ -95,8 +95,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "buffer" },
---    { name = "vsnip" },
---    { name = "nvim_lua" },
+    { name = "spell" },
     { name = "luasnip" },
     { name = "path" },
   },
