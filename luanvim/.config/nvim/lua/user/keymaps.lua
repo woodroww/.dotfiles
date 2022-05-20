@@ -1,19 +1,5 @@
 local opts = { noremap = true , silent = true }
 local keymap = vim.api.nvim_set_keymap
---keymap("", "", "", opts)
-
-
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- split lines to `:set textwidth?`
-keymap("n", "<leader>v", "Vgq", opts)
--- open the nvim main config file
-keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
--- save buffer
-keymap("n", "<F8>", ":w<cr>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -26,8 +12,25 @@ keymap("n", "<F8>", ":w<cr>", opts)
 --   operator pending mode like after you press y for yank or d for delete then
 --   you want to make a move
 --	 operator pending mode = "o"
--- keymap(mode, key you want to remap, to do what)
 
+-- keymap(mode, key you want to remap, to do what)
+-- keymap("", "", "", opts)
+
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- split lines to `:set textwidth?`
+keymap("n", "<leader>v", "Vgq", opts)
+
+-- open the nvim main config file
+keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
+
+-- save buffer
+keymap("n", "<F8>", ":w<cr>", opts)
+
+-- scrolling
 keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
 keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
@@ -35,7 +38,6 @@ keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 --keymap("n", "<c-o>", "<c-^>", opts)
 keymap("n", "<c-p>", ":bnext<cr>", opts)
 keymap("n", "<c-o>", ":bprev<cr>", opts)
-
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)

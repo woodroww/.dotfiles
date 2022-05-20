@@ -28,7 +28,7 @@ let g:vimwiki_key_mappings = {
 \   'table_format': 0,
 \   'table_mappings': 0,
 \   'lists': 0,
-\   'links': 0,
+\   'links': 1,
 \   'html': 0,
 \   'mouse': 0,
 \ }
@@ -39,3 +39,4 @@ local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 keymap("n", "ge", "<Plug>VimwikiFollowLink", opts)
+--keymap("v", "<leader>ge", "<Plug>VimwikiFollowLink", opts)
