@@ -35,7 +35,16 @@ require('telescope').setup{
 -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 require("telescope").load_extension("file_browser")
 
+require("telescope").load_extension("neoclip")
 
+require("neoclip").setup{
+  requires = {
+    --{'tami5/sqlite.lua', module = 'sqlite'},
+    -- you'll need at least one of these
+    {'nvim-telescope/telescope.nvim'},
+    -- {'ibhagwan/fzf-lua'},
+  }
+}
 --[[
 require('telescope').setup {
   extensions = {

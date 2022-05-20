@@ -96,8 +96,10 @@ keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 
 -- delete visual selection without putting that in the register
 -- it sends it to the void register, then paste from implicit " register
-keymap("v", "p", "\"_dP", opts)
-keymap("v", "<leader>p", "P", opts)
+--keymap("v", "p", "\"_dP", opts)
+keymap("v", "p", '"_d"*P', opts)
+--keymap("v", "<leader>p", "P", opts)
+keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)

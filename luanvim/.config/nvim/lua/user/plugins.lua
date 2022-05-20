@@ -39,7 +39,8 @@ Plug 'junegunn/limelight.vim'
 -- Plug 'bennypowers/nvim-regexplainer'
 -- https://github.com/sindrets/diffview.nvim
 -- Plug 'sindrets/diffview.nvim'
-
+-- https://github.com/AckslD/nvim-neoclip.lua
+Plug 'AckslD/nvim-neoclip.lua'
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview
 Plug('iamcco/markdown-preview.nvim', {
