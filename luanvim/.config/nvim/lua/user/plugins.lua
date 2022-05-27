@@ -19,8 +19,6 @@ Plug 'tpope/vim-fugitive'            -- allows git commands in vim session
 Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
 -- https://github.com/yuttie/comfortable-motion.vim
 Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
--- https://github.com/norcalli/nvim-colorizer.lua
-Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
@@ -41,6 +39,11 @@ Plug 'junegunn/limelight.vim'
 -- Plug 'sindrets/diffview.nvim'
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
+
+
+-- https://github.com/sindrets/diffview.nvim
+Plug 'sindrets/diffview.nvim'
+
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview
 Plug('iamcco/markdown-preview.nvim', {

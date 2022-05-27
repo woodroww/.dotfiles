@@ -13,11 +13,12 @@ zle_highlight=('paste:none')
 
 alias fortuna="fortune /Users/matt/Documents/obliquestrategies"
 
-# LS_COLORS environment variable sets the colors
+alias dkc="docker-compose"
+alias zz="z -"
+alias la="exa -las accessed"
+alias ll="exa -ls accessed"
+alias ls="exa"
 
-alias ls="ls --color=auto"
-alias la="ls --color=auto -la"
-alias ll="ls --color=auto -ltr"
 alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }

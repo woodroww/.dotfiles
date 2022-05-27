@@ -28,7 +28,7 @@ let g:vimwiki_key_mappings = {
 \   'table_format': 0,
 \   'table_mappings': 0,
 \   'lists': 0,
-\   'links': 1,
+\   'links': 0,
 \   'html': 0,
 \   'mouse': 0,
 \ }

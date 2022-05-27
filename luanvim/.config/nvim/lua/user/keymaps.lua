@@ -120,7 +120,7 @@ local function todays_note()
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
 		if new_file~=nil then
-			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Work notes:\n\n")
+			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
 			new_file:close()
 		end
 	end
@@ -159,7 +159,7 @@ keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>", opts)
+keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
@@ -185,6 +185,8 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
+keymap("n", "<leader>sp", ":set spell!<CR>", opts)
+
 vim.cmd [[
 " inoremap " ""<Left>
 " inoremap < <><Left>
@@ -207,5 +209,4 @@ nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
 
-nnoremap <silent> <Leader>sp :set spell!<CR>
 ]]

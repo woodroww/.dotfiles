@@ -5,7 +5,7 @@ local browser = require "telescope".extensions.file_browser
 
 require('telescope').setup{
   defaults = {
-	path_display={ "truncate" },
+	path_display={ "smart" },
     previewer = true,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     layout_strategy = "vertical",
@@ -27,6 +27,7 @@ require('telescope').setup{
 		['<C-j>'] = actions.move_selection_next,
 		['<C-k>'] = actions.move_selection_previous,
 		['<C-/>'] = actions.which_key, -- keys from pressing <C-/>
+		['<C-f>'] = actions.close, -- keys from pressing <C-/>
 	  },
     },
   }

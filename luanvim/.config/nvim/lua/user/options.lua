@@ -5,14 +5,13 @@ local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
   termguicolors = true,                    -- set term gui colors (most terminals support this)
---  cursorline = true,                       -- highlight the current line
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   scrolloff = 5,                           -- is one of my fav
   sidescrolloff = 8,
   mouse = "a",                             -- allow the mouse to be used in neovim
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  tabstop = 4,                             -- insert 2 spaces for a tab
+  tabstop = 4,                             -- insert 4 spaces for a tab
   wrap = false,                            -- display lines as one long line
   colorcolumn = '80',					   -- 80 char line
   hlsearch = false,                        -- highlight all matches on previous search pattern
@@ -50,6 +49,12 @@ end
 
 
 vim.cmd [[
+
+" default
+" set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+" all block all the time
+" set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
+
 set spell spelllang=en_us,es,de
 set nospell
 " this disables completly highlighting matchin parenthesis
@@ -76,6 +81,11 @@ augroup MyAutoCommands
 	autocmd FileType * setlocal formatoptions-=cro
 	" for some reason rust files were much wider fix that here
 	autocmd FileType rust set textwidth=80
+augroup end
+
+augroup MyYamlFiles
+	autocmd!
+	autocmd FileType yaml set shiftwidth=2
 augroup end
 ]]
 
