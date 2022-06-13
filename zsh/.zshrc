@@ -15,8 +15,8 @@ alias fortuna="fortune /Users/matt/Documents/obliquestrategies"
 
 alias dkc="docker-compose"
 alias zz="z -"
-alias la="exa -las accessed"
-alias ll="exa -ls accessed"
+alias la="exa -las modified"
+alias ll="exa -ls modified"
 alias ls="exa"
 
 alias pw () {
@@ -50,8 +50,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Enable vi mode
 #bindkey -v
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # completion
 # to delete the cache file

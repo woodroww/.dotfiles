@@ -44,6 +44,39 @@ local cc = vim.lsp.protocol.make_client_capabilities()
 cc.textDocument.completion.completionItem.snippetSupport = true
 local capabilities = require'cmp_nvim_lsp'.update_capabilities(cc)
 
+--require("lspconfig").tsserver.setup(config())
+require("lspconfig").tsserver.setup{
+	capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+}
+
+--[[
+require'lspconfig'.html.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+}
+]]--
+--[[
+add a jsconfig.json or tsconfig.json in the root of your project
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+]]--
+
+
 require'lspconfig'.clangd.setup{
 	capabilities = capabilities,
     on_attach = on_attach,

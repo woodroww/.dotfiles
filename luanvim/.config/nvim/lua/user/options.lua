@@ -80,7 +80,8 @@ augroup MyAutoCommands
 	" stop the commenting on a <cr>
 	autocmd FileType * setlocal formatoptions-=cro
 	" for some reason rust files were much wider fix that here
-	autocmd FileType rust set textwidth=80
+	" autocmd FileType rust set textwidth=80
+	autocmd FileType rust set colorcolumn=99
 augroup end
 
 augroup MyYamlFiles

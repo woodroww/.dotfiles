@@ -35,11 +35,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
--- https://github.com/sindrets/diffview.nvim
--- Plug 'sindrets/diffview.nvim'
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
-
 
 -- https://github.com/sindrets/diffview.nvim
 Plug 'sindrets/diffview.nvim'
@@ -96,10 +93,10 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 
 -- debugger dap
 -- https://github.com/mfussenegger/nvim-dap
--- Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap'
 -- commented out to see if speed up loading
 -- https://github.com/puremourning/vimspector
---Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim
