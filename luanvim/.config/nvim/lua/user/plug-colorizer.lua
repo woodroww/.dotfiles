@@ -1,3 +1,8 @@
+local Plug = vim.fn['plug#']
+-- https://github.com/norcalli/nvim-colorizer.lua
+Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+vim.call('plug#end')
+
 require'colorizer'.setup(
   {'*';},
   {

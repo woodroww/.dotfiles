@@ -1,19 +1,5 @@
 local opts = { noremap = true , silent = true }
 local keymap = vim.api.nvim_set_keymap
---keymap("", "", "", opts)
-
-
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- split lines to `:set textwidth?`
-keymap("n", "<leader>v", "Vgq", opts)
--- open the nvim main config file
-keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
--- save buffer
-keymap("n", "<F8>", ":w<cr>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -26,8 +12,25 @@ keymap("n", "<F8>", ":w<cr>", opts)
 --   operator pending mode like after you press y for yank or d for delete then
 --   you want to make a move
 --	 operator pending mode = "o"
--- keymap(mode, key you want to remap, to do what)
 
+-- keymap(mode, key you want to remap, to do what)
+-- keymap("", "", "", opts)
+
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- split lines to `:set textwidth?`
+keymap("n", "<leader>v", "Vgq", opts)
+
+-- open the nvim main config file
+keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
+
+-- save buffer
+keymap("n", "<F8>", ":w<cr>", opts)
+
+-- scrolling
 keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
 keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
@@ -35,12 +38,14 @@ keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 --keymap("n", "<c-o>", "<c-^>", opts)
 keymap("n", "<c-p>", ":bnext<cr>", opts)
 keymap("n", "<c-o>", ":bprev<cr>", opts)
-
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
+-- remap
+keymap("n", "b", "w", opts)
+keymap("n", "w", "b", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -94,8 +99,10 @@ keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 
 -- delete visual selection without putting that in the register
 -- it sends it to the void register, then paste from implicit " register
-keymap("v", "p", "\"_dP", opts)
-keymap("v", "<leader>p", "P", opts)
+--keymap("v", "p", "\"_dP", opts)
+keymap("v", "p", '"_d"*P', opts)
+--keymap("v", "<leader>p", "P", opts)
+keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
 -- toggle nerd tree
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
@@ -116,7 +123,7 @@ local function todays_note()
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
 		if new_file~=nil then
-			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Work notes:\n\n")
+			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
 			new_file:close()
 		end
 	end
@@ -155,7 +162,7 @@ keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>", opts)
+keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
@@ -181,14 +188,16 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
+keymap("n", "<leader>sp", ":set spell!<CR>", opts)
+
 vim.cmd [[
 " inoremap " ""<Left>
 " inoremap < <><Left>
 " inoremap ' ''<Left>
 " inoremap ( ()<Left>
 " inoremap [ []<Left>
-" inoremap { {}<Left>
-" inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+inoremap { {}<Left>
+inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
 
 " stop the defaults
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -203,5 +212,4 @@ nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
 
-nnoremap <silent> <Leader>sp :set spell!<CR>
 ]]

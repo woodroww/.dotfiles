@@ -1,6 +1,14 @@
 
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
+vim.cmd [[
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+]]
+
 local Plug = vim.fn['plug#']
 
 -- https://github.com/junegunn/vim-plug
@@ -19,8 +27,6 @@ Plug 'tpope/vim-fugitive'            -- allows git commands in vim session
 Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
 -- https://github.com/yuttie/comfortable-motion.vim
 Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
--- https://github.com/norcalli/nvim-colorizer.lua
-Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
@@ -37,8 +43,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
+-- https://github.com/AckslD/nvim-neoclip.lua
+Plug 'AckslD/nvim-neoclip.lua'
+
 -- https://github.com/sindrets/diffview.nvim
--- Plug 'sindrets/diffview.nvim'
+Plug 'sindrets/diffview.nvim'
 
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview
@@ -92,10 +101,10 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 
 -- debugger dap
 -- https://github.com/mfussenegger/nvim-dap
--- Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap'
 -- commented out to see if speed up loading
 -- https://github.com/puremourning/vimspector
---Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim

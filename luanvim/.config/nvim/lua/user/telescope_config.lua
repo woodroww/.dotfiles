@@ -5,7 +5,7 @@ local browser = require "telescope".extensions.file_browser
 
 require('telescope').setup{
   defaults = {
-	path_display={ "truncate" },
+	path_display={ "smart" },
     previewer = true,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     layout_strategy = "vertical",
@@ -27,6 +27,7 @@ require('telescope').setup{
 		['<C-j>'] = actions.move_selection_next,
 		['<C-k>'] = actions.move_selection_previous,
 		['<C-/>'] = actions.which_key, -- keys from pressing <C-/>
+		['<C-f>'] = actions.close, -- keys from pressing <C-/>
 	  },
     },
   }
@@ -35,7 +36,16 @@ require('telescope').setup{
 -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 require("telescope").load_extension("file_browser")
 
+require("telescope").load_extension("neoclip")
 
+require("neoclip").setup{
+  requires = {
+    --{'tami5/sqlite.lua', module = 'sqlite'},
+    -- you'll need at least one of these
+    {'nvim-telescope/telescope.nvim'},
+    -- {'ibhagwan/fzf-lua'},
+  }
+}
 --[[
 require('telescope').setup {
   extensions = {

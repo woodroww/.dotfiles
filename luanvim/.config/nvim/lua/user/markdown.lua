@@ -39,3 +39,4 @@ local opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 keymap("n", "ge", "<Plug>VimwikiFollowLink", opts)
+--keymap("v", "<leader>ge", "<Plug>VimwikiFollowLink", opts)
