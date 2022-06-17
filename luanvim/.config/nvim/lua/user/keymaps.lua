@@ -43,6 +43,9 @@ keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
+-- remap
+keymap("n", "b", "w", opts)
+keymap("n", "w", "b", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -193,8 +196,8 @@ vim.cmd [[
 " inoremap ' ''<Left>
 " inoremap ( ()<Left>
 " inoremap [ []<Left>
-" inoremap { {}<Left>
-" inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+inoremap { {}<Left>
+inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
 
 " stop the defaults
 let g:comfortable_motion_no_default_key_mappings = 1
