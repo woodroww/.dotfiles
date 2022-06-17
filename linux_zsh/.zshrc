@@ -4,7 +4,7 @@ export MANPAGER='nvim +Man!'
 # f reset to default color
 # PROMPT='%F{2}%n@%m %f- '
 #PROMPT='%F{2}%2~ %#%f '
-PROMPT='%F{2}%n@%m%2~ %#%f '
+PROMPT='%F{2}%n@%m %2~ %#%f '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
@@ -29,13 +29,13 @@ setopt SHARE_HISTORY
 # available immediately from other instances of the shell that are using the
 # same history file as does SHARE_HISTORY
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
-#export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
-source /usr/local/opt/fzf/shell/key-bindings.zsh
-source /usr/local/opt/fzf/shell/completion.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
+##export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+#source /usr/local/opt/fzf/shell/key-bindings.zsh
+#source /usr/local/opt/fzf/shell/completion.zsh
+#export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
+#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # nit zsh completion this should be last, after rules
 autoload -Uz compinit && compinit
