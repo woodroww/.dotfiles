@@ -46,6 +46,8 @@ keymap("n", "A", "I", opts)
 -- remap
 keymap("n", "b", "w", opts)
 keymap("n", "w", "b", opts)
+keymap("v", "b", "w", opts)
+keymap("v", "w", "b", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -91,7 +93,7 @@ keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
-keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
+-- keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
 -- turn on and off the line highlighting and the search highlighting
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)

@@ -102,9 +102,18 @@ Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
 -- debugger dap
 -- https://github.com/mfussenegger/nvim-dap
 Plug 'mfussenegger/nvim-dap'
+
+-- tj video https://www.youtube.com/watch?v=0moS8UHupGc&t=1767s
+-- https://github.com/rcarriga/nvim-dap-ui
+--Plug 'rcarriga/nvim-dap-ui'
+-- https://github.com/theHamsta/nvim-dap-virtual-text
+-- https://github.com/nvim-telescope/telescope-dap.nvim
+
 -- commented out to see if speed up loading
 -- https://github.com/puremourning/vimspector
 Plug 'puremourning/vimspector'
+
+
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim

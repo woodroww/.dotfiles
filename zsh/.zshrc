@@ -5,7 +5,17 @@ export MANPAGER='nvim +Man!'
 # F foreground color
 # f reset to default color
 # PROMPT='%F{2}%n@%m %f- '
-PROMPT='%F{2}%2~ %#%f '
+
+# PROMPT='%F{2}%2~ %#%f '
+
+# a unicode char can be included in prompt
+# '$'\U1f308''    for 1f308 the rainbow
+# '$'\U274C''     for the X
+# '$'\U2753''     for ?
+# '$'\U1F47E''     for alien monster
+
+
+PROMPT='%F{2}%2~ %(!.#.'$'\U1F47E'')%f '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
