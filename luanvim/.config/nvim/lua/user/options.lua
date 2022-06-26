@@ -87,6 +87,9 @@ augroup end
 augroup MyYamlFiles
 	autocmd!
 	autocmd FileType yaml set shiftwidth=2
+	autocmd FileType yaml set noautoindent
+	autocmd FileType yaml set nosmartindent
+	autocmd FileType yaml set tabstop=2
 augroup end
 ]]
 
