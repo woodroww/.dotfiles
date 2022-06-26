@@ -13,9 +13,10 @@ export MANPAGER='nvim +Man!'
 # '$'\U274C''     for the X
 # '$'\U2753''     for ?
 # '$'\U1F47E''     for alien monster
+# '$'\U1F980''     for crab
 
 
-PROMPT='%F{2}%2~ %(!.#.'$'\U1F47E'')%f '
+PROMPT='%F{2}%2~ %(!.#.'$'\U1F980'')%f '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
