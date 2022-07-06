@@ -5,7 +5,7 @@ local browser = require "telescope".extensions.file_browser
 
 require('telescope').setup{
   defaults = {
-	path_display={ "smart" },
+	path_display={ "truncate" },
     previewer = true,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     layout_strategy = "vertical",

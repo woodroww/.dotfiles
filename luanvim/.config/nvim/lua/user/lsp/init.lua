@@ -44,6 +44,14 @@ local cc = vim.lsp.protocol.make_client_capabilities()
 cc.textDocument.completion.completionItem.snippetSupport = true
 local capabilities = require'cmp_nvim_lsp'.update_capabilities(cc)
 
+vim.cmd [[
+let g:lsc_server_commands = {'java': '/Users/matt/external_code/java-language-server/dist/lang_server_mac.sh'}
+]]
+
+require("lspconfig").java_language_server.setup{}
+--require("lspconfig").jdtls.setup{}
+
+
 --require("lspconfig").tsserver.setup(config())
 require("lspconfig").tsserver.setup{
 	capabilities = capabilities,

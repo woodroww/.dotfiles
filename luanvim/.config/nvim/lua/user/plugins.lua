@@ -26,7 +26,7 @@ Plug 'tpope/vim-fugitive'            -- allows git commands in vim session
 -- https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
 -- https://github.com/yuttie/comfortable-motion.vim
-Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
+-- Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
@@ -45,6 +45,10 @@ Plug 'junegunn/limelight.vim'
 -- Plug 'bennypowers/nvim-regexplainer'
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
+
+Plug 'base16-project/base16-vim'
+--Plug 'plasticboy/vim-markdown'
+
 
 -- https://github.com/sindrets/diffview.nvim
 Plug 'sindrets/diffview.nvim'
@@ -114,6 +118,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'puremourning/vimspector'
 
 
+
+-- Java
 
 -- Rust
 -- https://github.com/rust-lang/rust.vim

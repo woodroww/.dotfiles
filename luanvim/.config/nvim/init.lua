@@ -41,7 +41,7 @@ require "user.telescope_config"
 require "user.startify"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
-require "user.markdown"
+-- require "user.markdown"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 require "user.plug-colorizer"

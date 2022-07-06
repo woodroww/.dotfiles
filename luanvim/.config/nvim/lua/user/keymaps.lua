@@ -31,23 +31,22 @@ keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 keymap("n", "<F8>", ":w<cr>", opts)
 
 -- scrolling
-keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
-keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
+-- keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
+-- keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
 -- move between buffers
 --keymap("n", "<c-o>", "<c-^>", opts)
-keymap("n", "<c-p>", ":bnext<cr>", opts)
-keymap("n", "<c-o>", ":bprev<cr>", opts)
+--keymap("n", "<c-p>", ":bnext<cr>", opts)
+--keymap("n", "<c-o>", ":bprev<cr>", opts)
+
+keymap("n", "<c-p>", "<c-i>", opts)
+
+
 -- remap so matches left and right of keyboard
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
--- remap
-keymap("n", "b", "w", opts)
-keymap("n", "w", "b", opts)
-keymap("v", "b", "w", opts)
-keymap("v", "w", "b", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -172,6 +171,7 @@ local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsid
 keymap("n", "<leader>o", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
+keymap("n", "<leader>c", ":Telescope colorscheme<CR>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
@@ -191,6 +191,7 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
 keymap("n", "<leader>sp", ":set spell!<CR>", opts)
+
 
 vim.cmd [[
 " inoremap " ""<Left>
