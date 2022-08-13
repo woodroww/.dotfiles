@@ -14,7 +14,7 @@ local options = {
   tabstop = 4,                             -- insert 4 spaces for a tab
   wrap = false,                            -- display lines as one long line
   colorcolumn = '80',					   -- 80 char line
-  hlsearch = false,                        -- highlight all matches on previous search pattern
+  hlsearch = true,                        -- highlight all matches on previous search pattern
   completeopt = { "menuone", "noselect", "preview" }, -- mostly just for cmp
   shiftwidth = 4,                          -- the number of spaces inserted for each indentation
   number = true,                           -- set numbered lines
@@ -49,6 +49,9 @@ end
 
 
 vim.cmd [[
+
+let g:python3_host_prog = '/Users/matt/.pyenv/versions/daniel_torch/bin/python'
+let g:black_virtualenv = '/Users/matt/.pyenv/versions/daniel_torch'
 
 " default
 " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20

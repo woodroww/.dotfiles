@@ -30,7 +30,7 @@ Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
 -- https://github.com/szw/vim-g
 Plug 'szw/vim-g' -- :Google from the command line thing
 -- https://github.com/akinsho/toggleterm.nvim
-Plug 'akinsho/toggleterm.nvim'
+--Plug 'akinsho/toggleterm.nvim'
 -- https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 -- https://github.com/mbbill/undotree
@@ -49,6 +49,12 @@ Plug 'AckslD/nvim-neoclip.lua'
 Plug 'base16-project/base16-vim'
 --Plug 'plasticboy/vim-markdown'
 
+-- https://github.com/averms/black-nvim
+Plug ('averms/black-nvim', {
+	['do'] = function()
+		vim.cmd(':UpdateRemotePlugins')
+	end
+})
 
 -- https://github.com/sindrets/diffview.nvim
 Plug 'sindrets/diffview.nvim'

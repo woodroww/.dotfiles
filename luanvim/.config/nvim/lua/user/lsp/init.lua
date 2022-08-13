@@ -49,7 +49,8 @@ let g:lsc_server_commands = {'java': '/Users/matt/external_code/java-language-se
 ]]
 
 require("lspconfig").java_language_server.setup{}
---require("lspconfig").jdtls.setup{}
+
+require("lspconfig").pyright.setup{}
 
 
 --require("lspconfig").tsserver.setup(config())
@@ -160,5 +161,6 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+
 
 

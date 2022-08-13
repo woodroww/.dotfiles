@@ -92,7 +92,7 @@ keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
--- keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
+keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
 -- turn on and off the line highlighting and the search highlighting
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
@@ -113,7 +113,7 @@ keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory = "/Users/matt/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian Notes/QuickNotes/"
+	local directory ="/Users/matt/docs/obsidian/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -138,8 +138,7 @@ function grep_notes()
 		silent = true,
 		hidden = true,
 		search_dirs = {
-			"~/Documents/notes/",
-			"~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes",
+			"/Users/matt/obsidian",
 		},
 		--prompt_prefix = "   ",
 		prompt_title = " Grep Notes",
@@ -167,8 +166,7 @@ keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.fil
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
-local thepath = "~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Obsidian\\ Notes"
-keymap("n", "<leader>o", ":Telescope find_files cwd=" .. thepath .. "<cr>", opts)
+keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c", ":Telescope colorscheme<CR>", opts)
@@ -214,5 +212,8 @@ nmap <Leader>dk <Plug>VimspectorRestart
 nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
+
+nnoremap <buffer><silent> <Leader>bl <cmd>call Black()<cr>
+" inoremap <buffer><silent> <Leader> <cmd>call Black()<cr>
 
 ]]

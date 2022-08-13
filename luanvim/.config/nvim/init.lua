@@ -40,6 +40,9 @@ require "user.telescope_config"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
 require "user.startify"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/pylint.lua
+-- require "user.pylint"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
 -- require "user.markdown"
 
