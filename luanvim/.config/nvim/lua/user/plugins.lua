@@ -49,12 +49,22 @@ Plug 'AckslD/nvim-neoclip.lua'
 Plug 'base16-project/base16-vim'
 --Plug 'plasticboy/vim-markdown'
 
+
+-- https://github.com/vim-test/vim-test
+Plug 'vim-test/vim-test'
+
+vim.cmd [[
+let test#strategy = "neovim"
+]]
+
 -- https://github.com/averms/black-nvim
+--[[
 Plug ('averms/black-nvim', {
 	['do'] = function()
 		vim.cmd(':UpdateRemotePlugins')
 	end
 })
+--]]
 
 -- https://github.com/sindrets/diffview.nvim
 Plug 'sindrets/diffview.nvim'
@@ -68,6 +78,7 @@ Plug('iamcco/markdown-preview.nvim', {
 })
 
 -- Telescope --
+-- https://github.com/nvim-telescope/telescope-fzf-native.nvim
 Plug('nvim-telescope/telescope-fzf-native.nvim', {
 	['do'] = function()
 		vim.cmd('make')

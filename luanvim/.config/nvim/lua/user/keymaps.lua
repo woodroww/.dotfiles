@@ -48,6 +48,11 @@ keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
 
+keymap("v", "i", "a", opts)
+keymap("v", "a", "i", opts)
+keymap("v", "I", "A", opts)
+keymap("v", "A", "I", opts)
+
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -92,7 +97,7 @@ keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
-keymap("n", "<leader>i", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
+keymap("n", "<leader>ip", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
 
 -- turn on and off the line highlighting and the search highlighting
 keymap("n", "<leader>g", ":set nocursorline nocursorcolumn nohlsearch<cr>", opts)
@@ -197,8 +202,8 @@ vim.cmd [[
 " inoremap ' ''<Left>
 " inoremap ( ()<Left>
 " inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+" inoremap { {}<Left>
+" inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
 
 " stop the defaults
 let g:comfortable_motion_no_default_key_mappings = 1
@@ -213,7 +218,7 @@ nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
 
-nnoremap <buffer><silent> <Leader>bl <cmd>call Black()<cr>
+" nnoremap <buffer><silent> <Leader>bl <cmd>call Black()<cr>
 " inoremap <buffer><silent> <Leader> <cmd>call Black()<cr>
 
 ]]

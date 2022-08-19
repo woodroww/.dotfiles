@@ -13,6 +13,7 @@
 	excludesfile = .gitignore_global
 [alias]
     l = log --all --graph --decorate 
+	s = status
 
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
