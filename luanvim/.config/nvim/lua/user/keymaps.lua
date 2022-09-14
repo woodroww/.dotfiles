@@ -1,17 +1,33 @@
 local opts = { noremap = true , silent = true }
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   select mode = "s"
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
---   operator pending mode like after you press y for yank or d for delete then
---   you want to make a move
---	 operator pending mode = "o"
+--[[----------------------------------------------------------------------------
+ Key mappings
+--------------------------------------------------------------------------------
+How to list the current keymappings with help from romainl on StackOverflow:
+
+:map
+
+:verbose map <leader>  " all mapping in all modes that use <leader>, 
+                       " and where they are defined
+:verbose map <buffer>  " all mappings defined for the current buffer,
+                       " and where they are defined
+:verbose nmap <leader> " all normal mode mappings that use <leader>,
+                       " and where they are defined
+
+Modes:
+normal_mode = "n",
+insert_mode = "i",
+visual_mode = "v",
+select mode = "s"
+visual_block_mode = "x",
+term_mode = "t",
+command_mode = "c",
+operator pending mode = "o"
+operator pending mode like after you press y for yank or d for delete then
+you want to make a move
+
+--]]
 
 -- keymap(mode, key you want to remap, to do what)
 -- keymap("", "", "", opts)
@@ -22,7 +38,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- split lines to `:set textwidth?`
-keymap("n", "<leader>v", "Vgq", opts)
+-- nice but needs to be worked out with visual mode too
+-- keymap("n", "<leader>v", "Vgq", opts)
 
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
@@ -41,17 +58,23 @@ keymap("n", "<F8>", ":w<cr>", opts)
 
 keymap("n", "<c-p>", "<c-i>", opts)
 
+keymap("n", "<c-y>", "<c-e>", opts)
+keymap("n", "<c-e>", "<c-y>", opts)
+
 
 -- remap so matches left and right of keyboard
+--[[
 keymap("n", "i", "a", opts)
 keymap("n", "a", "i", opts)
 keymap("n", "I", "A", opts)
 keymap("n", "A", "I", opts)
-
+--]]
+--[[
 keymap("v", "i", "a", opts)
 keymap("v", "a", "i", opts)
 keymap("v", "I", "A", opts)
 keymap("v", "A", "I", opts)
+--]]
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -84,17 +107,18 @@ keymap("i", "<m-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("v", "<m-j>" ,":m '>+1<CR>gv-gv", opts)
 keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
 
---------------------------------------------------------------------------------
--- Leader things
---------------------------------------------------------------------------------
 
---keymap("n", "<leader>fo", "<cmd>!open <cr>", opts)
+--[[----------------------------------------------------------------------------
+ Leader things
+------------------------------------------------------------------------------]]
 
+-- junegunn things
 keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
+--vim.lsp.buf.format()
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>ip", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
@@ -111,9 +135,11 @@ keymap("v", "p", '"_d"*P', opts)
 keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
 -- toggle nerd tree
+--[[
 keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
 keymap("n", "<leader>nn", ":NERDTreeRefreshRoot<CR>", opts)
 keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
+--]]
 
 local function todays_note()
 	local d = os.date("*t")
@@ -162,12 +188,12 @@ keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
---keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = matts_buffer_path_display })<cr>", opts)
 keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)

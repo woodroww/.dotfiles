@@ -18,7 +18,7 @@ Plug 'mhinz/vim-startify' -- A start menu for vim
 -- https://github.com/gruvbox-community/gruvbox
 Plug 'gruvbox-community/gruvbox'
 -- https://github.com/preservim/nerdtree
-Plug 'preservim/nerdtree'            -- side bar file tree
+-- Plug 'preservim/nerdtree'            -- side bar file tree
 -- https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'         -- minmal status bar
 -- https://github.com/tpope/vim-fugitive
@@ -37,8 +37,11 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 -- https://github.com/vimwiki/vimwiki
 --Plug 'vimwiki/vimwiki'
+
+-- The plugin that hides everything
 -- https://github.com/junegunn/goyo.vim
 Plug 'junegunn/goyo.vim'
+
 -- https://github.com/junegunn/limelight.vim
 Plug 'junegunn/limelight.vim'
 -- https://github.com/bennypowers/nvim-regexplainer
