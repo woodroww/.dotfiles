@@ -27,10 +27,11 @@ operator pending mode = "o"
 operator pending mode like after you press y for yank or d for delete then
 you want to make a move
 
+keymap(mode, key you want to remap, to do what)
+keymap("", "", "", opts)
+
 --]]
 
--- keymap(mode, key you want to remap, to do what)
--- keymap("", "", "", opts)
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -134,13 +135,6 @@ keymap("v", "p", '"_d"*P', opts)
 --keymap("v", "<leader>p", "P", opts)
 keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
--- toggle nerd tree
---[[
-keymap("n", "<leader>n", ":NERDTreeToggle<CR>", opts)
-keymap("n", "<leader>nn", ":NERDTreeRefreshRoot<CR>", opts)
-keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
---]]
-
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
@@ -184,6 +178,8 @@ function matts_buffer_path_display(opts, path)
 end
 
 -- Telescope
+-- open up last Telescope session
+-- :Telescope resume
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
@@ -193,6 +189,7 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+-- show all files including gitignore
 keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)

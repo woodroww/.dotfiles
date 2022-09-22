@@ -70,6 +70,8 @@ let g:loaded_matchparen = 1
 let g:goyo_width = 82
 let g:limelight_default_coefficient = 0.7
 
+autocmd BufRead,BufNewFile *.wgsl setfiletype wgsl
+
 augroup MyAutoCommands
 	autocmd!
 	autocmd User GoyoEnter Limelight

@@ -101,6 +101,7 @@ Plug('nvim-treesitter/nvim-treesitter', {
 		vim.cmd(':TSUpdate')
 	end
 })  -- We recommend updating the parsers on update
+-- https://github.com/nvim-treesitter/playground
 Plug 'nvim-treesitter/playground'
 
 -- LSP config Base plugin --

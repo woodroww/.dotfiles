@@ -53,7 +53,6 @@ require("lspconfig").java_language_server.setup{}
 require("lspconfig").pyright.setup{}
 
 
---require("lspconfig").tsserver.setup(config())
 require("lspconfig").tsserver.setup{
 	capabilities = capabilities,
     on_attach = on_attach,
@@ -162,5 +161,12 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-
+require("lspconfig").wgsl_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer" },
+	filetypes = { "wgsl" },
+	root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
+	settings = {},
+})
 
