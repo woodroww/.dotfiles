@@ -25,8 +25,9 @@ set background=dark
 let base16colorspace=256
 let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 
-" colorscheme base16-gruvbox-dark-hard
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme base16-tomorrow-night
+
 
 syntax on
 hi Normal ctermbg=NONE

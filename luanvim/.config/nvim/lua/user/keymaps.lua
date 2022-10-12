@@ -162,6 +162,7 @@ function grep_notes()
 		noremap = true,
 		silent = true,
 		hidden = true,
+		max_results = 300,
 		search_dirs = {
 			"/Users/matt/obsidian",
 		},
