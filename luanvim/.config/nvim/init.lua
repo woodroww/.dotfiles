@@ -47,7 +47,7 @@ require "user.startify"
 -- require "user.markdown"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
-require "user.plug-colorizer"
+-- require "user.plug-colorizer"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/rest.lua
 --require "user.rest"

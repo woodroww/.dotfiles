@@ -46,7 +46,7 @@ font_size 18.0
 #: support, because it will force kitty to always treat the text as
 #: LTR, which FriBidi expects for terminals.
 
-adjust_line_height  110%
+adjust_line_height  130%
 # adjust_column_width 0
 
 #: Change the size of each character cell kitty renders. You can use
@@ -759,7 +759,7 @@ confirm_os_window_close 1
 
 #: The foreground and background colors
 
-background_opacity 1.0
+background_opacity 1.00
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -780,7 +780,7 @@ background_opacity 1.0
 #: this setting when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
 
-# background_image /Users/matt/Desktop/brain_etching.png
+# background_image /Users/matt/Pictures/screen.png
 
 #: Path to a background image. Must be in PNG format.
 
@@ -1512,6 +1512,6 @@ macos_option_as_alt yes
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Light
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME

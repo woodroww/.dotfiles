@@ -42,6 +42,7 @@ vim.g.maplocalleader = " "
 -- nice but needs to be worked out with visual mode too
 -- keymap("n", "<leader>v", "Vgq", opts)
 
+
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
 
@@ -245,4 +246,12 @@ nmap <Leader>dj <Plug>VimspectorStepOver
 " nnoremap <buffer><silent> <Leader>bl <cmd>call Black()<cr>
 " inoremap <buffer><silent> <Leader> <cmd>call Black()<cr>
 
+" change nvim dir from terminal pwd
+" nnoremap <M-z> pwd|pbcopy<CR><C-\><C-n>:cd <C-r>+<CR>
+" tnoremap <C-A> pwd\|pbcopy -selection clipboard<CR><C-\><C-n>:cd <C-r>+<CR>i
+
 ]]
+
+
+
+
