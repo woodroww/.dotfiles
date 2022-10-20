@@ -53,7 +53,7 @@ Plug 'base16-project/base16-vim'
 --Plug 'plasticboy/vim-markdown'
 
 -- https://github.com/rktjmp/lush.nvim
-Plug 'rktjmp/lush.nvim'
+-- Plug 'rktjmp/lush.nvim'
 
 -- https://github.com/vim-test/vim-test
 Plug 'vim-test/vim-test'
