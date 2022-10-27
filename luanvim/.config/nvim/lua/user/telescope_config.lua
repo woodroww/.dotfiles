@@ -44,7 +44,16 @@ require("neoclip").setup{
     -- you'll need at least one of these
     {'nvim-telescope/telescope.nvim'},
     -- {'ibhagwan/fzf-lua'},
+  },
+  keys = {
+    telescope = {
+	  i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+	  }
+    }
   }
+
 }
 --[[
 require('telescope').setup {

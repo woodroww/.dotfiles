@@ -38,30 +38,23 @@ Plug 'mbbill/undotree'
 -- https://github.com/vimwiki/vimwiki
 --Plug 'vimwiki/vimwiki'
 
--- The plugin that hides everything
+-- The plugin that simplifies the interface in nvim for the purposes of writing text.
 -- https://github.com/junegunn/goyo.vim
 Plug 'junegunn/goyo.vim'
 
 -- https://github.com/junegunn/limelight.vim
 Plug 'junegunn/limelight.vim'
+
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
+
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
 
 Plug 'base16-project/base16-vim'
 --Plug 'plasticboy/vim-markdown'
 
--- https://github.com/rktjmp/lush.nvim
--- Plug 'rktjmp/lush.nvim'
-
--- https://github.com/vim-test/vim-test
-Plug 'vim-test/vim-test'
-
-vim.cmd [[
-let test#strategy = "neovim"
-]]
-
+-- python code formatting
 -- https://github.com/averms/black-nvim
 --[[
 Plug ('averms/black-nvim', {
@@ -76,6 +69,8 @@ Plug 'sindrets/diffview.nvim'
 
 -- https://github.com/iamcco/markdown-preview.nvim
 -- usage :MarkdownPreview
+-- I had to go to ~/.local/share/nvim/plugged/markdown-preview.nvim/ and
+-- yarn install to get this to work so idk what the below is doing
 Plug('iamcco/markdown-preview.nvim', {
 	['do'] = function()
 		vim.cmd('cd app && yarn install')

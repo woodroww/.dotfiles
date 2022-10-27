@@ -100,6 +100,10 @@ keymap("n", "<c-Left>", ":vertical resize +3<CR>", opts)
 keymap("n", "<c-Right>", ":vertical resize -3<CR>", opts)
 keymap("n", "<c-Up>", ":resize -3<CR>", opts)
 keymap("n", "<c-Down>", ":resize +3<CR>", opts)
+keymap("t", "<c-Left>", "<CMD>vertical resize +3<CR>", opts)
+keymap("t", "<c-Right>", "<CMD>vertical resize -3<CR>", opts)
+keymap("t", "<c-Up>", "<CMD>resize -3<CR>", opts)
+keymap("t", "<c-Down>", "<CMD>resize +3<CR>", opts)
 
 -- move line(s) up or down
 keymap("n", "<m-j>", ":m .+1<cr>", opts)
