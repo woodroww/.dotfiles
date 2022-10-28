@@ -13,6 +13,11 @@ require "user.options"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/navic_config.lua
+require("user.navic_config")
+
+vim.o.winbar = "%{%v:lua.require'user.navic_config'.eval()%}"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp"
 
@@ -37,8 +42,11 @@ require "user.treesyntax"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/winbar_config.lua
+--require "user.winbar_config"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
-require "user.startify"
+-- require "user.startify"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/pylint.lua
 -- require "user.pylint"

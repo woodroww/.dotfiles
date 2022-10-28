@@ -45,6 +45,12 @@ Plug 'junegunn/goyo.vim'
 -- https://github.com/junegunn/limelight.vim
 Plug 'junegunn/limelight.vim'
 
+
+-- https://github.com/SmiteshP/nvim-navic
+Plug "SmiteshP/nvim-navic"
+-- https://github.com/fgheng/winbar.nvim
+Plug 'fgheng/winbar.nvim'
+
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
 
