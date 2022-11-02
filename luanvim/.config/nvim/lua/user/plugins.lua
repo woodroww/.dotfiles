@@ -13,8 +13,6 @@ local Plug = vim.fn['plug#']
 
 -- https://github.com/junegunn/vim-plug
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
--- https://github.com/mhinz/vim-startify
--- Plug 'mhinz/vim-startify' -- A start menu for vim
 -- https://github.com/gruvbox-community/gruvbox
 Plug 'gruvbox-community/gruvbox'
 -- https://github.com/preservim/nerdtree

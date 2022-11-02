@@ -13,6 +13,12 @@ require "user.options"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.lua
+require "user.lightline"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
+require "user.colorscheme"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/navic_config.lua
 require("user.navic_config")
 
@@ -20,9 +26,6 @@ vim.o.winbar = "%{%v:lua.require'user.navic_config'.eval()%}"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 require "user.lsp"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
-require "user.colorscheme"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim
 vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
@@ -46,7 +49,7 @@ require "user.telescope_config"
 --require "user.winbar_config"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
--- require "user.startify"
+require "user.startify"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/pylint.lua
 -- require "user.pylint"
@@ -54,9 +57,8 @@ require "user.telescope_config"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
 -- require "user.markdown"
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
--- require "user.plug-colorizer"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/rest.lua
 --require "user.rest"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
+require "user.plug-colorizer"

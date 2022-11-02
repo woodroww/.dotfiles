@@ -34,7 +34,7 @@ alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
-cd() { builtin cd "$@";ll;}
+cd() { builtin cd "$@";ls;}
 
 alias real() {
 	realpath "$1" | pbcopy
