@@ -18,6 +18,9 @@ export MANPAGER='nvim +Man!'
 
 PROMPT='%F{2}%2~ %(!.#.'$'\U1F980'')%f '
 
+bindkey ";3D" backward-word
+bindkey ";3C" forward-word
+
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
 zle_highlight=('paste:none')
@@ -28,13 +31,15 @@ alias dkc="docker-compose"
 alias zz="z -"
 alias la="exa -las modified"
 alias ll="exa -ls modified"
-alias ls="exa"
+#alias ls="exa"
+alias l="exa -s modified -r"
 
 alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
-cd() { builtin cd "$@";ls;}
+cd() { builtin cd "$@";l;}
+c() { builtin cd ..;l;}
 
 alias real() {
 	realpath "$1" | pbcopy
