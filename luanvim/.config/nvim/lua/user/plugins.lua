@@ -44,10 +44,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 
--- https://github.com/SmiteshP/nvim-navic
-Plug "SmiteshP/nvim-navic"
--- https://github.com/fgheng/winbar.nvim
-Plug 'fgheng/winbar.nvim'
 
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
@@ -55,8 +51,8 @@ Plug 'fgheng/winbar.nvim'
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
 
+-- https://github.com/base16-project/base16-vim
 Plug 'base16-project/base16-vim'
---Plug 'plasticboy/vim-markdown'
 
 -- python code formatting
 -- https://github.com/averms/black-nvim
@@ -119,6 +115,15 @@ Plug 'saadparwaiz1/cmp_luasnip' -- snippet completions
 Plug 'L3MON4D3/LuaSnip' -- snippet engine
 -- https://github.com/rafamadriz/friendly-snippets
 Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
+
+-- for chris winbar
+Plug 'nvim-tree/nvim-web-devicons'
+--Plug 'SmiteshP/nvim-navic'
+
+-- https://github.com/SmiteshP/nvim-navic
+Plug "SmiteshP/nvim-navic"
+-- https://github.com/fgheng/winbar.nvim
+-- not for with chris winbar Plug 'fgheng/winbar.nvim'
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'

@@ -60,9 +60,8 @@ keymap("n", "<F8>", ":w<cr>", opts)
 
 keymap("n", "<c-p>", "<c-i>", opts)
 
-keymap("n", "<c-y>", "<c-e>", opts)
-keymap("n", "<c-e>", "<c-y>", opts)
-
+-- keymap("n", "<c-y>", "<c-e>", opts)
+-- keymap("n", "<c-e>", "<c-y>", opts)
 
 -- remap so matches left and right of keyboard
 --[[
@@ -143,7 +142,7 @@ keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory ="/Users/matt/docs/obsidian/QuickNotes/"
+	local directory ="/Users/matt/obsidian/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -161,6 +160,17 @@ local function todays_note()
 	return command
 end
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
+
+local my_path_display = function(opts, path)
+  local dirs = vim.split(path, "/")
+  local last_dir = dirs[#dirs]
+  local result = "" .. last_dir
+  if #dirs > 1 then
+    result = dirs[#dirs-1] .. "/" .. result
+  end
+  print(result)
+  return result
+end
 
 function grep_notes()
 	local note_opts = {
@@ -190,14 +200,14 @@ keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display})<cr>", opts)
 keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- show all files including gitignore
-keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 -- find searching grepping
 keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
@@ -234,6 +244,13 @@ vim.cmd [[
 " inoremap [ []<Left>
 " inoremap { {}<Left>
 " inoremap <expr> <CR> search('{\%#}', 'n') ? "\<CR>\<CR>\<Up>\<C-f>" : "\<CR>"
+
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap <C-o> <C-o>zz
+nnoremap <C-p> <C-i>zz
+" nnoremap <C-u> <C-u>zz
+" nnoremap <C-d> <C-d>zz
 
 " stop the defaults
 let g:comfortable_motion_no_default_key_mappings = 1

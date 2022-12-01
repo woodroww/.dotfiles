@@ -1,13 +1,16 @@
+-- https://github.com/nvim-telescope/telescope.nvim
+
 local action_layout = require('telescope.actions.layout')
 local actions = require('telescope.actions')
 local previewers = require("telescope.previewers")
 local browser = require "telescope".extensions.file_browser
 
+
 require('telescope').setup{
   defaults = {
-	path_display={ "truncate" },
+	path_display = { "truncate" },
     previewer = true,
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    file_previewer = previewers.vim_buffer_cat.new,
     layout_strategy = "vertical",
     pickers = {
         find_files = {

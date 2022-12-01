@@ -21,7 +21,6 @@ require "user.colorscheme"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/navic_config.lua
 require("user.navic_config")
-
 vim.o.winbar = "%{%v:lua.require'user.navic_config'.eval()%}"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
@@ -45,9 +44,6 @@ require "user.treesyntax"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/winbar_config.lua
---require "user.winbar_config"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
 require "user.startify"
 
@@ -61,4 +57,9 @@ require "user.startify"
 --require "user.rest"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
-require "user.plug-colorizer"
+-- require "user.plug-colorizer"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/chris/winbar.lua
+--require("nvim-navic")
+--require "user.chris.navic"
+--require "user.chris.winbar"

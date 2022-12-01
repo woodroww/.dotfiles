@@ -97,6 +97,15 @@ augroup MyYamlFiles
 	autocmd FileType yaml set nosmartindent
 	autocmd FileType yaml set tabstop=2
 augroup end
+
+augroup MyYamlFiles
+	autocmd!
+	autocmd FileType lua set shiftwidth=2
+	autocmd FileType lua set noautoindent
+	autocmd FileType lua set nosmartindent
+	autocmd FileType lua set tabstop=2
+augroup end
+
 ]]
 
 -- Highlight on yank
