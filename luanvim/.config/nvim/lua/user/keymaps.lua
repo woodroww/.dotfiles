@@ -193,6 +193,27 @@ function matts_buffer_path_display(opts, path)
 	return string.format("%s", tail)
 end
 
+function setAutoCmp(mode)
+  local cmp = require("cmp")
+  if mode then
+    cmp.setup({
+      completion = {
+        autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
+      }
+    })
+  else
+    cmp.setup({
+      completion = {
+        autocomplete = false
+      }
+    })
+  end
+end
+
+keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
+keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
+
+
 -- Telescope
 -- open up last Telescope session
 -- :Telescope resume
@@ -200,17 +221,13 @@ keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
 keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display})<cr>", opts)
 keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
-keymap("n", "<leader>ft", ":lua require('telescope.builtin').treesitter()<cr>", opts)
+keymap("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
--- show all files including gitignore
-keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
--- find searching grepping
-keymap("n", "<leader>fn", ":Telescope find_files cwd=~/Documents/notes<cr>", opts)
-keymap("n", "<leader>fnn", ":Telescope live_grep cwd=~/Documents/notes<cr>", opts)
 keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)

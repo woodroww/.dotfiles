@@ -105,6 +105,7 @@ Plug 'nvim-treesitter/playground'
 -- https://github.com/neovim/nvim-lspconfig
 Plug 'neovim/nvim-lspconfig'
 -- completions
+-- https://github.com/hrsh7th/nvim-cmp
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -124,6 +125,8 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug "SmiteshP/nvim-navic"
 -- https://github.com/fgheng/winbar.nvim
 -- not for with chris winbar Plug 'fgheng/winbar.nvim'
+
+Plug "nvim-lua/lsp-status.nvim"
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'

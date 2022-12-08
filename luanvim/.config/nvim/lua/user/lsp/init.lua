@@ -57,7 +57,6 @@ require("lspconfig").java_language_server.setup{}
 
 require("lspconfig").pyright.setup{}
 
-
 require("lspconfig").tsserver.setup{
 	capabilities = capabilities,
     on_attach = on_attach,
@@ -89,7 +88,6 @@ add a jsconfig.json or tsconfig.json in the root of your project
 }
 ]]--
 
-
 require'lspconfig'.clangd.setup{
 	capabilities = capabilities,
     on_attach = on_attach,
@@ -97,6 +95,7 @@ require'lspconfig'.clangd.setup{
       debounce_text_changes = 150,
     }
   }
+
 --[[
 --rust-tools calls this
 require'lspconfig'.rust_analyzer.setup{

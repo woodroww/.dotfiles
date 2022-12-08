@@ -1,11 +1,11 @@
 -- Helpful blog for lua and nvim config
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
-require "user.keymaps"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
+require "user.keymaps"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
@@ -15,6 +15,8 @@ require "user.cmp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.lua
 require "user.lightline"
+
+require "user.status"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
 require "user.colorscheme"
@@ -56,6 +58,8 @@ require "user.startify"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/rest.lua
 --require "user.rest"
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/rainbow.lua
+--require "user.rainbow"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 -- require "user.plug-colorizer"
 
