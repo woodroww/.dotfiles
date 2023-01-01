@@ -1,4 +1,4 @@
-local opts = { noremap = true , silent = true }
+local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --[[----------------------------------------------------------------------------
@@ -38,10 +38,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- split lines to `:set textwidth?`
--- nice but needs to be worked out with visual mode too
--- keymap("n", "<leader>v", "Vgq", opts)
-
 
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
@@ -53,29 +49,7 @@ keymap("n", "<F8>", ":w<cr>", opts)
 -- keymap("n", "<C-d>", ":call comfortable_motion#flick(100)<CR>", opts)
 -- keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
--- move between buffers
---keymap("n", "<c-o>", "<c-^>", opts)
---keymap("n", "<c-p>", ":bnext<cr>", opts)
---keymap("n", "<c-o>", ":bprev<cr>", opts)
-
 keymap("n", "<c-p>", "<c-i>", opts)
-
--- keymap("n", "<c-y>", "<c-e>", opts)
--- keymap("n", "<c-e>", "<c-y>", opts)
-
--- remap so matches left and right of keyboard
---[[
-keymap("n", "i", "a", opts)
-keymap("n", "a", "i", opts)
-keymap("n", "I", "A", opts)
-keymap("n", "A", "I", opts)
---]]
---[[
-keymap("v", "i", "a", opts)
-keymap("v", "a", "i", opts)
-keymap("v", "I", "A", opts)
-keymap("v", "A", "I", opts)
---]]
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -109,8 +83,8 @@ keymap("n", "<m-j>", ":m .+1<cr>", opts)
 keymap("n", "<m-k>", ":m .-2<cr>", opts)
 keymap("i", "<m-j>", "<Esc>:m .+1<cr>==gi", opts)
 keymap("i", "<m-k>", "<Esc>:m .-2<CR>==gi", opts)
-keymap("v", "<m-j>" ,":m '>+1<CR>gv-gv", opts)
-keymap("v", "<m-k>" ,":m '<-2<CR>gv-gv", opts)
+keymap("v", "<m-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<m-k>", ":m '<-2<CR>gv=gv", opts)
 
 
 --[[----------------------------------------------------------------------------
@@ -135,14 +109,17 @@ keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 -- delete visual selection without putting that in the register
 -- it sends it to the void register, then paste from implicit " register
 --keymap("v", "p", "\"_dP", opts)
-keymap("v", "p", '"_d"*P', opts)
+--keymap("v", "p", '"_d"*P', opts)
+-- prime latest
+keymap("v", "p", "\"_dP", opts)
+
 --keymap("v", "<leader>p", "P", opts)
 keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory ="/Users/matt/obsidian/QuickNotes/"
+	local directory = "/Users/matt/obsidian/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -152,24 +129,25 @@ local function todays_note()
 	else
 		--print("Creating today's note")
 		local new_file = io.open(file_name, "w")
-		if new_file~=nil then
+		if new_file ~= nil then
 			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
 			new_file:close()
 		end
 	end
 	return command
 end
+
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
 
 local my_path_display = function(opts, path)
-  local dirs = vim.split(path, "/")
-  local last_dir = dirs[#dirs]
-  local result = "" .. last_dir
-  if #dirs > 1 then
-    result = dirs[#dirs-1] .. "/" .. result
-  end
-  print(result)
-  return result
+	local dirs = vim.split(path, "/")
+	local last_dir = dirs[#dirs]
+	local result = "" .. last_dir
+	if #dirs > 1 then
+		result = dirs[#dirs - 1] .. "/" .. result
+	end
+	print(result)
+	return result
 end
 
 function grep_notes()
@@ -194,22 +172,23 @@ function matts_buffer_path_display(opts, path)
 end
 
 function setAutoCmp(mode)
-  local cmp = require("cmp")
-  if mode then
-    cmp.setup({
-      completion = {
-        autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
-      }
-    })
-  else
-    cmp.setup({
-      completion = {
-        autocomplete = false
-      }
-    })
-  end
+	local cmp = require("cmp")
+	if mode then
+		cmp.setup({
+			completion = {
+				autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
+			}
+		})
+	else
+		cmp.setup({
+			completion = {
+				autocomplete = false
+			}
+		})
+	end
 end
 
+-- turn on/off the autocompletion cmp
 keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
 keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 
@@ -217,16 +196,24 @@ keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 -- Telescope
 -- open up last Telescope session
 -- :Telescope resume
+
+-- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>
+-- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"},layout_strategy='vertical', prompt_position='top'})
+
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fD", ":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
-keymap("n", "<leader>fd", ":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fD",
+	":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
+keymap("n", "<leader>fd",
+	":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>"
+	, opts)
 keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display})<cr>", opts)
 keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
-keymap("n", "<leader>ft", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
+keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
+keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
@@ -239,12 +226,16 @@ keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)
 keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
 
 -- to open a little window with the errors
-keymap("n", "<leader>es", ":lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
 -- to turn on and off annoying errors (e)rror (f)alse and (e)rror (t)true
-keymap("n", "<leader>ef", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>", opts)
-keymap("n", "<leader>et", ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>" , opts)
+keymap("n", "<leader>ef",
+	":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>"
+	, opts)
+keymap("n", "<leader>et",
+	":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>"
+	, opts)
 -- code actions error action
-keymap("n", "<leader>ea", ":lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
 
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window
@@ -290,7 +281,3 @@ nmap <Leader>dj <Plug>VimspectorStepOver
 " tnoremap <C-A> pwd\|pbcopy -selection clipboard<CR><C-\><C-n>:cd <C-r>+<CR>i
 
 ]]
-
-
-
-

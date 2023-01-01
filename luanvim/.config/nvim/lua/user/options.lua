@@ -2,45 +2,50 @@
 -- like word wrap and such and termcolors and tabspaces
 
 local options = {
-  clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  background = 'dark',					   -- this isn't necessary as I think nvim get info from the terminal as to what it is using
-  laststatus=3,							   -- the thin lines between the windows instead of status bar
-  termguicolors = true,                    -- set term gui colors (most terminals support this)
-  splitbelow = true,                       -- force all horizontal splits to go below current window
-  splitright = true,                       -- force all vertical splits to go to the right of current window
-  scrolloff = 3,                           -- number of lines cursor is away from top or bottom before scroll starts
+  clipboard = "unnamedplus",         			-- allows neovim to access the system clipboard
+  background = 'dark',					   				-- this isn't necessary as I think nvim get info from the terminal as to what it is using
+  laststatus=3,							   						-- the thin lines between the windows instead of status bar
+  termguicolors = true,                   -- set term gui colors (most terminals support this)
+  splitbelow = true,                      -- force all horizontal splits to go below current window
+  splitright = true,                      -- force all vertical splits to go to the right of current window
+  scrolloff = 3,                          -- number of lines cursor is away from top or bottom before scroll starts
   sidescrolloff = 8,
-  mouse = "a",                             -- allow the mouse to be used in neovim
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  tabstop = 4,                             -- insert 4 spaces for a tab
-  wrap = false,                            -- display lines as one long line
-  colorcolumn = '80',					   -- 80 char line
+  mouse = "a",                            -- allow the mouse to be used in neovim
+  signcolumn = "yes",                     -- always show the sign column, otherwise it would shift the text each time
+  tabstop = 4,                            -- insert 4 spaces for a tab
+  shiftwidth = 4,                         -- the number of spaces inserted for each indentation
+  smartindent = true,                     -- make indenting smarter again
+	--prime
+	softtabstop = 4,
+	expandtab = true,
+	incsearch = true,
+	--end prime
+  wrap = false,                           -- display lines as one long line
+  colorcolumn = '80',					  					-- 80 char line
   hlsearch = true,                        -- highlight all matches on previous search pattern
   completeopt = { "menuone", "noselect", "preview" }, -- mostly just for cmp
-  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
-  number = true,                           -- set numbered lines
-  relativenumber = true,                   -- set relative numbered lines
+  number = true,                          -- set numbered lines
+  relativenumber = true,                -- set relative numbered lines
   errorbells = false,
-  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  conceallevel = 2,						   -- for hiding markdown
-  swapfile = false,                        -- creates a swapfile
-  backup = false,                          -- creates a backup file
-  autoindent = true,                       -- the :help said this should normally be on with smartindent
-  smartindent = true,                      -- make indenting smarter again
-  undofile = true,                         -- enable persistent undo across saves and sessions
-  ignorecase = true,                       -- ignore case in search patterns
-  smartcase = true,                        -- smart case, use case sensitive if capital letters are used in search string
+  showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
+  conceallevel = 2,						   					-- for hiding markdown
+  swapfile = false,                   		-- creates a swapfile
+  backup = false,                         -- creates a backup file
+  autoindent = true,                      -- the :help said this should normally be on with smartindent
+  undofile = true,                        -- enable persistent undo across saves and sessions
+  ignorecase = true,                      -- ignore case in search patterns
+  smartcase = true,                       -- smart case, use case sensitive if capital letters are used in search string
 --[[
   cindent = true,
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
-  fileencoding = "utf-8",                  -- the encoding written to a file
-  pumheight = 10,                          -- pop up menu height
-  showtabline = 2,                         -- always show tabs
-  timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
-  updatetime = 300,                        -- faster completion (4000ms default)
-  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  cmdheight = 2,                          -- more space in the neovim command line for displaying messages
+  fileencoding = "utf-8",                 -- the encoding written to a file
+  pumheight = 10,                         -- pop up menu height
+  showtabline = 2,                        -- always show tabs
+  timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
+  updatetime = 300,                       -- faster completion (4000ms default)
+  writebackup = false,                    -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+  numberwidth = 4,                        -- set number column width to 2 {default 4}
+  guifont = "monospace:h17",              -- the font used in graphical neovim applications
 --]]
 }
 
@@ -80,6 +85,7 @@ augroup MyAutoCommands
 	autocmd User GoyoEnter set linebreak
 	autocmd User GoyoLeave Limelight!
 	autocmd User GoyoLeave set nowrap
+  autocmd User GoyoLeave set nolinebreak
 
 	" because trunk wasm watch server doesn't recognize when nvim saves
 	" autocmd BufWritePost * !touch <afile>
@@ -98,12 +104,18 @@ augroup MyYamlFiles
 	autocmd FileType yaml set tabstop=2
 augroup end
 
-augroup MyYamlFiles
+augroup MyLuaFiles
 	autocmd!
 	autocmd FileType lua set shiftwidth=2
 	autocmd FileType lua set noautoindent
 	autocmd FileType lua set nosmartindent
 	autocmd FileType lua set tabstop=2
+augroup end
+
+augroup MyMarkdownFiles
+	autocmd!
+  autocmd FileType markdown set wrap
+  autocmd FileType markdown set linebreak 
 augroup end
 
 ]]

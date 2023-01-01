@@ -6,7 +6,6 @@ if not status_ok then
 	print("Something has gone wrong with lspconfig")
 	return
 end
-
 -- This is the famous on attach function
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -174,3 +173,6 @@ require("lspconfig").wgsl_analyzer.setup({
 	settings = {},
 })
 
+
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })
