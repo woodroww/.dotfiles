@@ -96,8 +96,8 @@ keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
---vim.lsp.buf.format()
+--keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
+keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>ip", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
@@ -200,6 +200,7 @@ keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 -- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>
 -- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"},layout_strategy='vertical', prompt_position='top'})
 
+keymap("n", "<leader><space>", ":Telescope resume<cr>", opts)
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)

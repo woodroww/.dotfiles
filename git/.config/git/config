@@ -10,7 +10,7 @@
 	smudge = git-lfs smudge -- %f
 [core]
 	editor = nvim
-	excludesfile = .gitignore_global
+	excludesfile = /Users/matt/.gitignore_global
 [alias]
     l = log --all --graph --decorate 
 	s = status
