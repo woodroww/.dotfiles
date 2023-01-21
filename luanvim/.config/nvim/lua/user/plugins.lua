@@ -1,4 +1,3 @@
-
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 vim.cmd [[
@@ -47,6 +46,12 @@ Plug 'junegunn/limelight.vim'
 Plug 'AckslD/nvim-neoclip.lua'
 -- https://github.com/base16-project/base16-vim
 Plug 'base16-project/base16-vim'
+-- https://github.com/norcalli/nvim-colorizer.lua
+Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+-- https://github.com/mhinz/vim-startify
+Plug 'mhinz/vim-startify' -- A start menu for vim
+
+
 
 -- python code formatting
 -- https://github.com/averms/black-nvim
@@ -86,17 +91,19 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 -- Treesitter --
+-- We recommend updating the parsers on update
 -- https://github.com/nvim-treesitter/nvim-treesitter
 Plug('nvim-treesitter/nvim-treesitter', {
 	['do'] = function()
 		vim.cmd(':TSUpdate')
 	end
-})  -- We recommend updating the parsers on update
+})
 -- https://github.com/nvim-treesitter/playground
-Plug 'nvim-treesitter/playground'
+-- Plug 'nvim-treesitter/playground'
 
 -- LSP config Base plugin --
--- https://github.com/neovim/nvim-lspconfig
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 -- completions
 -- https://github.com/hrsh7th/nvim-cmp

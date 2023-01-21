@@ -1,9 +1,3 @@
-
-local Plug = vim.fn['plug#']
--- https://github.com/mhinz/vim-startify
-Plug 'mhinz/vim-startify' -- A start menu for vim
-vim.call('plug#end')
-
 vim.cmd [[
 let g:startify_custom_header = [
 \ '      ::::    ::: :::::::::: ::::::::  :::     ::: :::::::::::   :::   ::: ',
