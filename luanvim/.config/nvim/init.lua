@@ -61,7 +61,7 @@ require "user.startify"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/rainbow.lua
 --require "user.rainbow"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
--- require "user.plug-colorizer"
+require "user.plug-colorizer"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/chris/winbar.lua
 --require("nvim-navic")

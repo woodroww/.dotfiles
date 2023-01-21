@@ -35,22 +35,16 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 -- https://github.com/vimwiki/vimwiki
 --Plug 'vimwiki/vimwiki'
-
 -- The plugin that simplifies the interface in nvim for the purposes of writing text.
 -- https://github.com/junegunn/goyo.vim
 Plug 'junegunn/goyo.vim'
-
+-- goes with goyo
 -- https://github.com/junegunn/limelight.vim
 Plug 'junegunn/limelight.vim'
-
-
-
 -- https://github.com/bennypowers/nvim-regexplainer
 -- Plug 'bennypowers/nvim-regexplainer'
-
 -- https://github.com/AckslD/nvim-neoclip.lua
 Plug 'AckslD/nvim-neoclip.lua'
-
 -- https://github.com/base16-project/base16-vim
 Plug 'base16-project/base16-vim'
 
@@ -125,8 +119,8 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug "SmiteshP/nvim-navic"
 -- https://github.com/fgheng/winbar.nvim
 -- not for with chris winbar Plug 'fgheng/winbar.nvim'
-
-Plug "nvim-lua/lsp-status.nvim"
+-- never got working
+-- Plug "nvim-lua/lsp-status.nvim"
 
 -- Cheat sheet
 -- Plug 'dbeniamine/cheat.sh-vim'
@@ -146,8 +140,6 @@ Plug 'mfussenegger/nvim-dap'
 -- commented out to see if speed up loading
 -- https://github.com/puremourning/vimspector
 Plug 'puremourning/vimspector'
-
-
 
 -- Java
 

@@ -27,6 +27,7 @@ zle_highlight=('paste:none')
 
 alias fortuna="fortune /Users/matt/Documents/obliquestrategies"
 
+alias gs="git status"
 alias dkc="docker-compose"
 alias zz="z -"
 alias la="exa -las modified"
@@ -88,3 +89,6 @@ eval "$(zoxide init zsh)"
 if [ -f '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc'; fi
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3 # run chruby to see actual version
