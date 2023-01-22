@@ -46,7 +46,12 @@ return packer.startup(function(use)
 	use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
 	use 'mhinz/vim-startify' -- A start menu for vim
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use 'nvim-tree/nvim-web-devicons'
+  use "SmiteshP/nvim-navic"
+	use 'rust-lang/rust.vim'
+	use 'simrat39/rust-tools.nvim'
   use 'nvim-lua/plenary.nvim'
+  use 'j-hui/fidget.nvim'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -75,11 +80,6 @@ return packer.startup(function(use)
 	use 'L3MON4D3/LuaSnip' -- snippet engine
 	use 'rafamadriz/friendly-snippets' -- a bunch of snippets
 
-  use 'nvim-tree/nvim-web-devicons'
-  use "SmiteshP/nvim-navic"
-
-	use 'rust-lang/rust.vim'
-	use 'simrat39/rust-tools.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

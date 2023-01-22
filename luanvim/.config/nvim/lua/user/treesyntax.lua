@@ -14,4 +14,13 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
   indent = { enable = true, disable = { "yaml", "python" } },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<m-f>',
+      node_incremental = '<m-d>',
+      scope_incremental = '<m-s>',
+      node_decremental = '<m-a>',
+    },
+  },
 }

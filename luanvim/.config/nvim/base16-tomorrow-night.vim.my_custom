@@ -517,7 +517,6 @@ call <sid>hi("markdownH4",  s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("markdownH5",  s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("markdownH6",  s:gui0D, "", s:cterm0D, "", "", "")
 
-
 " Matchup
 call <sid>hi("MatchWord",  s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "underline", "")
 
