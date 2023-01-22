@@ -1,10 +1,6 @@
 -- :help vimwiki
 -- https://github.com/vimwiki/vimwiki
 
-local Plug = vim.fn['plug#']
-Plug 'vimwiki/vimwiki'
-vim.call('plug#end')
-
 vim.cmd [[
 
 let g:vimwiki_list = [{'path': '/Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Notes/','auto_tags':1}]

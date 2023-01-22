@@ -1,161 +1,92 @@
--- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+-- automatically install packer
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
-vim.cmd [[
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-]]
+local packer_bootstrap = ensure_packer()
 
-local Plug = vim.fn['plug#']
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
 
--- https://github.com/junegunn/vim-plug
-vim.call('plug#begin', '~/.local/share/nvim/plugged')
--- https://github.com/gruvbox-community/gruvbox
-Plug 'gruvbox-community/gruvbox'
--- https://github.com/preservim/nerdtree
--- Plug 'preservim/nerdtree'            -- side bar file tree
--- https://github.com/itchyny/lightline.vim
-Plug 'itchyny/lightline.vim'         -- minmal status bar
--- https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-fugitive'            -- allows git commands in vim session
--- https://github.com/airblade/vim-gitgutter
-Plug 'airblade/vim-gitgutter'        -- shows git changes in gutter
--- https://github.com/yuttie/comfortable-motion.vim
--- Plug 'yuttie/comfortable-motion.vim' -- scrolling 'C-d' or 'C-u'
--- https://github.com/szw/vim-g
-Plug 'szw/vim-g' -- :Google from the command line thing
--- https://github.com/akinsho/toggleterm.nvim
---Plug 'akinsho/toggleterm.nvim'
--- https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
--- https://github.com/mbbill/undotree
-Plug 'mbbill/undotree'
--- https://github.com/vimwiki/vimwiki
---Plug 'vimwiki/vimwiki'
--- The plugin that simplifies the interface in nvim for the purposes of writing text.
--- https://github.com/junegunn/goyo.vim
-Plug 'junegunn/goyo.vim'
--- goes with goyo
--- https://github.com/junegunn/limelight.vim
-Plug 'junegunn/limelight.vim'
--- https://github.com/bennypowers/nvim-regexplainer
--- Plug 'bennypowers/nvim-regexplainer'
--- https://github.com/AckslD/nvim-neoclip.lua
-Plug 'AckslD/nvim-neoclip.lua'
--- https://github.com/base16-project/base16-vim
-Plug 'base16-project/base16-vim'
--- https://github.com/norcalli/nvim-colorizer.lua
-Plug 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
--- https://github.com/mhinz/vim-startify
-Plug 'mhinz/vim-startify' -- A start menu for vim
+local packer = require("packer")
 
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
 
+return packer.startup(function(use)
+  use 'wbthomason/packer.nvim'
 
--- python code formatting
--- https://github.com/averms/black-nvim
---[[
-Plug ('averms/black-nvim', {
-	['do'] = function()
-		vim.cmd(':UpdateRemotePlugins')
-	end
-})
---]]
+  use 'gruvbox-community/gruvbox'
+  use 'itchyny/lightline.vim'
+  use 'tpope/vim-fugitive'
+  use 'airblade/vim-gitgutter'
+	use 'szw/vim-g' -- :Google from the command line thing
+	use 'tpope/vim-surround'
+	use 'mbbill/undotree'
+	use 'junegunn/goyo.vim'
+	use 'junegunn/limelight.vim'
+	use 'AckslD/nvim-neoclip.lua'
+	use 'base16-project/base16-vim'
+	use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+	use 'mhinz/vim-startify' -- A start menu for vim
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use 'nvim-lua/plenary.nvim'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use 'nvim-telescope/telescope-file-browser.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+  }
+  use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
+	use 'neovim/nvim-lspconfig'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+	use 'L3MON4D3/LuaSnip' -- snippet engine
+	use 'rafamadriz/friendly-snippets' -- a bunch of snippets
+
+  use 'nvim-tree/nvim-web-devicons'
+  use "SmiteshP/nvim-navic"
+
+	use 'rust-lang/rust.vim'
+	use 'simrat39/rust-tools.nvim'
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
 
 -- https://github.com/sindrets/diffview.nvim
-Plug 'sindrets/diffview.nvim'
-
--- https://github.com/iamcco/markdown-preview.nvim
--- usage :MarkdownPreview
--- I had to go to ~/.local/share/nvim/plugged/markdown-preview.nvim/ and
--- yarn install to get this to work so idk what the below is doing
-Plug('iamcco/markdown-preview.nvim', {
-	['do'] = function()
-		vim.cmd('cd app && yarn install')
-	end
-})
-
--- Telescope --
--- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-Plug('nvim-telescope/telescope-fzf-native.nvim', {
-	['do'] = function()
-		vim.cmd('make')
-	end
-})
--- https://github.com/nvim-lua/plenary.nvim
-Plug 'nvim-lua/plenary.nvim'
--- https://github.com/nvim-telescope/telescope.nvim
-Plug 'nvim-telescope/telescope.nvim'
--- https://github.com/nvim-telescope/telescope-file-browser.nvim
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-
--- Treesitter --
--- We recommend updating the parsers on update
--- https://github.com/nvim-treesitter/nvim-treesitter
-Plug('nvim-treesitter/nvim-treesitter', {
-	['do'] = function()
-		vim.cmd(':TSUpdate')
-	end
-})
--- https://github.com/nvim-treesitter/playground
--- Plug 'nvim-treesitter/playground'
-
--- LSP config Base plugin --
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
--- completions
--- https://github.com/hrsh7th/nvim-cmp
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'saadparwaiz1/cmp_luasnip' -- snippet completions
--- https://github.com/L3MON4D3/LuaSnip
-Plug 'L3MON4D3/LuaSnip' -- snippet engine
--- https://github.com/rafamadriz/friendly-snippets
-Plug 'rafamadriz/friendly-snippets' -- a bunch of snippets
-
--- for chris winbar
-Plug 'nvim-tree/nvim-web-devicons'
---Plug 'SmiteshP/nvim-navic'
-
--- https://github.com/SmiteshP/nvim-navic
-Plug "SmiteshP/nvim-navic"
--- https://github.com/fgheng/winbar.nvim
--- not for with chris winbar Plug 'fgheng/winbar.nvim'
--- never got working
--- Plug "nvim-lua/lsp-status.nvim"
-
--- Cheat sheet
--- Plug 'dbeniamine/cheat.sh-vim'
--- https://github.com/keith/swift.vim
---Plug 'keith/swift.vim'
-
--- debugger dap
--- https://github.com/mfussenegger/nvim-dap
-Plug 'mfussenegger/nvim-dap'
-
--- tj video https://www.youtube.com/watch?v=0moS8UHupGc&t=1767s
--- https://github.com/rcarriga/nvim-dap-ui
---Plug 'rcarriga/nvim-dap-ui'
--- https://github.com/theHamsta/nvim-dap-virtual-text
--- https://github.com/nvim-telescope/telescope-dap.nvim
-
--- commented out to see if speed up loading
--- https://github.com/puremourning/vimspector
-Plug 'puremourning/vimspector'
-
--- Java
-
--- Rust
--- https://github.com/rust-lang/rust.vim
-Plug 'rust-lang/rust.vim'
--- https://github.com/simrat39/rust-tools.nvim
-Plug 'simrat39/rust-tools.nvim'
-
-
-vim.call('plug#end')
 

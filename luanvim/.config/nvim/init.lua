@@ -1,6 +1,3 @@
--- Helpful blog for lua and nvim config
--- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
 
@@ -13,7 +10,7 @@ require "user.options"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/mason-config.lua
 require "user.mason-config"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
--- mason call this require "user.lsp"
+-- mason calls require "user.lsp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"
@@ -28,7 +25,6 @@ require "user.colorscheme"
 require("user.navic_config")
 vim.o.winbar = "%{%v:lua.require'user.navic_config'.eval()%}"
 
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim
 vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
 
@@ -39,7 +35,7 @@ vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/bclose.vim')
 require "user.toggleterm"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesitter_playground.lua
---require "user.treesitter_playground"
+require "user.treesitter_playground"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
 require "user.treesyntax"
@@ -50,21 +46,5 @@ require "user.telescope_config"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/startify.lua
 require "user.startify"
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/pylint.lua
--- require "user.pylint"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/markdown.lua
--- require "user.markdown"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/rest.lua
---require "user.rest"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/rainbow.lua
---require "user.rainbow"
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 require "user.plug-colorizer"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/chris/winbar.lua
---require("nvim-navic")
---require "user.chris.navic"
---require "user.chris.winbar"
