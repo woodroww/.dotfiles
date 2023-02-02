@@ -2,40 +2,38 @@
 -- like word wrap and such and termcolors and tabspaces
 
 local options = {
-  clipboard = "unnamedplus",         			-- allows neovim to access the system clipboard
-  background = 'dark',					   				-- this isn't necessary as I think nvim get info from the terminal as to what it is using
-  laststatus=3,							   						-- the thin lines between the windows instead of status bar
-  termguicolors = true,                   -- set term gui colors (most terminals support this)
-  splitbelow = true,                      -- force all horizontal splits to go below current window
-  splitright = true,                      -- force all vertical splits to go to the right of current window
-  scrolloff = 3,                          -- number of lines cursor is away from top or bottom before scroll starts
-  sidescrolloff = 8,
-  mouse = "a",                            -- allow the mouse to be used in neovim
-  signcolumn = "yes",                     -- always show the sign column, otherwise it would shift the text each time
-  tabstop = 4,                            -- insert 4 spaces for a tab
-  shiftwidth = 4,                         -- the number of spaces inserted for each indentation
-  smartindent = true,                     -- make indenting smarter again
-	--prime
-	softtabstop = 4,
-	expandtab = true,
-	incsearch = true,
-	--end prime
-  wrap = false,                           -- display lines as one long line
-  colorcolumn = '80',					  					-- 80 char line
-  hlsearch = true,                        -- highlight all matches on previous search pattern
-  completeopt = { "menuone", "noselect", "preview" }, -- mostly just for cmp
-  number = true,                          -- set numbered lines
-  relativenumber = true,                -- set relative numbered lines
-  errorbells = false,
-  showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
-  conceallevel = 2,						   					-- for hiding markdown
-  swapfile = false,                   		-- creates a swapfile
-  backup = false,                         -- creates a backup file
-  autoindent = true,                      -- the :help said this should normally be on with smartindent
-  undofile = true,                        -- enable persistent undo across saves and sessions
-  ignorecase = true,                      -- ignore case in search patterns
-  smartcase = true,                       -- smart case, use case sensitive if capital letters are used in search string
---[[
+    clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+    background = 'dark', -- this isn't necessary as I think nvim get info from the terminal as to what it is using
+    laststatus = 3, -- the thin lines between the windows instead of status bar
+    termguicolors = true, -- set term gui colors (most terminals support this)
+    splitbelow = true, -- force all horizontal splits to go below current window
+    splitright = true, -- force all vertical splits to go to the right of current window
+    scrolloff = 3, -- number of lines cursor is away from top or bottom before scroll starts
+    sidescrolloff = 8,
+    mouse = "a", -- allow the mouse to be used in neovim
+    signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+    tabstop = 4, -- insert 4 spaces for a tab
+    shiftwidth = 4, -- the number of spaces inserted for each indentation
+    smartindent = true, -- make indenting smarter again
+    softtabstop = 4,
+    expandtab = true,
+    incsearch = true,
+    wrap = false, -- display lines as one long line
+    colorcolumn = '80', -- 80 char line
+    hlsearch = true, -- highlight all matches on previous search pattern
+    completeopt = { "menuone", "noselect", "preview" }, -- mostly just for cmp
+    number = true, -- set numbered lines
+    relativenumber = true, -- set relative numbered lines
+    errorbells = false,
+    showmode = false, -- we don't need to see things like -- INSERT -- anymore
+    conceallevel = 2, -- for hiding markdown
+    swapfile = false, -- creates a swapfile
+    backup = false, -- creates a backup file
+    autoindent = true, -- the :help said this should normally be on with smartindent
+    undofile = true, -- enable persistent undo across saves and sessions
+    ignorecase = true, -- ignore case in search patterns
+    smartcase = true, -- smart case, use case sensitive if capital letters are used in search string
+    --[[
   cindent = true,
   cmdheight = 2,                          -- more space in the neovim command line for displaying messages
   fileencoding = "utf-8",                 -- the encoding written to a file
@@ -50,7 +48,7 @@ local options = {
 }
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+    vim.opt[k] = v
 end
 
 
@@ -122,13 +120,13 @@ augroup end
 
 -- Highlight on yank
 vim.api.nvim_exec(
-  [[
+    [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]],
-  false
+]]   ,
+    false
 )
 
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
@@ -138,7 +136,7 @@ vim.api.nvim_exec(
 --	autocmd!
 --	autocmd CmdlineEnter /,\? :set cursorline cursorcolumn hlsearch
 --augroup END
-  --false
+--false
 --]],
 --)
 
@@ -149,4 +147,3 @@ filetype plugin indent on
 " to auto source on save
 au! BufWritePost $MYVIMRC source %
 --]]
-

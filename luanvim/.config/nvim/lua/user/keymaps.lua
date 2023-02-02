@@ -98,6 +98,8 @@ keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 --keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+-- prime replace word under cursor
+--keymap("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>ip", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)

@@ -19,7 +19,7 @@ require("mason-lspconfig").setup_handlers {
   ["rust_analyzer"] = function()
     require('rust-tools').setup({
       server = {
-        -- this wasn't in lsp init.lua idk capabilities = config.capabilities,
+        capabilities = config.capabilities,
         on_attach = config.on_attach
       }
     })

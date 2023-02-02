@@ -1,6 +1,5 @@
 -- colorschemes
-
--- /Users/matt/.local/share/nvim/plugged/base16-vim/colors
+-- ~/.local/share/nvim/plugged/base16-vim/colors
 
 --[[
 local colorscheme = "gruvbox"
