@@ -52,6 +52,24 @@ vim.api.nvim_set_hl(0, "@h4", { link = "markdownH4" })
 vim.api.nvim_set_hl(0, "@h5", { link = "markdownH5" })
 vim.api.nvim_set_hl(0, "@h6", { link = "markdownH6" })
 
+vim.api.nvim_set_hl(0,"@text.uri" , { link = "TSUri" })
+vim.api.nvim_set_hl(0, "@text.literal", { link = "TSLiteral" })
+vim.api.nvim_set_hl(0, "@text.title", { link = "TSTitle" })
+vim.api.nvim_set_hl(0, "@text.emphasis", { link = "TSEmphasis" })
+vim.api.nvim_set_hl(0, "@text.strong", { link = "TSStrong" })
+vim.api.nvim_set_hl(0, "@string.escape", { link = "TSStringEscape" })
+vim.api.nvim_set_hl(0, "@punctuation.special", { link = "TSPunctSpecial" })
+
+-- TSURI
+-- TSLiteral
+-- ? TSTextReference
+-- TSTitle
+-- TSEmphasis
+-- TSStrong
+-- TSStringEscape
+-- TSPunctSpecial
+
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"
 
