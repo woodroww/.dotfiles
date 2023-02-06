@@ -65,5 +65,14 @@ require 'lspconfig'.sourcekit.setup {
     debounce_text_changes = 150,
   },
 }
+-- https://github.com/svenstaro/glsl-language-server
+require 'lspconfig'.glslls.setup{
+  capabilities = M.capabilities,
+  filetypes = { "glsl" },
+  on_attach = M.on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
 
 return M

@@ -116,6 +116,11 @@ augroup MyMarkdownFiles
   autocmd FileType markdown set linebreak 
 augroup end
 
+augroup MyGLSLFiles
+	autocmd!
+  autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+augroup end
+
 ]]
 
 -- Highlight on yank

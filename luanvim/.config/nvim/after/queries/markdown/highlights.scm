@@ -14,3 +14,5 @@
 ((atx_heading
   (atx_h5_marker) @hh5
   (_) @h5))
+
+;; (link_text)
