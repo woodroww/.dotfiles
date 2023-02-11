@@ -66,9 +66,17 @@ require 'lspconfig'.sourcekit.setup {
   },
 }
 -- https://github.com/svenstaro/glsl-language-server
-require 'lspconfig'.glslls.setup{
+require 'lspconfig'.glslls.setup {
   capabilities = M.capabilities,
   filetypes = { "glsl" },
+  on_attach = M.on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
+require('rust-tools').setup {
+  capabilities = M.capabilities,
   on_attach = M.on_attach,
   flags = {
     debounce_text_changes = 150,

@@ -15,16 +15,6 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  -- Next, you can provide a dedicated handler for specific servers.
-  ["rust_analyzer"] = function()
-    require('rust-tools').setup({
-      server = {
-        capabilities = config.capabilities,
-        on_attach = config.on_attach
-      }
-    })
-  end,
-
   ["sumneko_lua"] = function()
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
     local runtime_path = vim.split(package.path, ';')
