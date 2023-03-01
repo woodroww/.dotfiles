@@ -95,9 +95,16 @@ keymap("v", "<m-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 
+keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
+keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
+keymap("n", "<leader>re", ":lua require('telescope.builtin').lsp_references()<cr>", opts)
+keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+keymap("n", "<leader>ls", "<cmd>LspInfo<cr>", opts)
+keymap("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
---keymap("n", "<leader>rf", "<cmd>RustFmt<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+
 -- prime replace word under cursor
 --keymap("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
@@ -141,15 +148,23 @@ end
 
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
 
-local my_path_display = function(opts, path)
+-- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope
+-- checks for smart display
+-- utils.path_smart function
+--   utils.path_smart = (function()
+-- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope/utils.lua
+my_path_display = function(opts, path)
+  local tail = require("telescope.utils").path_tail(path)
+  return string.format("%s (%s)", tail, path)
+--[[
 	local dirs = vim.split(path, "/")
 	local last_dir = dirs[#dirs]
 	local result = "" .. last_dir
 	if #dirs > 1 then
 		result = dirs[#dirs - 1] .. "/" .. result
 	end
-	print(result)
 	return result
+--]]
 end
 
 function grep_notes()
@@ -166,11 +181,6 @@ function grep_notes()
 		path_display = { "smart" }
 	}
 	require("telescope.builtin").live_grep(note_opts)
-end
-
-function matts_buffer_path_display(opts, path)
-	local tail = require("telescope.utils").path_tail(path)
-	return string.format("%s", tail)
 end
 
 function setAutoCmp(mode)
@@ -195,13 +205,7 @@ keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
 keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 
 
--- Telescope
--- open up last Telescope session
--- :Telescope resume
-
--- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>
--- :lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"},layout_strategy='vertical', prompt_position='top'})
-
+keymap("n", "<leader>gs", ":lua require('telescope.builtin').git_status()<cr>", opts)
 keymap("n", "<leader><space>", ":Telescope resume<cr>", opts)
 keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
@@ -212,11 +216,12 @@ keymap("n", "<leader>fD",
 keymap("n", "<leader>fd",
 	":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>"
 	, opts)
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display})<cr>", opts)
-keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
+-- /Users/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/make_entry.lua
+-- function make_entry.gen_from_buffer(opts)
+-- keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display, bufnr_width = 0})<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = smart, sort_mru = true })<cr>", opts)
+--keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
-keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
-keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
@@ -237,8 +242,6 @@ keymap("n", "<leader>ef",
 keymap("n", "<leader>et",
 	":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>"
 	, opts)
--- code actions error action
-keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
 
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window

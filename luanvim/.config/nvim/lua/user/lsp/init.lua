@@ -46,6 +46,7 @@ function M.on_attach(client, bufnr)
   buf_set_keymap('n', ']d', ':lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', ':lua vim.diagnostic.setloclist()<CR>', opts)
   --  buf_set_keymap('n', '<space>f', ':lua vim.lsp.buf.formatting()<CR>', opts)
+  --print("on attach called")
 end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
@@ -75,6 +76,7 @@ require 'lspconfig'.glslls.setup {
   },
 }
 
+--[[
 require('rust-tools').setup {
   capabilities = M.capabilities,
   on_attach = M.on_attach,
@@ -82,5 +84,7 @@ require('rust-tools').setup {
     debounce_text_changes = 150,
   },
 }
+--]]
+
 
 return M

@@ -1,6 +1,5 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
-
 local config = require("user.lsp")
 
 require("mason-lspconfig").setup_handlers {
@@ -15,7 +14,44 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  ["sumneko_lua"] = function()
+  -- Next, you can provide a dedicated handler for specific servers.
+  --[[
+  ["rust_analyzer"] = function()
+    require('rust-tools').setup({
+      server = {
+        capabilities = config.capabilities,
+        on_attach = config.on_attach
+      }
+    })
+  end,
+  --]]
+
+  ["wgsl_analyzer"] = function()
+    require("lspconfig").wgsl_analyzer.setup({
+      on_attach = config.on_attach,
+      capabilities = config.capabilities,
+      cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer" },
+      filetypes = { "wgsl" },
+      root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
+      settings = {},
+    })
+  end,
+}
+
+-- outside of mason
+
+require('rust-tools').setup {
+  server = {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
+}
+
+--[[
+require("sumneko_lua").setup {
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
     local runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, "lua/?.lua")
@@ -51,17 +87,5 @@ require("mason-lspconfig").setup_handlers {
         },
       },
     }
-  end,
-
-  ["wgsl_analyzer"] = function()
-    require("lspconfig").wgsl_analyzer.setup({
-      on_attach = config.on_attach,
-      capabilities = config.capabilities,
-      cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer" },
-      filetypes = { "wgsl" },
-      root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
-      settings = {},
-    })
-  end,
-
 }
+--]]
