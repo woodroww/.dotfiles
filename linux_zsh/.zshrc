@@ -10,14 +10,23 @@ export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
 zle_highlight=('paste:none')
 
-alias ls="ls --color=auto"
-alias la="ls --color=auto -la"
-alias ll="ls --color=auto -ltr"
+# this hides gs ghostscript
+alias gs="git status"
+alias la="exa -las modified"
+alias ll="exa -ls modified"
+alias l="exa -s modified -r"
 alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
 cd() { builtin cd "$@";ll;}
+c() { builtin cd ..;l;}
+
+export PYENV_ROOT="$HOME/.pyenv/"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -29,13 +38,13 @@ setopt SHARE_HISTORY
 # available immediately from other instances of the shell that are using the
 # same history file as does SHARE_HISTORY
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
-##export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
-#source /usr/local/opt/fzf/shell/key-bindings.zsh
-#source /usr/local/opt/fzf/shell/completion.zsh
-#export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
-#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
+#export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # nit zsh completion this should be last, after rules
 autoload -Uz compinit && compinit
