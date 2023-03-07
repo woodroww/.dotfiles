@@ -219,14 +219,14 @@ keymap("n", "<leader>fd",
 -- /Users/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/make_entry.lua
 -- function make_entry.gen_from_buffer(opts)
 -- keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display, bufnr_width = 0})<cr>", opts)
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = smart, sort_mru = true })<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = smart, sort_mru = true, ignore_current_buffer = true })<cr>", opts)
 --keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
-keymap("n", "<leader>c", ":Telescope colorscheme<CR>", opts)
+keymap("n", "<leader>c", ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)

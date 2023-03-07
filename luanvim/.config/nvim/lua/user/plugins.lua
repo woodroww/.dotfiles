@@ -1,3 +1,4 @@
+-- https://github.com/wbthomason/packer.nvim
 -- automatically install packer
 local ensure_packer = function()
   local fn = vim.fn
@@ -12,6 +13,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+-- automatically call PackerSync when saving this file
 --[[
 local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", { pattern = { "plugins.lua" }, callback = function()
@@ -57,7 +59,7 @@ return packer.startup(function(use)
   -- https://github.com/AckslD/nvim-neoclip.lua
   use 'AckslD/nvim-neoclip.lua'
   -- https://github.com/base16-project/base16-vim
-  use 'base16-project/base16-vim'
+  use { 'base16-project/base16-vim', commit = '88a1e73e5358fefe0288538e6866f99d5487c5a0' }
   -- https://github.com/norcalli/nvim-colorizer.lua
   use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
   -- https://github.com/mhinz/vim-startify
@@ -85,7 +87,7 @@ return packer.startup(function(use)
   -- https://github.com/nvim-telescope/telescope-file-browser.nvim
   use 'nvim-telescope/telescope-file-browser.nvim'
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-  use { 'nvim-telescope/telescope-fzf-native.nvim',
+  use { 'nvim-telescope/telescope-fzf-native.nvim', commit = '8212548e3346aa56166a0831016026f265562e4a',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {

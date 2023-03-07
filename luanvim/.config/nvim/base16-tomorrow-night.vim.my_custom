@@ -524,6 +524,7 @@ call <sid>hi("TSStrong",  "", "", "", "", "bold", "")
 " call <sid>hi("TSStringEscape",  "", "", "", "", "bold", "")
 " call <sid>hi("TSPunctSpecial",  "", "", "", "", "bold", "")
 
+
 " Matchup
 call <sid>hi("MatchWord",  s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "underline", "")
 
