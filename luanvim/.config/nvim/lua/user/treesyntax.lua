@@ -1,7 +1,7 @@
 -- for syntax highlighting
 require'nvim-treesitter.configs'.setup {
   --ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "javascript", "help", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua" },
+	ensure_installed = { "vim", "javascript", "help", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua" },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
@@ -25,6 +25,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+--[[
 vim.api.nvim_set_hl(0, "@hh1", { link = "markdownH1" })
 vim.api.nvim_set_hl(0, "@hh2", { link = "markdownH2" })
 vim.api.nvim_set_hl(0, "@hh3", { link = "markdownH3" })
@@ -45,3 +46,4 @@ vim.api.nvim_set_hl(0, "@text.emphasis", { link = "TSEmphasis" })
 vim.api.nvim_set_hl(0, "@text.strong", { link = "TSStrong" })
 vim.api.nvim_set_hl(0, "@string.escape", { link = "TSStringEscape" })
 vim.api.nvim_set_hl(0, "@punctuation.special", { link = "TSPunctSpecial" })
+--]]

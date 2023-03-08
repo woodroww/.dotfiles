@@ -11,7 +11,7 @@ if not snip_status_ok then
 end
 
 
-vim.o.runtimepath = vim.o.runtimepath..'/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets'
+vim.o.runtimepath = vim.o.runtimepath..',/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets'
 
 require("luasnip.loaders.from_vscode").lazy_load()
 --require("luasnip.loaders.from_vscode").load({ paths = { "/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets" } })

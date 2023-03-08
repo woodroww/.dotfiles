@@ -204,6 +204,8 @@ end
 keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
 keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 
+keymap("n", "<leader>d", ":DiffviewFileHistory %<CR>", opts)
+keymap("n", "<leader>dd", ":DiffviewClose<CR>", opts)
 
 keymap("n", "<leader>gs", ":lua require('telescope.builtin').git_status()<cr>", opts)
 keymap("n", "<leader><space>", ":Telescope resume<cr>", opts)
@@ -268,19 +270,6 @@ nnoremap <C-p> <C-i>zz
 
 " stop the defaults
 let g:comfortable_motion_no_default_key_mappings = 1
-
-nnoremap <Leader>dd :call vimspector#Launch()<CR>
-nnoremap <Leader>de :call vimspector#Reset()<CR>
-nnoremap <Leader>dc :call vimspector#Continue()<CR>
-nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
-nmap <Leader>dk <Plug>VimspectorRestart
-nmap <Leader>dh <Plug>VimspectorStepOut
-nmap <Leader>dl <Plug>VimspectorStepInto
-nmap <Leader>dj <Plug>VimspectorStepOver
-
-" nnoremap <buffer><silent> <Leader>bl <cmd>call Black()<cr>
-" inoremap <buffer><silent> <Leader> <cmd>call Black()<cr>
 
 " change nvim dir from terminal pwd
 " nnoremap <M-z> pwd|pbcopy<CR><C-\><C-n>:cd <C-r>+<CR>
