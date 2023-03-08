@@ -24,26 +24,3 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-
---[[
-vim.api.nvim_set_hl(0, "@hh1", { link = "markdownH1" })
-vim.api.nvim_set_hl(0, "@hh2", { link = "markdownH2" })
-vim.api.nvim_set_hl(0, "@hh3", { link = "markdownH3" })
-vim.api.nvim_set_hl(0, "@hh4", { link = "markdownH4" })
-vim.api.nvim_set_hl(0, "@hh5", { link = "markdownH5" })
-vim.api.nvim_set_hl(0, "@hh6", { link = "markdownH6" })
-vim.api.nvim_set_hl(0, "@h1", { link = "markdownH1" })
-vim.api.nvim_set_hl(0, "@h2", { link = "markdownH2" })
-vim.api.nvim_set_hl(0, "@h3", { link = "markdownH3" })
-vim.api.nvim_set_hl(0, "@h4", { link = "markdownH4" })
-vim.api.nvim_set_hl(0, "@h5", { link = "markdownH5" })
-vim.api.nvim_set_hl(0, "@h6", { link = "markdownH6" })
-
-vim.api.nvim_set_hl(0,"@text.uri" , { link = "TSUri" })
-vim.api.nvim_set_hl(0, "@text.literal", { link = "TSLiteral" })
-vim.api.nvim_set_hl(0, "@text.title", { link = "TSTitle" })
-vim.api.nvim_set_hl(0, "@text.emphasis", { link = "TSEmphasis" })
-vim.api.nvim_set_hl(0, "@text.strong", { link = "TSStrong" })
-vim.api.nvim_set_hl(0, "@string.escape", { link = "TSStringEscape" })
-vim.api.nvim_set_hl(0, "@punctuation.special", { link = "TSPunctSpecial" })
---]]
