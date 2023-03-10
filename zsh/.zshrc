@@ -2,6 +2,24 @@
 
 export MANPAGER='nvim +Man!'
 
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+# Config for prompt. PS1 synonym.
+# prompt='%2/ $(git_branch_name) > '
+
 # F foreground color
 # f reset to default color
 # PROMPT='%F{2}%n@%m %f- '
@@ -15,8 +33,12 @@ export MANPAGER='nvim +Man!'
 # '$'\U1F47E''     for alien monster
 # '$'\U1F980''     for crab
 
+# %# means # if root or % if not root
 
-PROMPT='%F{2}%2~ %(!.#.'$'\U1F980'')%f '
+# works
+# PROMPT='%F{2}%2~ %(!.#.'$'\U1F980'')%f '
+
+PROMPT='%F{2}%2~ %f$(git_branch_name)%F{2}%2 %(!.#.'$'\U1F980'')%f '
 
 bindkey ";3D" backward-word
 bindkey ";3C" forward-word

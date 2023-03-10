@@ -11,7 +11,7 @@ vim.api.nvim_set_hl(0, "@h4", { link = "markdownH4" })
 vim.api.nvim_set_hl(0, "@h5", { link = "markdownH5" })
 vim.api.nvim_set_hl(0, "@h6", { link = "markdownH6" })
 
-vim.api.nvim_set_hl(0,"@text.uri" , { link = "TSUri" })
+vim.api.nvim_set_hl(0,"@text.reference" , { link = "TSUri" })
 vim.api.nvim_set_hl(0, "@text.literal", { link = "TSLiteral" })
 vim.api.nvim_set_hl(0, "@text.title", { link = "TSTitle" })
 vim.api.nvim_set_hl(0, "@text.emphasis", { link = "TSEmphasis" })
