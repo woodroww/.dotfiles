@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]]; then
+    echo "  Missing argument!"
+    echo "  Uasge: vpc pasted_checksum filename"
+    echo "  Example: vpc 98d9402a8b446bdd57b4b6729b4d575e /path/to/filename"
+    exit 1
+fi
+
+l=$(/usr/bin/awk -v var="$1" 'BEGIN {print length(var)}')
+[ -f "$2" ] || l=0
+
+case "$l" in
+    32 )
+                # Validate MD5 checksum.
+            c="$(/sbin/md5 -q "$2")"
+        ;;
+    40 )
+                # Validate SHA1 checksum.
+            c="$(/usr/bin/shasum "$2" | /usr/bin/awk '{print $1}')"
+        ;;
+    64 )
+                # ValidateSHA256 checksum.
+            c="$(/usr/bin/shasum -a 256 "$2" | /usr/bin/awk '{print $1}')"
+        ;;
+    128 )
+                # Validate SHA512checksum.
+            c="$(/usr/bin/shasum -a 512 "$2" | /usr/bin/awk '{print $1}')"
+        ;;
+    0 )
+            echo "  Bad Filename!"
+            exit 1  
+        ;;
+    * )
+            echo "  Unreconized Checksum!"
+            exit 1
+        ;;                                      
+esac
+
+    # Verify checksum matches provided value, using case insensitive matching.
+shopt -s nocasematch
+if [[ $1 == "$c" ]]; then
+    echo "  The checksum for '""$2""' matched."
+else
+    echo "  The checksum for '""$2""' did not match!"
+fi
+shopt -u nocasematch
+

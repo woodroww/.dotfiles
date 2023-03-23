@@ -26,37 +26,12 @@ require("mason-lspconfig").setup_handlers {
   end,
   --]]
 
-  ["wgsl_analyzer"] = function()
-    require("lspconfig").wgsl_analyzer.setup({
-      on_attach = config.on_attach,
-      capabilities = config.capabilities,
-      cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer" },
-      filetypes = { "wgsl" },
-      root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
-      settings = {},
-    })
-  end,
-}
-
--- outside of mason
-
-require('rust-tools').setup {
-  server = {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  }
-}
-
---[[
-require("sumneko_lua").setup {
+  ["lua_ls"] = function()
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-    local runtime_path = vim.split(package.path, ';')
+    runtime_path = vim.split(package.path, ';')
     table.insert(runtime_path, "lua/?.lua")
     table.insert(runtime_path, "lua/?/init.lua")
-    require 'lspconfig'.sumneko_lua.setup {
+    require 'lspconfig'.lua_ls.setup {
       capabilities = config.capabilities,
       on_attach = config.on_attach,
       flags = {
@@ -87,5 +62,29 @@ require("sumneko_lua").setup {
         },
       },
     }
+  end,
+
+  ["wgsl_analyzer"] = function()
+    require("lspconfig").wgsl_analyzer.setup({
+      on_attach = config.on_attach,
+      capabilities = config.capabilities,
+      cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl_analyzer" },
+      filetypes = { "wgsl" },
+      root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
+      settings = {},
+    })
+  end,
 }
---]]
+
+-- outside of mason
+
+require('rust-tools').setup {
+  server = {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
+}
+

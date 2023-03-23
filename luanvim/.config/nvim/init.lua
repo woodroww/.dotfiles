@@ -47,3 +47,4 @@ require "user.startify"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 require "user.plug-colorizer"
+ 

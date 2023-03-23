@@ -56,10 +56,9 @@ alias la="exa -las modified"
 alias ll="exa -ls modified"
 #alias ls="exa"
 alias l="exa -s modified -r"
-
 alias cp="cp -i"
 alias mv="mv -i"
-
+alias nvr="/Users/matt/.pyenv/versions/3.8.12/envs/lovely/bin/nvr"
 alias bc="bc -l"
 
 alias pw () {
