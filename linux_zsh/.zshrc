@@ -27,6 +27,9 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
