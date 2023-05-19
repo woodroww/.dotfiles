@@ -1,5 +1,9 @@
 #export RSTUDIO_WHICH_R=/Users/matt/opt/miniconda3/envs/tensorflow/bin/R
 
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
 export MANPAGER='nvim +Man!'
 
 # Find and set branch name var if in git repository.
@@ -65,7 +69,7 @@ alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
-cd() { builtin cd "$@";l;}
+# cd() { builtin cd "$@";l;}
 c() { builtin cd ..;l;}
 
 alias real() {
@@ -73,8 +77,8 @@ alias real() {
 }
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHITST=1000
+HISTSIZE=2000
+SAVEHIST=1000
 setopt SHARE_HISTORY
 
 # INC_APPEND_HISTORY_TIME
