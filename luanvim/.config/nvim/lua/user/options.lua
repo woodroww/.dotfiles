@@ -29,6 +29,7 @@ local options = {
     conceallevel = 2, -- for hiding markdown
     swapfile = false, -- creates a swapfile
     backup = false, -- creates a backup file
+    backupcopy = "no", -- set this to no so 'trunk serve' detects changes
     autoindent = true, -- the :help said this should normally be on with smartindent
     undofile = true, -- enable persistent undo across saves and sessions
     ignorecase = true, -- ignore case in search patterns
@@ -112,7 +113,7 @@ augroup end
 
 augroup MyMarkdownFiles
 	autocmd!
-  autocmd FileType markdown set wrap
+  " autocmd FileType markdown set wrap
   autocmd FileType markdown set linebreak 
 augroup end
 

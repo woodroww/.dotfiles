@@ -50,6 +50,7 @@ keymap("n", "<F8>", ":w<cr>", opts)
 -- keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
 keymap("n", "<c-p>", "<c-i>", opts)
+keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -125,6 +126,7 @@ keymap("v", "p", "\"_dP", opts)
 --keymap("v", "<leader>p", "P", opts)
 keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
 
+--[[
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
@@ -147,6 +149,7 @@ local function todays_note()
 end
 
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
+--]]
 
 -- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope
 -- checks for smart display
@@ -221,7 +224,7 @@ keymap("n", "<leader>fd",
 -- /Users/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/make_entry.lua
 -- function make_entry.gen_from_buffer(opts)
 -- keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display, bufnr_width = 0})<cr>", opts)
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = smart, sort_mru = true, ignore_current_buffer = true })<cr>", opts)
+keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = truncate, sort_mru = true, ignore_current_buffer = true })<cr>", opts)
 --keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
