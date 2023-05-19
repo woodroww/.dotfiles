@@ -26,6 +26,7 @@ let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 
 " colorscheme gruvbox
 colorscheme base16-tomorrow-night
+" colorscheme base16-tokyo-city-dark
 
 
 syntax on

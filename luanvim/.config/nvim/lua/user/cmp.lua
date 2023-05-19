@@ -1,3 +1,5 @@
+-- https://github.com/hrsh7th/nvim-cmp
+
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   print("not cmp_status_ok in cmp.lua")
@@ -10,20 +12,10 @@ if not snip_status_ok then
   return
 end
 
-vim.o.runtimepath = vim.o.runtimepath..',/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets'
+--vim.o.runtimepath = vim.o.runtimepath .. ',/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets'
 
 require("luasnip.loaders.from_vscode").lazy_load()
---require("luasnip.loaders.from_vscode").load({ paths = { "/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets" } })
-
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
+require("luasnip.loaders.from_vscode").load({ paths = { "/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets" } })
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -59,17 +51,16 @@ cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
-	 -- vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   completion = {
--- don't autocomplete press C-Space when you want completions
-    autocomplete = false, -- comment out whole line to autocomplete
-	completeopt = "menu, menuone, preview", -- noselect,
+    -- don't autocomplete press C-Space when you want completions
+    autocomplete = false,                -- comment out whole line to autocomplete
+    completeopt = "menu, menuone, preview", -- noselect,
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-	["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -87,13 +78,13 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-		luasnip = "[Snippet]",
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
       return vim_item
     end,
-	deprecated = false,
+    deprecated = false,
   },
   sources = {
     { name = "nvim_lsp" },
