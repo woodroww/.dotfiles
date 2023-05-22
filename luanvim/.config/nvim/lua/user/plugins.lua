@@ -35,6 +35,9 @@ packer.init {
 return packer.startup(function(use)
   -- https://github.com/wbthomason/packer.nvim
   use 'wbthomason/packer.nvim'
+  -- https://github.com/aymericbeaumet/vim-symlink
+  -- because linux doesn't follow links and just writes new files idk???
+  use { 'aymericbeaumet/vim-symlink', requires = { 'moll/vim-bbye' } }
 
   -- https://github.com/gruvbox-community/gruvbox
   use 'gruvbox-community/gruvbox'

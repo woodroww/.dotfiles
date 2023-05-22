@@ -50,7 +50,7 @@ keymap("n", "<F8>", ":w<cr>", opts)
 -- keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
 keymap("n", "<c-p>", "<c-i>", opts)
-keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
+keymap("n", "<c-i>", ":Telescope find_files cwd=/home/matt/obsidian<cr>", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -177,7 +177,7 @@ function grep_notes()
 		hidden = true,
 		max_results = 300,
 		search_dirs = {
-			"/Users/matt/obsidian",
+			"/home/matt/obsidian",
 		},
 		--prompt_prefix = "   ",
 		prompt_title = " Grep Notes",
