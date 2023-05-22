@@ -34,7 +34,7 @@
 {lshift}{cbrack}>{speed9}{-lshift}{2}{+lshift}
 [lalt]>[lwin]
 [rwin]>[lwin]
-[pup]>[enter]
+[pup]>[caps]
 [rshift]>[lshift]
 [pdown]>[lalt]
 [delete]>[escape]
