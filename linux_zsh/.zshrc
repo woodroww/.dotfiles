@@ -1,10 +1,28 @@
 export MANPAGER='nvim +Man!'
 
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
+# Enable substitution in the prompt.
+setopt prompt_subst
+
 # F foreground color
 # f reset to default color
 # PROMPT='%F{2}%n@%m %f- '
-#PROMPT='%F{2}%2~ %#%f '
-PROMPT='%F{2}%n@%m %2~ %#%f '
+# PROMPT='%F{2}%2~ %#%f '
+
+# user@machine dir1/dir2
+# PROMPT='%F{2}%n@%m %2~ %#%f '
+
+PROMPT='%F{2}%2~ %f$(git_branch_name)%F{2}%2 %(!.#.'$'\U1F980'')%f '
 
 export TFHUB_CACHE_DIR=$HOME/.tf_hub_cache/tfhub_modules
 
@@ -33,7 +51,7 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
-SAVEHITST=1000
+SAVEHIST=1000
 setopt SHARE_HISTORY
 
 # INC_APPEND_HISTORY_TIME
@@ -59,3 +77,5 @@ autoload -Uz compinit && compinit
 
 # The next line enables shell command completion for gcloud.
 #if [ -f '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="/home/matt/.local/bin:/home/matt/.cargo/bin:/home/matt/Applications/node-v18.16.0-linux-x64/bin:$PATH"
