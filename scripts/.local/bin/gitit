@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import webbrowser
+import subprocess
+
+if __name__ == '__main__':
+    #chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+    #safari_path = 'open -a /Applications/Safari.app %s'
+    chrome_path = 'google-chrome'
+    process = subprocess.run(['git', 'remote', 'get-url', 'origin'], 
+                             stdout=subprocess.PIPE, 
+                             universal_newlines=True)
+    url = process.stdout[:-1] # \n
+    if url.startswith('http'):
+        webbrowser.get(chrome_path).open(url)
+    elif url.startswith('git'):
+        url = url[4:]
+        url = url.replace(':', '/')
+        url = 'https://' + url
+        webbrowser.get(chrome_path).open(url)
+
