@@ -37,8 +37,7 @@ alias pw () {
     pwgen -sync "${1:-48}" -1 | if command -v pbcopy > /dev/null 2>&1; then pbcopy; else xclip; fi
 }
 
-cd() { builtin cd "$@";ll;}
-c() { builtin cd ..;l;}
+c() { builtin cd ..;}
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -77,5 +76,3 @@ autoload -Uz compinit && compinit
 
 # The next line enables shell command completion for gcloud.
 #if [ -f '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH="/home/matt/.local/bin:/home/matt/.cargo/bin:/home/matt/Applications/node-v18.16.0-linux-x64/bin:$PATH"
