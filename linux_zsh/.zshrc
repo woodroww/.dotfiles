@@ -66,10 +66,11 @@ source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# nit zsh completion this should be last, after rules
+# init zsh completion this should be last, after rules
 autoload -Uz compinit && compinit
 
-#eval "$(zoxide init zsh)"
+# zoxide after compinit
+eval "$(zoxide init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc'; fi

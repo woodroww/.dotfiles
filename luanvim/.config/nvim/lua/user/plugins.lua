@@ -79,7 +79,7 @@ return packer.startup(function(use)
   -- https://github.com/simrat39/rust-tools.nvim
   use 'simrat39/rust-tools.nvim'
   -- https://github.com/nvim-lua/plenary.nvim
-  use 'nvim-lua/plenary.nvim'
+  use { 'nvim-lua/plenary.nvim', commit = '9ac3e9541bbabd9d73663d757e4fe48a675bb054' }
   -- https://github.com/j-hui/fidget.nvim
   use 'j-hui/fidget.nvim'
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -95,6 +95,7 @@ return packer.startup(function(use)
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
+    commit = 'dad1b7cd6606ffaa5c283ba73d707b4741a5f445',
     run = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
