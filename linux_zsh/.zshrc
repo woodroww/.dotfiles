@@ -70,7 +70,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 autoload -Uz compinit && compinit
 
 # zoxide after compinit
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/external_code/google-cloud-sdk/path.zsh.inc'; fi

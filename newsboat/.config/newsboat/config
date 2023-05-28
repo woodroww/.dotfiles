@@ -1,0 +1,21 @@
+# https://newsboat.org/releases/2.21/docs/newsboat.html
+
+# <config-command> <arg1> …
+# bind-key <key> <operation> [<dialog>]
+
+# guy with the setup
+# https://www.youtube.com/watch?v=RUu3O4tddlU
+# https://github.com/tallguyjenks/.dotfiles/blob/5202ba6858f244d43d38914797ad40879f390f3a/newsboat/.config/newsboat/config
+
+bind-key j down
+bind-key k up
+bind-key DOWN prev-feed
+bind-key UP next-feed
+
+# linkhandler is a script in ~/.local/bin it decides what app to open
+external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+
+browser linkhandler
+macro , open-in-browser
+macro v set browser "setsid nohup mpv"; open-in-browser; set browser linkhandler
+
