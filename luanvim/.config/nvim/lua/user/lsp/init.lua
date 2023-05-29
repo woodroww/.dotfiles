@@ -47,6 +47,13 @@ function M.on_attach(client, bufnr)
   buf_set_keymap('n', '<space>q', ':lua vim.diagnostic.setloclist()<CR>', opts)
   --  buf_set_keymap('n', '<space>f', ':lua vim.lsp.buf.formatting()<CR>', opts)
   --print("on attach called")
+
+  -- Since rust_analyzer now has some semantic highlights and treesitter was working fine for me
+  -- https://github.com/TheLeoP/nvim-config/blob/79d79dc0da0123d0d64d646fdbd41a9c2bab7612/after/plugin/highlight.lua#L98
+  -- Hide all semantic highlights
+  for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    vim.api.nvim_set_hl(0, group, {})
+  end
 end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
