@@ -90,7 +90,7 @@ return packer.startup(function(use)
   -- https://github.com/nvim-telescope/telescope-file-browser.nvim
   use 'nvim-telescope/telescope-file-browser.nvim'
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-  use { 'nvim-telescope/telescope-fzf-native.nvim', commit = '8212548e3346aa56166a0831016026f265562e4a',
+  use { 'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
