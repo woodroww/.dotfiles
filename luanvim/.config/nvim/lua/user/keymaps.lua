@@ -124,7 +124,7 @@ keymap("n", "<leader>gg", ":set cursorline cursorcolumn hlsearch<cr>", opts)
 keymap("v", "p", "\"_dP", opts)
 
 --keymap("v", "<leader>p", "P", opts)
-keymap("n", "<leader>p", ":Telescope neoclip star<CR>", opts)
+keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 
 --[[
 local function todays_note()
