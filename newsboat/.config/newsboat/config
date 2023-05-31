@@ -19,3 +19,13 @@ browser linkhandler
 macro , open-in-browser
 macro v set browser "setsid nohup mpv"; open-in-browser; set browser linkhandler
 
+# https://newsboat.org/releases/2.21/docs/newsboat.html#_configuring_colors
+# https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+color background          color250   black
+color listnormal          color250   black
+color listfocus           color250  blue   bold
+color listnormal_unread   color132 black
+color listfocus_unread    color132 blue   bold
+color info                yellow  color235   bold
+color article             color250   black
+#color end-of-text-marker
