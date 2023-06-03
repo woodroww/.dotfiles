@@ -4,6 +4,14 @@ https://this-week-in-rust.org/rss.xml
 https://rustmagazine.org/feed.xml
 https://blog.rust-lang.org/feed.xml
 https://blog.rust-lang.org/inside-rust/feed.xml
+https://fasterthanli.me/index.xml "~faster than lime"
+https://blog.m-ou.se/index.xml "~Mara Bos atomics book"
+https://faultlore.com/blah/rss.xml "~Aria Beingesner memory parable"
+https://www.marcoieni.com/posts/index.xml "~Marco Ieni rust-api-workshop"
+https://thorstenball.com/atom.xml "~Thorsten Ball interpreter book"
+https://www.lpalmieri.com/rss.xml "~Luca Palmieri zero2prod"
+https://lucumr.pocoo.org/feed.atom "~Armin Ronacher"
+
 "---- YouTube -----"
 "------------------"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCAiDWnTP0WB1xCp6uuUo0VA "~Acorn To Arabella"
@@ -21,13 +29,17 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCkzW5JSFwvKRjXABI-UTAkQ "~A
 https://www.youtube.com/feeds/videos.xml?channel_id=UC34rW-HtPJulxr5wp2Xa04w "~Digital Sreeni"
 
 "-- YouTube (Programming) --"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_iD0xppBwwsrM9DegC5cQQ "~Jon Gjengset"
+https://www.youtube.com/feeds/videos.xml?channel_id=UClny6qj9Mv7uFo9XGUGYQBA "~Tim MacNamara"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxjjVZaykWsAjAAwlHfry8Q "~Greg Johnston leptos"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC46xhU1EH7aywEgvA9syS3w "~anthonywritescode"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCZgt6AzoyjslHTC9dz0UoTw "~Byte Byte Go"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCiSIL42pQRpc-8JNiYDFyzQ "~Chris Biscardi"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC1kBxkk2bcG78YBX7LMl9pQ "~Code Report"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw "~Code Parade Hyperbolica"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA "~Computerphile"
-
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMIqrmh2lMdzhlCPK5ahsAg "~Jack Rhysider hacking stories"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1K4zYU4YsDE-_hcJNDXRtQ "~Thomas Holloway nyxtom"
 "-- YouTube (Español) --"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCc3-fx1sRNrOw_kO41xGMdA "~Abriendo Libros"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2RFakE0-eLOWgIVGGGn6tg "~Alex Tienda"

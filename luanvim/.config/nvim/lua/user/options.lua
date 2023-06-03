@@ -3,7 +3,7 @@
 
 local options = {
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-    background = 'dark', -- this isn't necessary as I think nvim get info from the terminal as to what it is using
+    background = 'dark', -- this isn't necessary as I think nvim gets info from the terminal as to what it is using
     laststatus = 3, -- the thin lines between the windows instead of status bar
     termguicolors = true, -- set term gui colors (most terminals support this)
     splitbelow = true, -- force all horizontal splits to go below current window
@@ -55,8 +55,8 @@ end
 
 vim.cmd [[
 
-let g:python3_host_prog = '/Users/matt/.pyenv/versions/daniel_torch/bin/python'
-let g:black_virtualenv = '/Users/matt/.pyenv/versions/daniel_torch'
+let g:python3_host_prog = '/home/matt/.pyenv/versions/lovely/bin/python'
+let g:black_virtualenv = '/home/matt/.pyenv/versions/lovely'
 
 " default
 " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
