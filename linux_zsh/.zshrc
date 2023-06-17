@@ -14,6 +14,9 @@ function git_branch_name()
 # Enable substitution in the prompt.
 setopt prompt_subst
 
+# set zsh to error on overwriting/clobbering files
+set -o noclobber
+
 # F foreground color
 # f reset to default color
 # PROMPT='%F{2}%n@%m %f- '
@@ -60,7 +63,6 @@ setopt SHARE_HISTORY
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
-#export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
