@@ -91,8 +91,16 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# a unicode char can be included in prompt
+# '$'\U1f308''    for 1f308 the rainbow
+# '$'\U274C''     for the X
+# '$'\U2753''     for ?
+# '$'\U1F47E''     for alien monster
+# '$'\U1F980''     for crab
+# ㉿
+
 configure_prompt() {
-    prompt_symbol=㉿
+    prompt_symbol=🦀
     # Skull emoji for root terminal
     #[ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
@@ -266,6 +274,7 @@ alias gs="git status"
 alias la="exa -las modified"
 alias ll="exa -ls modified"
 alias l="exa -s modified -r"
+alias c="cd .."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
@@ -274,3 +283,13 @@ source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+export PATH="$PATH:/home/matt/prog/extern/node/node-v18.16.0-linux-x64/bin"
