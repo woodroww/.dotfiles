@@ -9,6 +9,7 @@ setopt nonomatch           # hide error message if there is no match for the pat
 setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
 setopt promptsubst         # enable command substitution in prompt
+setopt noclobber
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -292,4 +293,8 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
-export PATH="$PATH:/home/matt/prog/extern/node/node-v18.16.0-linux-x64/bin"
+export MANPAGER='nvim +Man!'
+
+eval "$(zoxide init zsh)"
+alias zz="z -"
+
