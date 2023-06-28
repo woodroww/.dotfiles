@@ -81,7 +81,7 @@ return packer.startup(function(use)
   -- https://github.com/nvim-lua/plenary.nvim
   use { 'nvim-lua/plenary.nvim', commit = '9ac3e9541bbabd9d73663d757e4fe48a675bb054' }
   -- https://github.com/j-hui/fidget.nvim
-  use 'j-hui/fidget.nvim'
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
   -- https://github.com/nvim-telescope/telescope.nvim
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
