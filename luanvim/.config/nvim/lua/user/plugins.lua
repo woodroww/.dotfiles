@@ -1,4 +1,7 @@
 -- https://github.com/wbthomason/packer.nvim
+
+-- snapshot dir ~/.cache/nvim/packer.nvim
+
 -- automatically install packer
 local ensure_packer = function()
   local fn = vim.fn
@@ -128,6 +131,7 @@ return packer.startup(function(use)
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets
   -- https://github.com/averms/black-nvim
+  use 'preservim/vim-markdown'
   --use 'averms/black-nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim

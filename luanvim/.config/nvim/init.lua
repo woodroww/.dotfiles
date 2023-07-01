@@ -1,6 +1,10 @@
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
 
+vim.cmd [[
+let g:vim_markdown_folding_disabled = 1
+]]
+
 require("fidget").setup()
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua

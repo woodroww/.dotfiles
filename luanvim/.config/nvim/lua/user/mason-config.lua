@@ -2,6 +2,11 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 local config = require("user.lsp")
 
+-- require("mason-lspconfig").setup({
+--   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "volar" },
+--   installation = true,
+-- })
+
 require("mason-lspconfig").setup_handlers {
   -- default handler
   function(server_name) -- default handler (optional)
