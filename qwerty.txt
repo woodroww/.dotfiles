@@ -33,7 +33,6 @@
 {cbrack}>{speed9}{-rshift}{1}{+rshift}
 {lshift}{cbrack}>{speed9}{-lshift}{2}{+lshift}
 [lalt]>[lwin]
-[rwin]>[lwin]
 [pup]>[caps]
 [rshift]>[lshift]
 [pdown]>[lalt]

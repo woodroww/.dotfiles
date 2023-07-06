@@ -1,6 +1,7 @@
 -- https://github.com/wbthomason/packer.nvim
 
 -- snapshot dir ~/.cache/nvim/packer.nvim
+-- :PackerSnapshot name
 
 -- automatically install packer
 local ensure_packer = function()
@@ -130,9 +131,12 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip' -- snippet engine
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets
+  -- https://github.com/tpope/vim-commentary
+  use 'tpope/vim-commentary'
   -- https://github.com/averms/black-nvim
-  use 'preservim/vim-markdown'
-  --use 'averms/black-nvim'
+  -- use 'averms/black-nvim'
+  -- https://github.com/preservim/vim-markdown
+  -- use 'preservim/vim-markdown'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

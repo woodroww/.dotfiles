@@ -69,6 +69,7 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
+  -- cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer
   ["wgsl_analyzer"] = function()
     require("lspconfig").wgsl_analyzer.setup({
       on_attach = config.on_attach,
@@ -77,6 +78,18 @@ require("mason-lspconfig").setup_handlers {
       filetypes = { "wgsl" },
       root_dir = require("lspconfig").util.root_pattern(".git", "wgsl"),
       settings = {},
+    })
+  end,
+  
+  -- https://github.com/aca/emmet-ls
+  ["emmet_ls"] = function()
+    require("lspconfig").emmet_ls.setup({
+      --on_attach = config.on_attach,
+      capabilities = config.capabilities,
+      filetypes = { "css", "html", "vue" },
+      root_dir = function(fname)
+        return vim.loop.cwd()
+      end,
     })
   end,
 }
