@@ -86,12 +86,13 @@ cmp.setup {
     end,
     deprecated = false,
   },
+  -- this is the order in which they appear
   sources = {
     { name = "nvim_lsp" },
+    { name = "path" },
+    { name = "luasnip" },
     { name = "buffer" },
     { name = "spell" },
-    { name = "luasnip" },
-    { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

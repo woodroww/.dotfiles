@@ -125,6 +125,7 @@ keymap("v", "p", "\"_dP", opts)
 
 --keymap("v", "<leader>p", "P", opts)
 keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
+keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
 --[[
 local function todays_note()
@@ -232,6 +233,8 @@ keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", o
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c", ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
+
+keymap("n", "<leader>cc", ":ColorizerToggle<CR>", opts)
 
 -- change current working directory to current file and print change
 keymap("n", "<leader>cd", ":cd %:p:h<CR>:pwd<CR>", opts)

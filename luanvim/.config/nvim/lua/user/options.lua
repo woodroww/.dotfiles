@@ -84,7 +84,7 @@ augroup MyAutoCommands
 	autocmd User GoyoEnter set linebreak
 	autocmd User GoyoLeave Limelight!
 	autocmd User GoyoLeave set nowrap
-  autocmd User GoyoLeave set nolinebreak
+    autocmd User GoyoLeave set nolinebreak
 
 	" because trunk wasm watch server doesn't recognize when nvim saves
 	" autocmd BufWritePost * !touch <afile>
@@ -118,8 +118,14 @@ augroup MyMarkdownFiles
 augroup end
 
 augroup MyGLSLFiles
-	autocmd!
-  autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+    autocmd!
+    autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+augroup end
+
+" prettier on save for certain files
+augroup Prettier
+    autocmd!
+    autocmd BufWritePre *.html Prettier
 augroup end
 
 ]]
@@ -134,6 +140,7 @@ vim.api.nvim_exec(
 ]]   ,
     false
 )
+
 
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
 --  [[

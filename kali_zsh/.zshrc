@@ -298,3 +298,7 @@ export MANPAGER='nvim +Man!'
 eval "$(zoxide init zsh)"
 alias zz="z -"
 
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/matt/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/home/matt/Applications/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+# if [ -f '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc'; fi

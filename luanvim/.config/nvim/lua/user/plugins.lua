@@ -138,6 +138,12 @@ return packer.startup(function(use)
   -- https://github.com/preservim/vim-markdown
   -- use 'preservim/vim-markdown'
 
+  use {
+    "prettier/vim-prettier",
+    run = "yarn install",
+    ft = { "html" }
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

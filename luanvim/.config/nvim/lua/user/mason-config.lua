@@ -1,9 +1,14 @@
+-- https://github.com/williamboman/mason-lspconfig.nvim
+-- servers are stored in:
+-- ~/.local/share/nvim/mason/packages
+-- servers are listed at:
+-- https://mason-registry.dev/registry/list
 require("mason").setup()
 require("mason-lspconfig").setup()
 local config = require("user.lsp")
 
 -- require("mason-lspconfig").setup({
---   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "volar" },
+--   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "volar", "pyright" },
 --   installation = true,
 -- })
 
