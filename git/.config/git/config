@@ -1,6 +1,11 @@
 [user]
 	name = woodroww
 	email = example528@gmail.com
+	signingkey = 379D422E391EA176
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
 [init]
 	defaultBranch = main
 [filter "lfs"]

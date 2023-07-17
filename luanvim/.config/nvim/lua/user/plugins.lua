@@ -72,6 +72,7 @@ return packer.startup(function(use)
   -- https://github.com/mhinz/vim-startify
   use 'mhinz/vim-startify' -- A start menu for vim
   -- https://github.com/iamcco/markdown-preview.nvim
+  -- :MarkdownPreview
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   -- https://github.com/nvim-tree/nvim-web-devicons
