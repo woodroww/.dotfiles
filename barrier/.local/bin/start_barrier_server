@@ -1,0 +1,17 @@
+#!/bin/bash
+# Purpose: Start Barrier server at desktop session startup
+# Design: + At session start, Gnome will check ~/.config/autostart/
+#           for start-up triggers. barrier.desktop will call this script.
+SERVER=aquiles
+CFG=~/.barrier/barrier-server.cfg
+LOG=~/.barrier/barrier-server.log
+
+#                 --disable-crypto               \
+#                 --disable-client-cert-checking \
+
+/usr/bin/barriers --name $SERVER                 \
+                  --debug DEBUG                  \
+                  --log $LOG                     \
+                  --config $CFG                  \
+                  --address :24800               \
+                  >/dev/null &

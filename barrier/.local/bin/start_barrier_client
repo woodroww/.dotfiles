@@ -1,0 +1,14 @@
+#!/bin/bash
+# Purpose: Run Barrier client at desktop session startup
+# Design: + At session start, Gnome will check ~/.config/autostart/
+#           for start-up triggers. barrier.desktop will call this script.
+
+SERVER=10.0.0.118
+CLIENT=romeo
+# LOG=
+#                  --log   $LOG    \
+# default          --enable-crypto
+
+/usr/bin/barrierc --name  $CLIENT \
+                  --debug DEBUG   \
+                  $SERVER &
