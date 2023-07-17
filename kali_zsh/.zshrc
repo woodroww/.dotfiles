@@ -302,3 +302,6 @@ alias zz="z -"
 # if [ -f '/home/matt/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/home/matt/Applications/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+## how long left in my lease
+lease
