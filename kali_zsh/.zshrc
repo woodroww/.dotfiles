@@ -284,10 +284,13 @@ source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-require-git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+export PATH="/home/matt/.cargo/bin:/home/matt/.local/bin:/usr/local/go/bin:/home/matt/prog/extern/node/node-v18.16.0-linux-x64/bin:$PATH"
+
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
+
 
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
