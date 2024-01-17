@@ -8,7 +8,8 @@ require("mason-lspconfig").setup()
 local config = require("user.lsp")
 
 -- require("mason-lspconfig").setup({
---   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "volar", "pyright" },
+--   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "emmet_ls", "volar", "pyright", "clangd" },
+-- maybe eslint
 --   installation = true,
 -- })
 
@@ -25,16 +26,6 @@ require("mason-lspconfig").setup_handlers {
   end,
 
   -- Next, you can provide a dedicated handler for specific servers.
-  --[[
-  ["rust_analyzer"] = function()
-    require('rust-tools').setup({
-      server = {
-        capabilities = config.capabilities,
-        on_attach = config.on_attach
-      }
-    })
-  end,
-  --]]
 
   ["lua_ls"] = function()
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
@@ -98,16 +89,3 @@ require("mason-lspconfig").setup_handlers {
     })
   end,
 }
-
--- outside of mason
-
-require('rust-tools').setup {
-  server = {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  }
-}
-

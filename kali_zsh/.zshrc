@@ -236,6 +236,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias diff='diff --color=auto'
     alias ip='ip --color=auto'
 
+    alias tp='trash-put'
+
     export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
     export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
     export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
@@ -277,6 +279,8 @@ alias ll="exa -ls modified"
 alias l="exa -s modified -r"
 alias c="cd .."
 
+alias bc="bc -l"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
 source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -306,5 +310,3 @@ alias zz="z -"
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/matt/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 
-## how long left in my lease
-lease

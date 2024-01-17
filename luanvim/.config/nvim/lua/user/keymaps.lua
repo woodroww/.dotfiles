@@ -4,6 +4,9 @@ local keymap = vim.api.nvim_set_keymap
 --[[----------------------------------------------------------------------------
  Key mappings
 --------------------------------------------------------------------------------
+keymap(mode, key you want to remap, to do what)
+keymap("", "", "", opts)
+
 How to list the current keymappings with help from romainl on StackOverflow:
 
 :map
@@ -27,9 +30,6 @@ operator pending mode = "o"
 operator pending mode like after you press y for yank or d for delete then
 you want to make a move
 
-keymap(mode, key you want to remap, to do what)
-keymap("", "", "", opts)
-
 --]]
 
 
@@ -37,7 +37,6 @@ keymap("", "", "", opts)
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
@@ -50,7 +49,6 @@ keymap("n", "<F8>", ":w<cr>", opts)
 -- keymap("n", "<C-u>", ":call comfortable_motion#flick(-100)<CR>", opts)
 
 keymap("n", "<c-p>", "<c-i>", opts)
-keymap("n", "<c-i>", ":Telescope find_files cwd=/home/matt/obsidian<cr>", opts)
 
 -- keep selected when indenting with >> or <<
 keymap("v", "<", "<gv", opts)
@@ -74,8 +72,8 @@ keymap("n", "<c-Left>", ":vertical resize +3<CR>", opts)
 keymap("n", "<c-Right>", ":vertical resize -3<CR>", opts)
 keymap("n", "<c-Up>", ":resize -3<CR>", opts)
 keymap("n", "<c-Down>", ":resize +3<CR>", opts)
-keymap("t", "<c-Left>", "<CMD>vertical resize +3<CR>", opts)
-keymap("t", "<c-Right>", "<CMD>vertical resize -3<CR>", opts)
+-- keymap("t", "<c-Left>", "<CMD>vertical resize +3<CR>", opts)
+-- keymap("t", "<c-Right>", "<CMD>vertical resize -3<CR>", opts)
 keymap("t", "<c-Up>", "<CMD>resize -3<CR>", opts)
 keymap("t", "<c-Down>", "<CMD>resize +3<CR>", opts)
 
@@ -229,7 +227,7 @@ keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display =
 --keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>o", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
+keymap("n", "<c-i>", ":Telescope find_files cwd=/home/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c", ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)

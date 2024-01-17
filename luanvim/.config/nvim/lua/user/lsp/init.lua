@@ -83,15 +83,16 @@ require 'lspconfig'.glslls.setup {
   },
 }
 
---[[
 require('rust-tools').setup {
-  capabilities = M.capabilities,
-  on_attach = M.on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  server = {
+    capabilities = M.capabilities,
+    on_attach = M.on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
 }
---]]
 
+require('rust-tools').inlay_hints.disable()
 
 return M

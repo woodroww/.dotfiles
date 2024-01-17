@@ -1,20 +1,16 @@
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
 require "user.plugins"
-
-require("fidget").setup()
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
 require "user.keymaps"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
 
+require("fidget").setup()
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/mason-config.lua
 require "user.mason-config"
+-- mason calls require "user.lsp" below:
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
--- mason calls require "user.lsp"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
 require "user.cmp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.lua

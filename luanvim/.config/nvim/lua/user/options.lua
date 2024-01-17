@@ -123,7 +123,7 @@ augroup MyGLSLFiles
 augroup end
 
 " prettier on save for certain files
-augroup Prettier
+augroup MyPrettier
     autocmd!
     autocmd BufWritePre *.html Prettier
 augroup end

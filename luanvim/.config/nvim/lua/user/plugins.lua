@@ -89,7 +89,7 @@ return packer.startup(function(use)
   use { 'j-hui/fidget.nvim', tag = 'legacy' }
   -- https://github.com/nvim-telescope/telescope.nvim
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   -- https://github.com/nvim-telescope/telescope-file-browser.nvim
@@ -138,11 +138,11 @@ return packer.startup(function(use)
   -- use 'averms/black-nvim'
   -- https://github.com/preservim/vim-markdown
   -- use 'preservim/vim-markdown'
-
+  -- https://github.com/prettier/vim-prettier
   use {
     "prettier/vim-prettier",
     run = "yarn install",
-    ft = { "html" }
+    ft = { "html", "vue", "json", "js" },
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
