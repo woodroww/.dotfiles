@@ -70,11 +70,15 @@ return packer.startup(function(use)
   -- https://github.com/norcalli/nvim-colorizer.lua
   use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
   -- https://github.com/mhinz/vim-startify
-  use 'mhinz/vim-startify' -- A start menu for vim
+  use 'mhinz/vim-startify'          -- A start menu for vim
   -- https://github.com/iamcco/markdown-preview.nvim
   -- :MarkdownPreview
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
   -- https://github.com/nvim-tree/nvim-web-devicons
   use 'nvim-tree/nvim-web-devicons'
   -- https://github.com/SmiteshP/nvim-navic
@@ -96,7 +100,8 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
   use { 'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    run =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -127,15 +132,18 @@ return packer.startup(function(use)
   -- https://github.com/hrsh7th/cmp-cmdline
   use 'hrsh7th/cmp-cmdline'
   -- https://github.com/saadparwaiz1/cmp_luasnip
-  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use 'saadparwaiz1/cmp_luasnip'     -- snippet completions
   -- https://github.com/L3MON4D3/LuaSnip
-  use 'L3MON4D3/LuaSnip' -- snippet engine
+  use 'L3MON4D3/LuaSnip'             -- snippet engine
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets
   -- https://github.com/tpope/vim-commentary
   use 'tpope/vim-commentary'
   -- https://github.com/averms/black-nvim
-  -- use 'averms/black-nvim'
+    -- pip install pynvim black
+    -- /home/matt/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
+      -- black_virtualenv and python3_host_prog
+  use 'averms/black-nvim'
   -- https://github.com/preservim/vim-markdown
   -- use 'preservim/vim-markdown'
   -- https://github.com/prettier/vim-prettier
@@ -144,6 +152,31 @@ return packer.startup(function(use)
     run = "yarn install",
     ft = { "html", "vue", "json", "js" },
   }
+  -- https://github.com/epwalsh/obsidian.nvim
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*", -- recommended, use latest release instead of latest commit
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "personal",
+            path = "~/obsidian",
+          },
+        },
+        completion = {
+          nvim_cmp = true,
+          min_chars = 2,
+        },
+        follow_url_func = function(url)
+          vim.fn.jobstart({"open", url})
+        end,
+      })
+    end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -151,4 +184,3 @@ return packer.startup(function(use)
     require('packer').sync()
   end
 end)
-

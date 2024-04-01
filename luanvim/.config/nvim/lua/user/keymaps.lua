@@ -125,11 +125,10 @@ keymap("v", "p", "\"_dP", opts)
 keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
---[[
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory = "/Users/matt/obsidian/QuickNotes/"
+	local directory = "/home/matt/obsidian/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -148,7 +147,6 @@ local function todays_note()
 end
 
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
---]]
 
 -- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope
 -- checks for smart display

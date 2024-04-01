@@ -1,7 +1,7 @@
 -- for syntax highlighting
 require'nvim-treesitter.configs'.setup {
   --ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "markdown", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua", "glsl" },
+	ensure_installed = { "markdown", "markdown_inline", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua", "glsl" },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
