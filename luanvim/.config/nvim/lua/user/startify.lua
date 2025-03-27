@@ -1,5 +1,8 @@
 -- https://github.com/mhinz/vim-startify
 -- https://www.coolgenerator.com/ascii-text-generator
+
+-- let g:startify_custom_header = ['    Neovim']
+
 vim.cmd [[
 let g:startify_custom_header = [
 \ '      ::::    ::: :::::::::: ::::::::  :::     ::: :::::::::::   :::   ::: ',
@@ -33,7 +36,6 @@ let g:startify_custom_header = [
 \ '                                  ░                  ',
 \ ]
 
-let g:startify_custom_header = ['    Neovim']
 
 let g:startify_bookmarks = [
 	\ ]

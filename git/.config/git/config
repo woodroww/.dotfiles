@@ -38,3 +38,5 @@
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [advice]
 	detachedHead = false
+[gpg]
+	program = /usr/bin/gpg

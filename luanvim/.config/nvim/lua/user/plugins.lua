@@ -68,7 +68,7 @@ return packer.startup(function(use)
   -- https://github.com/base16-project/base16-vim
   use { 'base16-project/base16-vim', commit = '88a1e73e5358fefe0288538e6866f99d5487c5a0' }
   -- https://github.com/norcalli/nvim-colorizer.lua
-  use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+  -- use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
   -- https://github.com/mhinz/vim-startify
   use 'mhinz/vim-startify'          -- A start menu for vim
   -- https://github.com/iamcco/markdown-preview.nvim

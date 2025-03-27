@@ -253,7 +253,7 @@ fi
 
 # some more ls aliases
 # alias ll='ls -l'
-# alias la='ls -A'
+# alias la='ls -lA'
 # alias l='ls -CF'
 
 # enable auto-suggestions based on the history
@@ -275,8 +275,8 @@ fi
 # this hides gs ghostscript
 alias gs="git status"
 alias la="exa -las modified"
-alias ll="exa -ls modified"
-alias l="exa -s modified -r"
+alias l="exa -ls modified"
+alias ll="exa -s modified -r"
 alias c="cd .."
 
 alias bc="bc -l"
