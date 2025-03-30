@@ -131,7 +131,7 @@ keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 local function todays_note()
 	local d = os.date("*t")
 	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory = "/home/matt/obsidian/QuickNotes/"
+	local directory = "/Users/matt/obsidian/QuickNotes/"
 	local file_name = directory .. today .. "-quick_note.md"
 	local file = io.open(file_name, "r")
 	local command = ":e " .. file_name .. "<cr>"
@@ -177,7 +177,7 @@ function grep_notes()
 		hidden = true,
 		max_results = 300,
 		search_dirs = {
-			"/home/matt/obsidian",
+			"/Users/matt/obsidian",
 		},
 		--prompt_prefix = "   ",
 		prompt_title = " Grep Notes",
@@ -228,7 +228,7 @@ keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display =
 --keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<c-i>", ":Telescope find_files cwd=/home/matt/obsidian<cr>", opts)
+keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c", ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)

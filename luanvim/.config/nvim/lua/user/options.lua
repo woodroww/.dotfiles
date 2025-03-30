@@ -56,8 +56,8 @@ end
 
 vim.cmd [[
 
-let g:python3_host_prog = '/home/matt/.pyenv/versions/lovely/bin/python'
-let g:black_virtualenv = '/home/matt/.pyenv/versions/lovely'
+let g:python3_host_prog = '/Users/matt/.pyenv/versions/lovely/bin/python'
+let g:black_virtualenv = '/Users/matt/.pyenv/versions/lovely'
 
 " default
 " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20

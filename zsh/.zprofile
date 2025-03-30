@@ -1,6 +1,4 @@
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
 export PATH="$PATH:/Users/matt/.local/bin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
