@@ -66,8 +66,14 @@ return packer.startup(function(use)
   -- https://github.com/AckslD/nvim-neoclip.lua
   use 'AckslD/nvim-neoclip.lua'
   -- https://github.com/base16-project/base16-vim
-  use { 'base16-project/base16-vim', commit = '88a1e73e5358fefe0288538e6866f99d5487c5a0' }
-  -- https://github.com/norcalli/nvim-colorizer.lua
+  -- https://github.com/tinted-theming/tinted-vim
+  use {
+    "tinted-theming/tinted-vim",
+    config = function()
+      vim.cmd.colorscheme 'base16-tomorrow-night'
+    end,
+  }
+  -- https://github.com/norcalli/nvim-colorizer
   -- use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
   -- https://github.com/mhinz/vim-startify
   use 'mhinz/vim-startify'          -- A start menu for vim
@@ -88,7 +94,7 @@ return packer.startup(function(use)
   -- https://github.com/simrat39/rust-tools.nvim
   use 'simrat39/rust-tools.nvim'
   -- https://github.com/nvim-lua/plenary.nvim
-  use { 'nvim-lua/plenary.nvim', commit = '9ac3e9541bbabd9d73663d757e4fe48a675bb054' }
+  use { 'nvim-lua/plenary.nvim' }
   -- https://github.com/j-hui/fidget.nvim
   use { 'j-hui/fidget.nvim', tag = 'legacy' }
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -120,6 +126,7 @@ return packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
+
   -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/nvim-cmp'
   -- https://github.com/hrsh7th/cmp-nvim-lsp
@@ -137,6 +144,7 @@ return packer.startup(function(use)
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets' -- a bunch of snippets
   -- https://github.com/tpope/vim-commentary
+
   use 'tpope/vim-commentary'
   -- https://github.com/averms/black-nvim
     -- pip install pynvim black

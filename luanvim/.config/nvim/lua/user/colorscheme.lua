@@ -22,6 +22,8 @@ if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
 endif
 set background=dark
 let base16colorspace=256
+let tinted_colorspace=256
+let base16_colorspace=256
 let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 
 " colorscheme gruvbox
