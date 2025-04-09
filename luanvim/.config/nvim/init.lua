@@ -1,7 +1,10 @@
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/plugins.lua
-require "user.plugins"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
 require "user.keymaps"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/plugins/init.lua
+require("config.lazy")
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
 
@@ -11,17 +14,19 @@ require("fidget").setup()
 require "user.mason-config"
 -- mason calls require "user.lsp" below:
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
-require "user.cmp"
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
+----require "user.cmp"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.lua
-require "user.lightline"
+----require "user.lightline"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/navic_config.lua
 require("user.navic_config")
 vim.o.winbar = "%{%v:lua.require'user.navic_config'.eval()%}"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim
-vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
+----vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/lua/user/send_to_window.vim')
 
 -- ~/.dotfiles/luanvim/.config/nvim/bclose.vim
 vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/bclose.vim')
@@ -30,10 +35,10 @@ vim.cmd('source ~/.dotfiles/luanvim/.config/nvim/bclose.vim')
 require "user.treesitter_playground"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/colorscheme.lua
-require "user.colorscheme"
+----require "user.colorscheme"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
-require "user.treesyntax"
+----require "user.treesyntax"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"

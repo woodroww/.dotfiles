@@ -58,7 +58,9 @@ end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
 cc.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = require 'cmp_nvim_lsp'.default_capabilities(cc)
+--- M.capabilities = require 'cmp_nvim_lsp'.default_capabilities(cc)
+
+M.capabilities = require('blink.cmp').get_lsp_capabilities()
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
   { virtual_text = false, })
@@ -82,17 +84,5 @@ require 'lspconfig'.glslls.setup {
     debounce_text_changes = 150,
   },
 }
-
-require('rust-tools').setup {
-  server = {
-    capabilities = M.capabilities,
-    on_attach = M.on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  }
-}
-
-require('rust-tools').inlay_hints.disable()
 
 return M
