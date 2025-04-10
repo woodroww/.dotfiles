@@ -14,7 +14,7 @@ How to list the current keymappings with help from romainl on StackOverflow:
 
 :map
 
-:verbose map <leader>  " all mapping in all modes that use <leader>, 
+:verbose map <leader>  " all mapping in all modes that use <leader>,
                        " and where they are defined
 :verbose map <buffer>  " all mappings defined for the current buffer,
                        " and where they are defined
@@ -37,9 +37,10 @@ you want to make a move
 
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+--keymap("", "<Space>", "<Nop>", opts)
+--vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
+--vim.g.mapleader = " "
+--vim.g.maplocalleader = " "
 
 -- open the nvim main config file
 keymap("n", "<leader>ve", ":edit ~/.config/nvim/init.lua<CR>", opts)
@@ -129,24 +130,25 @@ keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
 local function todays_note()
-	local d = os.date("*t")
-	local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-	local directory = "/Users/matt/obsidian/QuickNotes/"
-	local file_name = directory .. today .. "-quick_note.md"
-	local file = io.open(file_name, "r")
-	local command = ":e " .. file_name .. "<cr>"
-	if file ~= nil then
-		io.close(file)
-		--print("Found today's note")
-	else
-		--print("Creating today's note")
-		local new_file = io.open(file_name, "w")
-		if new_file ~= nil then
-			new_file:write("# Matt's Daily Note " .. today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
-			new_file:close()
-		end
-	end
-	return command
+  local d = os.date("*t")
+  local today = string.format("%d-%d-%d", d.year, d.month, d.day)
+  local directory = "/Users/matt/obsidian/QuickNotes/"
+  local file_name = directory .. today .. "-quick_note.md"
+  local file = io.open(file_name, "r")
+  local command = ":e " .. file_name .. "<cr>"
+  if file ~= nil then
+    io.close(file)
+    --print("Found today's note")
+  else
+    --print("Creating today's note")
+    local new_file = io.open(file_name, "w")
+    if new_file ~= nil then
+      new_file:write("# Matt's Daily Note " ..
+      today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
+      new_file:close()
+    end
+  end
+  return command
 end
 
 keymap("n", "<leader>qn", todays_note() .. "G", opts)
@@ -159,7 +161,7 @@ keymap("n", "<leader>qn", todays_note() .. "G", opts)
 my_path_display = function(opts, path)
   local tail = require("telescope.utils").path_tail(path)
   return string.format("%s (%s)", tail, path)
---[[
+  --[[
 	local dirs = vim.split(path, "/")
 	local last_dir = dirs[#dirs]
 	local result = "" .. last_dir
@@ -171,36 +173,36 @@ my_path_display = function(opts, path)
 end
 
 function grep_notes()
-	local note_opts = {
-		noremap = true,
-		silent = true,
-		hidden = true,
-		max_results = 300,
-		search_dirs = {
-			"/Users/matt/obsidian",
-		},
-		--prompt_prefix = "   ",
-		prompt_title = " Grep Notes",
-		path_display = { "smart" }
-	}
-	require("telescope.builtin").live_grep(note_opts)
+  local note_opts = {
+    noremap = true,
+    silent = true,
+    hidden = true,
+    max_results = 300,
+    search_dirs = {
+      "/Users/matt/obsidian",
+    },
+    --prompt_prefix = "   ",
+    prompt_title = " Grep Notes",
+    path_display = { "smart" }
+  }
+  require("telescope.builtin").live_grep(note_opts)
 end
 
 function setAutoCmp(mode)
-	local cmp = require("cmp")
-	if mode then
-		cmp.setup({
-			completion = {
-				autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
-			}
-		})
-	else
-		cmp.setup({
-			completion = {
-				autocomplete = false
-			}
-		})
-	end
+  local cmp = require("cmp")
+  if mode then
+    cmp.setup({
+      completion = {
+        autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged }
+      }
+    })
+  else
+    cmp.setup({
+      completion = {
+        autocomplete = false
+      }
+    })
+  end
 end
 
 -- turn on/off the autocompletion cmp
@@ -216,22 +218,27 @@ keymap("n", "<leader>f", ":Telescope<cr>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fD",
-	":lua require('telescope').extensions.file_browser.file_browser()<cr>:lua print(vim.fn.getcwd())<cr>", opts)
-keymap("n", "<leader>fd",
-	":lua require('telescope').extensions.file_browser.file_browser({respect_gitignore=false})<cr>:lua print(vim.fn.getcwd())<cr>"
-	, opts)
+
+vim.keymap.set('n', '<leader>fD', require('telescope').extensions.file_browser.file_browser)
+vim.keymap.set('n', '<leader>fd', function()
+  require('telescope').extensions.file_browser.file_browser({ respect_gitignore = false })
+end
+)
+
 -- /Users/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/make_entry.lua
 -- function make_entry.gen_from_buffer(opts)
 -- keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display, bufnr_width = 0})<cr>", opts)
-keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({ path_display = truncate, sort_mru = true, ignore_current_buffer = true })<cr>", opts)
+keymap("n", "<C-f>",
+  ":lua require('telescope.builtin').buffers({ path_display = truncate, sort_mru = true, ignore_current_buffer = true })<cr>",
+  opts)
 --keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
-keymap("n", "<leader>c", ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
+keymap("n", "<leader>c",
+  ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
 
 keymap("n", "<leader>cc", ":ColorizerToggle<CR>", opts)
 
@@ -244,11 +251,11 @@ keymap("n", "<leader>cp", ":let @+ = expand(\"%:p\")<CR>", opts)
 keymap("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
 -- to turn on and off annoying errors (e)rror (f)alse and (e)rror (t)true
 keymap("n", "<leader>ef",
-	":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>"
-	, opts)
+  ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false, })<cr>"
+  , opts)
 keymap("n", "<leader>et",
-	":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>"
-	, opts)
+  ":lua vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true, })<cr>"
+  , opts)
 
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- buffer delete without closing window
@@ -256,6 +263,14 @@ keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
 keymap("n", "<leader>sp", ":set spell!<CR>", opts)
 
+
+vim.keymap.set("n", "gf", function()
+  if require("obsidian").util.cursor_on_markdown_link() then
+    return "<cmd>ObsidianFollowLink<CR>"
+  else
+    return "gf"
+  end
+end, { noremap = false, expr = true })
 
 vim.cmd [[
 " inoremap " ""<Left>

@@ -5,6 +5,8 @@
 -- https://mason-registry.dev/registry/list
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 local config = require("user.lsp")
 
 -- require("mason-lspconfig").setup({

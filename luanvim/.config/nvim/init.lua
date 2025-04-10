@@ -1,9 +1,12 @@
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
-require "user.keymaps"
+vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/plugins/init.lua
 require("config.lazy")
+
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
+require "user.keymaps"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
 require "user.options"
@@ -15,11 +18,8 @@ require "user.mason-config"
 -- mason calls require "user.lsp" below:
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/cmp.lua
-----require "user.cmp"
-
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lightline.lua
-----require "user.lightline"
+require "user.lightline"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/navic_config.lua
 require("user.navic_config")

@@ -54,6 +54,7 @@ function M.on_attach(client, bufnr)
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
   end
+  --client.server_capabilities.semanticTokensProvider = vim.NIL
 end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
@@ -64,6 +65,31 @@ M.capabilities = require('blink.cmp').get_lsp_capabilities()
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
   { virtual_text = false, })
+
+--vim.highlight.priorities.semantic_tokens = 95
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = function(client, bufnr)
+      local opts = { noremap = true, silent = true }
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-s>', ':lua vim.lsp.buf.signature_help()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', ':lua vim.lsp.buf.type_definition()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', ':lua vim.lsp.buf.rename()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', ':lua vim.lsp.buf.code_action()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>e', ':lua vim.diagnostic.open_float()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', ':lua vim.diagnostic.goto_prev()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', ':lua vim.diagnostic.goto_next()<CR>', opts)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>q', ':lua vim.diagnostic.setloclist()<CR>', opts)
+    end,
+    capabilities = M.capabilities,
+  },
+}
 
 -- Swift c/c++/objective-c
 -- https://github.com/apple/sourcekit-lsp
