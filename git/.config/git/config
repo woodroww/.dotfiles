@@ -7,7 +7,7 @@
 [tag]
 	gpgsign = true
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

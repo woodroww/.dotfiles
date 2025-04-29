@@ -1,6 +1,4 @@
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/plugins/init.lua
 require("config.lazy")

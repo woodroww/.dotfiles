@@ -72,8 +72,11 @@ return {
     tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
-    }
+      'nvim-telescope/telescope-fzf-native.nvim'
+    },
+    config = function()
+      require('telescope').load_extension('fzf')
+    end
   },
   -- https://github.com/nvim-telescope/telescope-file-browser.nvim
   { 'nvim-telescope/telescope-file-browser.nvim' },
@@ -129,6 +132,11 @@ return {
       },
       follow_url_func = function(url)
         vim.fn.jobstart({ "open", url })
+        -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      end,
+      follow_img_func = function(img)
+        vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
+        -- vim.fn.jobstart({"xdg-open", url})  -- linux
       end,
     }
   },
@@ -151,8 +159,15 @@ return {
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      enabled = function()
+        return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
+      end,
     },
-    opts_extend = { "sources.default" }
-  }
+
+    opts_extend = { "sources.default" },
+    menu = {
+      auto_show = false,
+    },
+  },
 }
