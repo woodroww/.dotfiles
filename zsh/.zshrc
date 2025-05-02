@@ -250,7 +250,7 @@ alias ll="exa -ls modified"
 alias l="exa -s modified -r"
 alias cp="cp -i"
 alias mv="mv -i"
-alias nvr="/Users/matt/.pyenv/versions/3.8.12/envs/lovely/bin/nvr"
+#alias nvr="/Users/matt/.pyenv/versions/3.8.12/envs/lovely/bin/nvr"
 alias bc="bc -l"
 
 alias pw () {
@@ -274,6 +274,8 @@ setopt SHARE_HISTORY
 # available immediately from other instances of the shell that are using the
 # same history file as does SHARE_HISTORY
 
+source <(fzf --zsh)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
 #export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
@@ -296,6 +298,7 @@ autoload -Uz compinit && compinit
 
 eval "$(zoxide init zsh)"
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
