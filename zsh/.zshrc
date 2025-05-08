@@ -299,7 +299,7 @@ autoload -Uz compinit && compinit
 eval "$(zoxide init zsh)"
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 export PATH=$PATH:$HOME/go/bin

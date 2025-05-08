@@ -56,6 +56,8 @@ end
 
 vim.cmd [[
 
+let g:vim_markdown_folding_disabled = 1
+
 let g:python3_host_prog = '/Users/matt/.pyenv/versions/lovely/bin/python'
 let g:black_virtualenv = '/Users/matt/.pyenv/versions/lovely'
 

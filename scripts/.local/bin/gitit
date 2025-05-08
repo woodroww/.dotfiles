@@ -4,13 +4,17 @@ import webbrowser
 import subprocess
 
 if __name__ == '__main__':
-    #chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+    # macos
+    chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
     #safari_path = 'open -a /Applications/Safari.app %s'
-    chrome_path = 'google-chrome'
-    process = subprocess.run(['git', 'remote', 'get-url', 'origin'], 
-                             stdout=subprocess.PIPE, 
+    # linux
+    # chrome_path = 'google-chrome'
+
+    process = subprocess.run(['git', 'remote', 'get-url', 'origin'],
+                             stdout=subprocess.PIPE,
                              universal_newlines=True)
-    url = process.stdout[:-1] # \n
+    # \n
+    url = process.stdout[:-1]
     if url.startswith('http'):
         webbrowser.get(chrome_path).open(url)
     elif url.startswith('git'):
@@ -18,4 +22,3 @@ if __name__ == '__main__':
         url = url.replace(':', '/')
         url = 'https://' + url
         webbrowser.get(chrome_path).open(url)
-

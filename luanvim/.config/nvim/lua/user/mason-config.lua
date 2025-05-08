@@ -4,7 +4,7 @@
 -- servers are listed at:
 -- https://mason-registry.dev/registry/list
 require("mason").setup()
-require("mason-lspconfig").setup()
+--require("mason-lspconfig").setup()
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 local config = require("user.lsp")
@@ -15,7 +15,7 @@ local config = require("user.lsp")
 --   installation = true,
 -- })
 
-require("mason-lspconfig").setup_handlers {
+require("mason-lspconfig").setup {
   -- default handler
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup {

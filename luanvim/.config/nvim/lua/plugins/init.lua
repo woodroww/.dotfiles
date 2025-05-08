@@ -15,8 +15,6 @@ return {
   { 'sindrets/diffview.nvim',     dependencies = 'nvim-lua/plenary.nvim' },
   -- https://github.com/szw/vim-g
   { 'szw/vim-g' }, -- :Google from the command line thing
-  -- https://github.com/tpope/vim-surround
-  { 'tpope/vim-surround' },
   -- https://github.com/mbbill/undotree
   { 'mbbill/undotree' },
   -- https://github.com/junegunn/goyo.vim
@@ -37,6 +35,10 @@ return {
   -- use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
   -- https://github.com/mhinz/vim-startify
   { 'mhinz/vim-startify' },
+
+  -- https://github.com/preservim/vim-markdown
+  -- { 'preservim/vim-markdown' },
+
   -- https://github.com/iamcco/markdown-preview.nvim
   -- :MarkdownPreview
   {
@@ -49,10 +51,10 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   -- https://github.com/SmiteshP/nvim-navic
   { 'SmiteshP/nvim-navic' },
+  -- does this rust.vim provide better syntax highlighting idk
   -- https://github.com/rust-lang/rust.vim
   --{ 'rust-lang/rust.vim' },
-  -- https://github.com/simrat39/rust-tools.nvim
-  --{ 'simrat39/rust-tools.nvim' },
+  -- https://github.com/mrcjkb/rustaceanvim
   {
     'mrcjkb/rustaceanvim',
     version = '^6', -- Recommended
@@ -63,8 +65,9 @@ return {
   { 'nvim-lua/plenary.nvim' },
 
   -- https://github.com/j-hui/fidget.nvim
-  { 'j-hui/fidget.nvim',    tag = 'legacy' },
+  { 'j-hui/fidget.nvim',                        tag = 'legacy' },
 
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   -- https://github.com/nvim-telescope/telescope.nvim
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
   {
@@ -94,20 +97,12 @@ return {
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   -- https://github.com/williamboman/mason.nvim
-  { 'williamboman/mason.nvim' },
+  { 'mason-org/mason.nvim' },
   -- https://github.com/williamboman/mason-lspconfig.nvim
-  { 'williamboman/mason-lspconfig.nvim' },
+  { 'mason-org/mason-lspconfig.nvim' },
   -- https://github.com/neovim/nvim-lspconfig
   { 'neovim/nvim-lspconfig' },
 
-  { 'tpope/vim-commentary' },
-  -- https://github.com/averms/black-nvim
-  -- pip install pynvim black
-  -- /home/matt/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
-  -- black_virtualenv and python3_host_prog
-  { 'averms/black-nvim',                          lazy = true, },
-  -- https://github.com/preservim/vim-markdown
-  -- use 'preservim/vim-markdown'
   -- https://github.com/prettier/vim-prettier
   {
     "prettier/vim-prettier",
