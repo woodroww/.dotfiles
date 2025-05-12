@@ -1,4 +1,5 @@
 return {
+  { 'karoliskoncevicius/vim-sendtowindow' },
   -- https://github.com/aymericbeaumet/vim-symlink
   -- because linux doesn't follow links and just writes new files idk???
   { 'aymericbeaumet/vim-symlink', dependencies = { 'moll/vim-bbye' } },

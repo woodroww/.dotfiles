@@ -1,13 +1,13 @@
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
+-- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
+require "user.options"
+
 -- ~/.dotfiles/luanvim/.config/nvim/lua/plugins/init.lua
 require("config.lazy")
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
 require "user.keymaps"
-
--- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua
-require "user.options"
 
 require("fidget").setup()
 
