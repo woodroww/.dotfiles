@@ -36,7 +36,7 @@ require "user.treesitter_playground"
 ----require "user.colorscheme"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/treesyntax.lua
-----require "user.treesyntax"
+require "user.treesyntax"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/telescope_config.lua
 require "user.telescope_config"
@@ -46,4 +46,3 @@ require "user.startify"
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/plug-colorizer.lua
 -- require "user.plug-colorizer"
- 

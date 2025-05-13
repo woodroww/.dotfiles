@@ -213,11 +213,11 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # some more ls aliases
-alias ls="ls -GF"
-alias ll="ls -lGF"
-alias la="ls -aGF"
-alias l="ls -GF"
-alias lla="ls -alGF"
+# alias ls="ls -GF"
+# alias ll="ls -lGF"
+# alias la="ls -aGF"
+# alias l="ls -GF"
+# alias lla="ls -alGF"
 
 #add other alias or other config
 if [ -f ~/.alias ]; then

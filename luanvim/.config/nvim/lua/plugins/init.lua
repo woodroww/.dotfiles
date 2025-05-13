@@ -2,7 +2,7 @@ return {
   { 'karoliskoncevicius/vim-sendtowindow' },
   -- https://github.com/aymericbeaumet/vim-symlink
   -- because linux doesn't follow links and just writes new files idk???
-  { 'aymericbeaumet/vim-symlink', dependencies = { 'moll/vim-bbye' } },
+  { 'aymericbeaumet/vim-symlink',         dependencies = { 'moll/vim-bbye' } },
 
   -- https://github.com/gruvbox-community/gruvbox
   { 'gruvbox-community/gruvbox' },
@@ -13,7 +13,7 @@ return {
   -- https://github.com/airblade/vim-gitgutter
   { 'airblade/vim-gitgutter' },
   -- https://github.com/sindrets/diffview.nvim
-  { 'sindrets/diffview.nvim',     dependencies = 'nvim-lua/plenary.nvim' },
+  { 'sindrets/diffview.nvim',             dependencies = 'nvim-lua/plenary.nvim' },
   -- https://github.com/szw/vim-g
   { 'szw/vim-g' }, -- :Google from the command line thing
   -- https://github.com/mbbill/undotree
@@ -96,7 +96,7 @@ return {
   -- https://github.com/nvim-treesitter/playground
   { 'nvim-treesitter/playground' },
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  -- { 'nvim-treesitter/nvim-treesitter-textobjects' },
   -- https://github.com/williamboman/mason.nvim
   { 'mason-org/mason.nvim' },
   -- https://github.com/williamboman/mason-lspconfig.nvim
