@@ -9,7 +9,7 @@ require("config.lazy")
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/keymaps.lua
 require "user.keymaps"
 
-require("fidget").setup()
+-- require("fidget").setup()
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/mason-config.lua
 require "user.mason-config"

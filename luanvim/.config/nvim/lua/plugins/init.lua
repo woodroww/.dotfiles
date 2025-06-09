@@ -66,7 +66,13 @@ return {
   { 'nvim-lua/plenary.nvim' },
 
   -- https://github.com/j-hui/fidget.nvim
-  { 'j-hui/fidget.nvim',                        tag = 'legacy' },
+  -- {
+  --   'j-hui/fidget.nvim',
+  --   tag = 'v1.6.1',
+  --   display = {
+  --     render_limit = 0, -- How many LSP messages to show at once
+  --   }
+  -- },
 
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -138,8 +144,17 @@ return {
   },
   {
     'saghen/blink.cmp',
+    -- https://github.com/saghen/blink.cmp
+    -- docs https://cmp.saghen.dev
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = {
+      {
+        'Kaiser-Yang/blink-cmp-dictionary',
+        dictionary_files = { vim.fn.expand('~/.dotfiles/luanvim/.config/nvim/spell/words.txt') },
+        dependencies = { 'nvim-lua/plenary.nvim' }
+      },
+        'rafamadriz/friendly-snippets'
+    },
     build = 'cargo build --release',
     opts = {
       -- See :h blink-cmp-config-keymap for defining your own keymap
@@ -151,13 +166,28 @@ return {
       appearance = {
         nerd_font_variant = 'Nerd Font Mono'
       },
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+        menu = { auto_show = false }
+      },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'dictionary' },
+        providers = {
+            dictionary = {
+                module = 'blink-cmp-dictionary',
+                name = 'Dict',
+                -- Make sure this is at least 2.
+                -- 3 is recommended
+                min_keyword_length = 3,
+                opts = {
+                    -- options for blink-cmp-dictionary
+                },
+            }
+        },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
       enabled = function()
-        return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
+        return not vim.tbl_contains({ "lua" }, vim.bo.filetype)
       end,
     },
 

@@ -5,7 +5,7 @@ import subprocess
 
 if __name__ == '__main__':
     # macos
-    chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+    chrome_path = 'open -a /Applications/Google\\ Chrome.app %s'
     #safari_path = 'open -a /Applications/Safari.app %s'
     # linux
     # chrome_path = 'google-chrome'

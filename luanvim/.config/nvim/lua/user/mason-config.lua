@@ -78,7 +78,7 @@ require("mason-lspconfig").setup {
       settings = {},
     })
   end,
-  
+
   -- https://github.com/aca/emmet-ls
   ["emmet_ls"] = function()
     require("lspconfig").emmet_ls.setup({
