@@ -129,49 +129,6 @@ keymap("v", "p", "\"_dP", opts)
 keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
-local function todays_note()
-  local d = os.date("*t")
-  local today = string.format("%d-%d-%d", d.year, d.month, d.day)
-  local directory = "/Users/matt/obsidian/QuickNotes/"
-  local file_name = directory .. today .. "-quick_note.md"
-  local file = io.open(file_name, "r")
-  local command = ":e " .. file_name .. "<cr>"
-  if file ~= nil then
-    io.close(file)
-    --print("Found today's note")
-  else
-    --print("Creating today's note")
-    local new_file = io.open(file_name, "w")
-    if new_file ~= nil then
-      new_file:write("# Matt's Daily Note " ..
-      today .. "\n\n## Acceptance:\n\n## Gratitude:\n\n## Faith:\n\n## Notes:\n\n")
-      new_file:close()
-    end
-  end
-  return command
-end
-
-keymap("n", "<leader>qn", todays_note() .. "G", opts)
-
--- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope
--- checks for smart display
--- utils.path_smart function
---   utils.path_smart = (function()
--- /Users/matt/.local/share/nvim/plugged/telescope.nvim/lua/telescope/utils.lua
-my_path_display = function(opts, path)
-  local tail = require("telescope.utils").path_tail(path)
-  return string.format("%s (%s)", tail, path)
-  --[[
-	local dirs = vim.split(path, "/")
-	local last_dir = dirs[#dirs]
-	local result = "" .. last_dir
-	if #dirs > 1 then
-		result = dirs[#dirs - 1] .. "/" .. result
-	end
-	return result
---]]
-end
-
 function grep_notes()
   local note_opts = {
     noremap = true,
@@ -225,9 +182,6 @@ vim.keymap.set('n', '<leader>fd', function()
 end
 )
 
--- /Users/matt/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/make_entry.lua
--- function make_entry.gen_from_buffer(opts)
--- keymap("n", "<C-f>", ":lua require('telescope.builtin').buffers({path_display = my_path_display, bufnr_width = 0})<cr>", opts)
 keymap("n", "<C-f>",
   ":lua require('telescope.builtin').buffers({ path_display = truncate, sort_mru = true, ignore_current_buffer = true })<cr>",
   opts)

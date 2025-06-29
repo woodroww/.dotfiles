@@ -131,19 +131,15 @@ augroup MyPrettier
     autocmd BufWritePre *.html Prettier
 augroup end
 
-]]
-
--- Highlight on yank
-vim.api.nvim_exec(
-    [[
-  augroup YankHighlight
+augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]]   ,
-    false
-)
+augroup end
 
+]]
+
+vim.o.winborder = "rounded"
+vim.g.tinted_background_transparent = 1
 
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
 --  [[

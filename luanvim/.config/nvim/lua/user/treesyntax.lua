@@ -14,7 +14,7 @@ require'nvim-treesitter.configs'.setup {
     --additional_vim_regex_highlighting = { "markdown" },
     additional_vim_regex_highlighting = false,
   },
-  indent = { enable = true, disable = { "yaml", "python", "html", "javascript" } },
+  indent = { enable = true, disable = { "yaml", "html", "javascript" } },
   incremental_selection = {
     enable = true,
     keymaps = {

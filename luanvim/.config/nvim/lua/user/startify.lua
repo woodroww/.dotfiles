@@ -52,5 +52,7 @@ endif
 ]]
 
 
-vim.api.nvim_set_hl(0, 'StartifyHeader', { bg = '#1d1f21', fg = '#fe8019' })
-vim.api.nvim_set_hl(0, 'StartifySection', { bg = '#1d1f21', fg = '#d5c4a1' })
+-- ayu-dark '#0f1419'
+-- tokyo-dark '#1d1f21'
+vim.api.nvim_set_hl(0, 'StartifyHeader', { bg = '#0f1419', fg = '#fe8019' })
+vim.api.nvim_set_hl(0, 'StartifySection', { bg = '#0f1419', fg = '#d5c4a1' })

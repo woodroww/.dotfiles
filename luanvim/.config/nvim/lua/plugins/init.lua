@@ -24,16 +24,17 @@ return {
   { 'junegunn/limelight.vim' },
   -- https://github.com/AckslD/nvim-neoclip.lua
   { 'AckslD/nvim-neoclip.lua' },
-  -- https://github.com/base16-project/base16-vim
   -- https://github.com/tinted-theming/tinted-vim
   {
     "tinted-theming/tinted-vim",
     config = function()
-      vim.cmd.colorscheme 'base16-tomorrow-night'
+      -- vim.cmd.colorscheme 'base16-tomorrow-night'
+      vim.cmd.colorscheme 'base16-ayu-dark'
     end,
   },
   -- https://github.com/norcalli/nvim-colorizer
-  -- use 'norcalli/nvim-colorizer.lua' -- colorize color names/number in text
+  -- colorize color names/number in text
+  { 'norcalli/nvim-colorizer.lua' },
   -- https://github.com/mhinz/vim-startify
   { 'mhinz/vim-startify' },
 
@@ -140,6 +141,7 @@ return {
         vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
         -- vim.fn.jobstart({"xdg-open", url})  -- linux
       end,
+      disable_frontmatter = true,
     }
   },
   {
