@@ -61,15 +61,19 @@ let g:vim_markdown_folding_disabled = 1
 let g:python3_host_prog = '/Users/matt/.pyenv/versions/lovely/bin/python'
 let g:black_virtualenv = '/Users/matt/.pyenv/versions/lovely'
 
-" default
-" set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-" all block all the time
-" set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
-
+" Spell checking
 set spell spelllang=en_us,es,de
+" Disable spell checking by default
 set nospell
-" this disables completly highlighting matchin parenthesis
-" comment it out to have highlighting
+" Don't error on a word that is not capitalized
+set spellcapcheck=
+" Enable spell checking for Markdown files
+augroup markdownSpell
+  autocmd!
+  autocmd FileType markdown setlocal spell
+augroup END
+
+" this completely disables highlighting matching parenthesis
 let g:loaded_matchparen = 1
 " then you can use these to turn it on and off
 " :NoMatchParen :DoMatchParen
@@ -141,6 +145,18 @@ augroup end
 vim.o.winborder = "rounded"
 vim.g.tinted_background_transparent = 1
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeFindPre",
+  callback = function()
+    vim.opt_local.winborder = "none"
+    vim.api.nvim_create_autocmd("WinLeave", {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = "rounded"
+      end,
+    })
+  end,
+})
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
 --  [[
 --vim.api.nvim_exec(

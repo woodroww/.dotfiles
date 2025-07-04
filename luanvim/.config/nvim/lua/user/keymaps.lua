@@ -216,7 +216,7 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 
 keymap("n", "<leader>sp", ":set spell!<CR>", opts)
-
+keymap("n", "<leader>s", ":lua require('telescope.builtin').spell_suggest()<cr>", opts)
 
 vim.keymap.set("n", "gf", function()
   if require("obsidian").util.cursor_on_markdown_link() then
