@@ -117,9 +117,12 @@ return {
     run = "yarn install",
     ft = { "html", "vue", "json", "js" },
   },
+  -- original
   -- https://github.com/epwalsh/obsidian.nvim
+  -- fork for blink completion
+  -- https://github.com/obsidian-nvim/obsidian.nvim
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
@@ -132,6 +135,11 @@ return {
           name = "personal",
           path = "~/obsidian",
         },
+      },
+      completion = {
+        nvim_cmp = false,
+        blink = true,
+        min_chars = 2,
       },
       follow_url_func = function(url)
         vim.fn.jobstart({ "open", url })

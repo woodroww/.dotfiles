@@ -129,6 +129,22 @@ keymap("v", "p", "\"_dP", opts)
 keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
+function grep_tarot()
+  local note_opts = {
+    noremap = true,
+    silent = true,
+    hidden = true,
+    max_results = 300,
+    search_dirs = {
+      "/Users/matt/obsidian/tarot",
+    },
+    --prompt_prefix = "   ",
+    prompt_title = " Grep Tarot",
+    path_display = { "smart" }
+  }
+  require("telescope.builtin").live_grep(note_opts)
+end
+
 function grep_notes()
   local note_opts = {
     noremap = true,
@@ -190,6 +206,9 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
+
+keymap("n", "<leader>ot", [[<Cmd>lua grep_tarot()<CR>]], opts)
+
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c",
   ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
