@@ -281,7 +281,7 @@ setopt SHARE_HISTORY
 source <(fzf --zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
+export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap --bind=ctrl-k:up --bind=ctrl-j:down'
 #export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 #source /usr/local/opt/fzf/shell/key-bindings.zsh
 #source /usr/local/opt/fzf/shell/completion.zsh

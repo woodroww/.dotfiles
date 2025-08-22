@@ -3,7 +3,7 @@
 
 local options = {
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-    background = 'dark', -- this isn't necessary as I think nvim gets info from the terminal as to what it is using
+    -- background = 'dark', -- this isn't necessary as I think nvim gets info from the terminal as to what it is using
     laststatus = 3, -- the thin lines between the windows instead of status bar
     termguicolors = true, -- set term gui colors (most terminals support this)
     splitbelow = true, -- force all horizontal splits to go below current window
@@ -62,7 +62,7 @@ let g:python3_host_prog = '/Users/matt/.pyenv/versions/lovely/bin/python'
 let g:black_virtualenv = '/Users/matt/.pyenv/versions/lovely'
 
 " Spell checking
-set spell spelllang=en_us,es,de
+set spell spelllang=en_us,es,de,fr
 " Disable spell checking by default
 set nospell
 " Don't error on a word that is not capitalized
@@ -157,6 +157,7 @@ vim.api.nvim_create_autocmd("User", {
     })
   end,
 })
+
 -- turn on cursorline, cursorcolumn when searching, sync with hlsearch
 --  [[
 --vim.api.nvim_exec(

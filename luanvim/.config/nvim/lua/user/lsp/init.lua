@@ -17,6 +17,9 @@ function M.on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  -- turn off lsp highlighting
+  client.server_capabilities.semanticTokensProvider = nil
+
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
   end

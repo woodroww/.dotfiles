@@ -40,19 +40,21 @@ let g:startify_custom_header = [
 let g:startify_bookmarks = [
 	\ ]
 
+let g:startify_commands = [
+  \ {'t': ['Terminal', ':terminal']},
+\]
+
 let g:startify_lists = [
 	\ { 'type': 'files',     'header': ['   Recent:']            },
+  \ { 'type': 'commands',  'header': ['   Commands:']       },
 	\ ]
 
-let g:startify_commands = []
-
-if has('nvim')
-  call add(g:startify_commands, ['Funky Neovim Terminal', 'term'])
-endif
 ]]
 
 
 -- ayu-dark '#0f1419'
--- tokyo-dark '#1d1f21'
 vim.api.nvim_set_hl(0, 'StartifyHeader', { bg = '#0f1419', fg = '#fe8019' })
 vim.api.nvim_set_hl(0, 'StartifySection', { bg = '#0f1419', fg = '#d5c4a1' })
+-- tokyo-dark '#1d1f21'
+vim.api.nvim_set_hl(0, 'StartifyHeader', { bg = '#1d1f21', fg = '#fe8019' })
+vim.api.nvim_set_hl(0, 'StartifySection', { bg = '#1d1f21', fg = '#d5c4a1' })

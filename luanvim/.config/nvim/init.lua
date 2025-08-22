@@ -1,3 +1,5 @@
+-- search settings <leader>fs
+
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/options.lua

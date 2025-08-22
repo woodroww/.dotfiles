@@ -28,8 +28,8 @@ return {
   {
     "tinted-theming/tinted-vim",
     config = function()
-      -- vim.cmd.colorscheme 'base16-tomorrow-night'
-      vim.cmd.colorscheme 'base16-ayu-dark'
+      vim.cmd.colorscheme 'base16-tomorrow-night'
+      -- vim.cmd.colorscheme 'base16-ayu-dark'
     end,
   },
   -- https://github.com/norcalli/nvim-colorizer

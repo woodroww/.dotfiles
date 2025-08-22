@@ -182,7 +182,7 @@ end
 keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
 keymap("n", "<leader>cf", ":lua setAutoCmp(false)<CR>", opts)
 
-keymap("n", "<leader>d", ":DiffviewFileHistory %<CR>", opts)
+keymap("n", "<leader>d", ":DiffviewFileHistory % --base=LOCAL<CR>", opts)
 keymap("n", "<leader>dd", ":DiffviewClose<CR>", opts)
 
 keymap("n", "<leader>gs", ":lua require('telescope.builtin').git_status()<cr>", opts)

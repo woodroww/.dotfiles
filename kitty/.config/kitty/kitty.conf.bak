@@ -10,6 +10,10 @@
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
+font_family      MesloLGL Nerd Font Mono Regular 
+bold_font        MesloLGL Nerd Font Mono Bold
+italic_font      MesloLGL Nerd Font Mono Italic 
+bold_italic_font MesloLGL Nerd Font Mono Bold Italic 
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -46,7 +50,7 @@ font_size 18.0
 #: support, because it will force kitty to always treat the text as
 #: LTR, which FriBidi expects for terminals.
 
-adjust_line_height  130%
+adjust_line_height  110%
 # adjust_column_width 0
 
 #: Change the size of each character cell kitty renders. You can use
@@ -759,7 +763,7 @@ confirm_os_window_close 1
 
 #: The foreground and background colors
 
-background_opacity 1.00
+background_opacity 1.0
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -909,7 +913,7 @@ background_image_layout scaled
 #: --login and --interactive to ensure that the shell starts in
 #: interactive mode and reads its startup rc files.
 
-# editor .
+editor /usr/local/bin/nvim
 
 #: The terminal editor (such as ``vim`` or ``nano``) to use when
 #: editing the kitty config file or similar tasks.
@@ -1512,6 +1516,6 @@ macos_option_as_alt yes
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark
+# Tokyo Night Day
 include current-theme.conf
 # END_KITTY_THEME
