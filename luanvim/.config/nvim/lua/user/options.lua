@@ -20,7 +20,7 @@ local options = {
     incsearch = true,
     wrap = false, -- display lines as one long line
     colorcolumn = '80', -- 80 char line
-    hlsearch = true, -- highlight all matches on previous search pattern
+    hlsearch = false, -- highlight all matches on previous search pattern
     completeopt = { "menuone", "noselect", "preview" }, -- mostly just for cmp
     number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines
@@ -97,9 +97,9 @@ augroup MyAutoCommands
 	" autocmd BufWritePost * !touch <afile>
 	" stop the commenting on a <cr>
 	autocmd FileType * setlocal formatoptions-=cro
-	" for some reason rust files were much wider fix that here
-	" autocmd FileType rust set textwidth=80
+	" for some reason rust files are much wider fix that here
 	autocmd FileType rust set colorcolumn=99
+	autocmd FileType * set textwidth=80
 augroup end
 
 augroup MyYamlFiles

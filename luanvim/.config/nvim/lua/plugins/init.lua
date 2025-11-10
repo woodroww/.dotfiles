@@ -206,4 +206,5 @@ return {
       auto_show = false,
     },
   },
+  { 'mfussenegger/nvim-dap' },
 }

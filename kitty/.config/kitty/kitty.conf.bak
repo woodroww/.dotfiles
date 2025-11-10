@@ -1516,6 +1516,6 @@ macos_option_as_alt yes
 
 
 # BEGIN_KITTY_THEME
-# Tokyo Night Day
+# Ayu
 include current-theme.conf
 # END_KITTY_THEME
