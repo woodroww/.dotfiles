@@ -53,7 +53,7 @@ end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
 cc.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = require('blink.cmp').get_lsp_capabilities(cc)
+--M.capabilities = require('blink.cmp').get_lsp_capabilities(cc)
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
   { virtual_text = false, })
@@ -67,7 +67,8 @@ vim.g.rustaceanvim = {
 
 -- Swift c/c++/objective-c
 -- https://github.com/apple/sourcekit-lsp
-require 'lspconfig'.sourcekit.setup {
+vim.lsp.config.sourcekit = {
+-- require 'lspconfig'.sourcekit.setup {
   capabilities = M.capabilities,
   filetypes = { "swift" },
   on_attach = M.on_attach,
@@ -76,7 +77,9 @@ require 'lspconfig'.sourcekit.setup {
   },
 }
 -- https://github.com/svenstaro/glsl-language-server
-require 'lspconfig'.glslls.setup {
+
+vim.lsp.config.glslls = {
+-- require 'lspconfig'.glslls.setup {
   capabilities = M.capabilities,
   filetypes = { "glsl" },
   on_attach = M.on_attach,

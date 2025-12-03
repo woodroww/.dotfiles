@@ -80,7 +80,7 @@ return {
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
+    tag = 'v0.2.0',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-fzf-native.nvim'
@@ -130,6 +130,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = {
+      legacy_commands = false,
       workspaces = {
         {
           name = "personal",
@@ -138,7 +139,7 @@ return {
       },
       completion = {
         nvim_cmp = false,
-        blink = true,
+        blink = false,
         min_chars = 2,
       },
       follow_url_func = function(url)
@@ -149,9 +150,12 @@ return {
         vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
         -- vim.fn.jobstart({"xdg-open", url})  -- linux
       end,
-      disable_frontmatter = true,
+      frontmatter =  {
+        enabled = false,
+      }
     }
   },
+  --[[
   {
     'saghen/blink.cmp',
     -- https://github.com/saghen/blink.cmp
@@ -206,5 +210,6 @@ return {
       auto_show = false,
     },
   },
+    --]]
   { 'mfussenegger/nvim-dap' },
 }

@@ -237,13 +237,15 @@ keymap("n", "<leader>w", ":Kwbd<CR>", opts)
 keymap("n", "<leader>sp", ":set spell!<CR>", opts)
 keymap("n", "<leader>s", ":lua require('telescope.builtin').spell_suggest()<cr>", opts)
 
+--[[
 vim.keymap.set("n", "gf", function()
   if require("obsidian").util.cursor_on_markdown_link() then
-    return "<cmd>ObsidianFollowLink<CR>"
+    return "<cmd>Obsidian follow_link<CR>"
   else
     return "gf"
   end
 end, { noremap = false, expr = true })
+--]]
 
 vim.cmd [[
 " inoremap " ""<Left>

@@ -10,7 +10,7 @@ require("mason").setup()
 local config = require("user.lsp")
 
 -- require("mason-lspconfig").setup({
---   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "emmet_ls", "volar", "pyright", "clangd" },
+--   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "emmet_ls", "vue_ls", "pyright", "clangd" },
 -- maybe eslint
 --   installation = true,
 -- })

@@ -97,9 +97,11 @@ augroup MyAutoCommands
 	" autocmd BufWritePost * !touch <afile>
 	" stop the commenting on a <cr>
 	autocmd FileType * setlocal formatoptions-=cro
+
 	" for some reason rust files are much wider fix that here
+	autocmd FileType markdown set textwidth=80
+	autocmd FileType * set colorcolumn=80
 	autocmd FileType rust set colorcolumn=99
-	autocmd FileType * set textwidth=80
 augroup end
 
 augroup MyYamlFiles
