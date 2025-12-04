@@ -139,7 +139,7 @@ return {
       },
       completion = {
         nvim_cmp = false,
-        blink = false,
+        blink = true,
         min_chars = 2,
       },
       follow_url_func = function(url)
@@ -155,7 +155,6 @@ return {
       }
     }
   },
-  --[[
   {
     'saghen/blink.cmp',
     -- https://github.com/saghen/blink.cmp
@@ -210,6 +209,5 @@ return {
       auto_show = false,
     },
   },
-    --]]
   { 'mfussenegger/nvim-dap' },
 }
