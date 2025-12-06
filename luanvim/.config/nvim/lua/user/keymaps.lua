@@ -98,8 +98,10 @@ keymap("v", "<m-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 
-keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\"}})<cr>", opts)
-keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
+keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\", \"method\"}})<cr>", opts)
+-- keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
+-- org keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
+keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"struct\"}})<cr>", opts)
 keymap("n", "<leader>re", ":lua require('telescope.builtin').lsp_references()<cr>", opts)
 keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", opts)
@@ -107,9 +109,6 @@ keymap("n", "<leader>ls", "<cmd>LspInfo<cr>", opts)
 keymap("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>rf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
-
--- prime replace word under cursor
---keymap("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
 keymap("n", "<leader>t", "<cmd>sp<cr>:term<cr>i", opts)
 keymap("n", "<leader>ip", "<cmd>sp<cr>:term<cr>i ipython<cr>", opts)
@@ -201,18 +200,14 @@ end
 keymap("n", "<C-f>",
   ":lua require('telescope.builtin').buffers({ path_display = truncate, sort_mru = true, ignore_current_buffer = true })<cr>",
   opts)
---keymap("t", "<C-f>", "<c-\\><c-n>:lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
 keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
-
 keymap("n", "<leader>ot", [[<Cmd>lua grep_tarot()<CR>]], opts)
-
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)
 keymap("n", "<leader>c",
-  ":Telescope colorscheme enable_preview=true layout_config={vertical={height=0.5},top_pane={height=1}}<CR>", opts)
-
+  ":Telescope colorscheme enable_preview=true<CR>", opts)
 keymap("n", "<leader>cc", ":ColorizerToggle<CR>", opts)
 
 -- change current working directory to current file and print change

@@ -3,7 +3,7 @@
 
 local options = {
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-    -- background = 'dark', -- this isn't necessary as I think nvim gets info from the terminal as to what it is using
+    --background = 'light', -- this isn't necessary as I think nvim gets info from the terminal as to what it is using
     laststatus = 3, -- the thin lines between the windows instead of status bar
     termguicolors = true, -- set term gui colors (most terminals support this)
     splitbelow = true, -- force all horizontal splits to go below current window

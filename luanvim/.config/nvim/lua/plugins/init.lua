@@ -29,7 +29,6 @@ return {
     "tinted-theming/tinted-vim",
     config = function()
       vim.cmd.colorscheme 'base16-tomorrow-night'
-      -- vim.cmd.colorscheme 'base16-ayu-dark'
     end,
   },
   -- https://github.com/norcalli/nvim-colorizer
@@ -206,7 +205,7 @@ return {
 
     opts_extend = { "sources.default" },
     menu = {
-      auto_show = false,
+      auto_show = true,
     },
   },
   { 'mfussenegger/nvim-dap' },
