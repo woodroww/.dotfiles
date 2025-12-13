@@ -18,7 +18,7 @@ function M.on_attach(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- turn off lsp highlighting
-  client.server_capabilities.semanticTokensProvider = nil
+  --client.server_capabilities.semanticTokensProvider = nil
 
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
@@ -53,7 +53,7 @@ end
 
 local cc = vim.lsp.protocol.make_client_capabilities()
 cc.textDocument.completion.completionItem.snippetSupport = true
---M.capabilities = require('blink.cmp').get_lsp_capabilities(cc)
+M.capabilities = require('blink.cmp').get_lsp_capabilities(cc)
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
   { virtual_text = false, })

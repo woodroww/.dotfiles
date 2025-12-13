@@ -52,14 +52,13 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-
-
 vim.cmd [[
 
 let g:vim_markdown_folding_disabled = 1
 
-let g:python3_host_prog = '/Users/matt/.pyenv/versions/lovely/bin/python'
-let g:black_virtualenv = '/Users/matt/.pyenv/versions/lovely'
+let home_dir = expand('~')
+let g:python3_host_prog = home_dir . "/.pyenv/versions/lovely/bin/python"
+let g:black_virtualenv = home_dir . "/.pyenv/versions/lovely"
 
 " Spell checking
 set spell spelllang=en_us,es,de,fr

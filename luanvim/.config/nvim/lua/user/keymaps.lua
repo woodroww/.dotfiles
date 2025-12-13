@@ -128,6 +128,8 @@ keymap("v", "p", "\"_dP", opts)
 keymap("n", "<leader>p", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<leader>pp", ":Prettier<CR>", opts)
 
+local home = vim.loop.os_homedir()
+
 function grep_tarot()
   local note_opts = {
     noremap = true,
@@ -135,7 +137,7 @@ function grep_tarot()
     hidden = true,
     max_results = 300,
     search_dirs = {
-      "/Users/matt/obsidian/tarot",
+      home .. "/obsidian/tarot",
     },
     --prompt_prefix = "   ",
     prompt_title = " Grep Tarot",
@@ -151,7 +153,7 @@ function grep_notes()
     hidden = true,
     max_results = 300,
     search_dirs = {
-      "/Users/matt/obsidian",
+      home .. "/obsidian",
     },
     --prompt_prefix = "   ",
     prompt_title = " Grep Notes",
@@ -202,7 +204,10 @@ keymap("n", "<C-f>",
   opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 keymap("n", "<leader>fp", ":Telescope oldfiles<cr>", opts)
-keymap("n", "<c-i>", ":Telescope find_files cwd=/Users/matt/obsidian<cr>", opts)
+
+local notes_dir = vim.loop.os_homedir() .. "/obsidian"
+keymap("n", "<c-i>", ":Telescope find_files cwd=" .. notes_dir .. "<cr>", opts)
+
 keymap("n", "<leader>oo", [[<Cmd>lua grep_notes()<CR>]], opts)
 keymap("n", "<leader>ot", [[<Cmd>lua grep_tarot()<CR>]], opts)
 keymap("n", "<leader>fs", ":Telescope live_grep cwd=~/.dotfiles/luanvim/.config/nvim<cr>", opts)

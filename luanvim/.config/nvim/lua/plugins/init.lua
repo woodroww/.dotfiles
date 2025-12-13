@@ -36,10 +36,8 @@ return {
   { 'norcalli/nvim-colorizer.lua' },
   -- https://github.com/mhinz/vim-startify
   { 'mhinz/vim-startify' },
-
   -- https://github.com/preservim/vim-markdown
   -- { 'preservim/vim-markdown' },
-
   -- https://github.com/iamcco/markdown-preview.nvim
   -- :MarkdownPreview
   {
@@ -52,19 +50,14 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   -- https://github.com/SmiteshP/nvim-navic
   { 'SmiteshP/nvim-navic' },
-  -- does this rust.vim provide better syntax highlighting idk
-  -- https://github.com/rust-lang/rust.vim
-  --{ 'rust-lang/rust.vim' },
   -- https://github.com/mrcjkb/rustaceanvim
   {
     'mrcjkb/rustaceanvim',
-    version = '^6', -- Recommended
+    version = '^7', -- Recommended
     lazy = false,   -- This plugin is already lazy
   },
-
   -- https://github.com/nvim-lua/plenary.nvim
   { 'nvim-lua/plenary.nvim' },
-
   -- https://github.com/j-hui/fidget.nvim
   -- {
   --   'j-hui/fidget.nvim',
@@ -73,7 +66,6 @@ return {
   --     render_limit = 0, -- How many LSP messages to show at once
   --   }
   -- },
-
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   -- https://github.com/nvim-telescope/telescope.nvim
   -- https://github.com/nvim-telescope/telescope-fzf-native.nvim

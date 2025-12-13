@@ -9,11 +9,11 @@ require("mason").setup()
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 local config = require("user.lsp")
 
--- require("mason-lspconfig").setup({
---   ensure_installed = { "lua_ls", "cssls", "gopls", "tsserver", "emmet_ls", "vue_ls", "pyright", "clangd" },
--- maybe eslint
---   installation = true,
--- })
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "wgsl_analyzer" },
+  --ensure_installed = { "lua_ls", "wgsl_analyzer", "cssls", "gopls", "tsserver", "emmet_ls", "vue_ls", "pyright", "clangd" },
+  installation = true,
+})
 
 require("mason-lspconfig").setup {
   -- default handler

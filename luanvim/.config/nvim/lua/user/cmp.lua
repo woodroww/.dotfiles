@@ -12,10 +12,10 @@ if not snip_status_ok then
   return
 end
 
---vim.o.runtimepath = vim.o.runtimepath .. ',/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets'
-
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_vscode").load({ paths = { "/Users/matt/.dotfiles/luanvim/.config/nvim/my_snippets" } })
+local home = vim.loop.os_homedir()
+local snippet_path = home + "/.dotfiles/luanvim/.config/nvim/my_snippets"
+require("luasnip.loaders.from_vscode").load({ paths = { snippet_path } })
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
