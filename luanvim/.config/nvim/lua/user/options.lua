@@ -67,10 +67,10 @@ set nospell
 " Don't error on a word that is not capitalized
 set spellcapcheck=
 " Enable spell checking for Markdown files
-augroup markdownSpell
-  autocmd!
-  autocmd FileType markdown setlocal spell
-augroup END
+" augroup markdownSpell
+"   autocmd!
+"   autocmd FileType markdown setlocal spell
+" augroup END
 
 " this completely disables highlighting matching parenthesis
 let g:loaded_matchparen = 1

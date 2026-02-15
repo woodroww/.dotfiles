@@ -19,9 +19,9 @@ return {
   -- https://github.com/mbbill/undotree
   { 'mbbill/undotree' },
   -- https://github.com/junegunn/goyo.vim
-  { 'junegunn/goyo.vim' },
+  --{ 'junegunn/goyo.vim' },
   -- https://github.com/junegunn/limelight.vim
-  { 'junegunn/limelight.vim' },
+  --{ 'junegunn/limelight.vim' },
   -- https://github.com/AckslD/nvim-neoclip.lua
   { 'AckslD/nvim-neoclip.lua' },
   -- https://github.com/tinted-theming/tinted-vim
@@ -60,11 +60,12 @@ return {
   { 'nvim-lua/plenary.nvim' },
   -- https://github.com/j-hui/fidget.nvim
   -- {
-  --   'j-hui/fidget.nvim',
-  --   tag = 'v1.6.1',
-  --   display = {
-  --     render_limit = 0, -- How many LSP messages to show at once
-  --   }
+  --   "j-hui/fidget.nvim",
+  --   opts = {
+  --     display = {
+  --       render_limit = 0,
+  --     },
+  --   },
   -- },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   -- https://github.com/nvim-telescope/telescope.nvim
@@ -193,11 +194,6 @@ return {
       enabled = function()
         return not vim.tbl_contains({ "lua" }, vim.bo.filetype)
       end,
-    },
-
-    opts_extend = { "sources.default" },
-    menu = {
-      auto_show = true,
     },
   },
   { 'mfussenegger/nvim-dap' },

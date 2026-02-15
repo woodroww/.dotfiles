@@ -9,8 +9,8 @@ require("mason").setup()
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 local config = require("user.lsp")
 
-require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "wgsl_analyzer" },
+require("mason-lspconfig").setup({ 
+  ensure_installed = { "lua_ls", "wgsl_analyzer", "vue_ls", "ts_ls", "htmx", "html" },
   --ensure_installed = { "lua_ls", "wgsl_analyzer", "cssls", "gopls", "tsserver", "emmet_ls", "vue_ls", "pyright", "clangd" },
   installation = true,
 })
@@ -89,5 +89,17 @@ require("mason-lspconfig").setup {
         return vim.loop.cwd()
       end,
     })
+  end,
+
+
+  ["ts_ls"] = function()
+    vim.lsp.config.ts_ls = {
+      settings = {
+        tsserver_format_options = {
+            tabSize = 4,
+            indentSize = 4,
+        },
+      },
+    }
   end,
 }

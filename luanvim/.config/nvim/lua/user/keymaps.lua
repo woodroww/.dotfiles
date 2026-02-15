@@ -95,14 +95,15 @@ keymap("v", "<m-k>", ":m '<-2<CR>gv=gv", opts)
 ------------------------------------------------------------------------------]]
 
 -- junegunn things
-keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
-keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
+-- keymap("n", "<leader>gy", "<cmd>Goyo<cr>", opts)
+-- keymap("n", "<leader>ll", "<cmd>Limelight!!<cr>", opts)
 
 keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"function\", \"method\"}})<cr>", opts)
 -- keymap("n", "<leader>m", ":lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
 -- org keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
-keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"struct\"}})<cr>", opts)
-keymap("n", "<leader>re", ":lua require('telescope.builtin').lsp_references()<cr>", opts)
+keymap("n", "<leader>n", ":lua require('telescope.builtin').lsp_workspace_symbols({symbols={\"struct\"}})<cr>", opts)
+keymap("n", "<leader>N", ":lua require('telescope.builtin').lsp_document_symbols({symbols={\"struct\"}})<cr>", opts)
+keymap("n", "re", ":lua require('telescope.builtin').lsp_references()<cr>", opts)
 keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", opts)
 keymap("n", "<leader>ls", "<cmd>LspInfo<cr>", opts)
@@ -178,6 +179,33 @@ function setAutoCmp(mode)
     })
   end
 end
+
+local function todays_note()
+  local d = os.date("*t")
+  local today = string.format("%d-%d-%d", d.year, d.month, d.day)
+  local directory = "/Users/matt/obsidian/QuickNotes/"
+  local file_name = directory .. today .. "-quick_note.md"
+  local file = io.open(file_name, "r")
+  local command = ":e " .. file_name .. "<cr>"
+  if file ~= nil then
+    io.close(file)
+    --print("Found today's note")
+  else
+    --print("Creating today's note")
+    local new_file = io.open(file_name, "w")
+    if new_file ~= nil then
+      new_file:write("# Daily Note " ..
+      today .. "\n\n## Living Sober\n\n### Acceptance:\n\n### Gratitude:\n\n### Faith:\n\n\n## Yoga\n\n### Intention\n\n### Physical Focus\n\n### Mental Focus\n\n\n## Problem\n\n### Thought\n\n### Feeling\n\n### Impulse\n\n### Truth")
+      new_file:close()
+    end
+  end
+  vim.cmd("e " .. file_name)
+end
+
+vim.keymap.set('n', '<leader>qn', function()
+  todays_note()
+end, { desc = "Call my local function" })
+
 
 -- turn on/off the autocompletion cmp
 keymap("n", "<leader>ct", ":lua setAutoCmp(true)<CR>", opts)
