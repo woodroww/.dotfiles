@@ -307,3 +307,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init - zsh)"
 eval "$(pyenv virtualenv-init -)"
 export PATH=$PATH:$HOME/go/bin
+
+export PATH=$PATH:$HOME/.ghcup/bin
+export PATH=$PATH:$HOME/.ghcup/ghc/9.6.7/bin

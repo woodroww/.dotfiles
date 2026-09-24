@@ -4,14 +4,13 @@
 -- servers are listed at:
 -- https://mason-registry.dev/registry/list
 require("mason").setup()
---require("mason-lspconfig").setup()
 
 -- ~/.dotfiles/luanvim/.config/nvim/lua/user/lsp/init.lua
 local config = require("user.lsp")
 
-require("mason-lspconfig").setup({ 
+require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls", "wgsl_analyzer", "vue_ls", "ts_ls", "htmx", "html" },
-  --ensure_installed = { "lua_ls", "wgsl_analyzer", "cssls", "gopls", "tsserver", "emmet_ls", "vue_ls", "pyright", "clangd" },
+  -- "cssls", "gopls", "tsserver", "emmet_ls", "pyright", "clangd"
   installation = true,
 })
 

@@ -1,4 +1,8 @@
 return {
+
+  -- https://github.com/tidalcycles/vim-tidal
+  { 'tidalcycles/vim-tidal' },
+  -- https://github.com/karoliskoncevicius/vim-sendtowindow
   { 'karoliskoncevicius/vim-sendtowindow' },
   -- https://github.com/aymericbeaumet/vim-symlink
   -- because linux doesn't follow links and just writes new files idk???
@@ -53,7 +57,7 @@ return {
   -- https://github.com/mrcjkb/rustaceanvim
   {
     'mrcjkb/rustaceanvim',
-    version = '^7', -- Recommended
+    version = '^9', -- Recommended
     lazy = false,   -- This plugin is already lazy
   },
   -- https://github.com/nvim-lua/plenary.nvim
@@ -96,6 +100,7 @@ return {
   { 'nvim-treesitter/playground' },
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   -- { 'nvim-treesitter/nvim-treesitter-textobjects' },
+
   -- https://github.com/williamboman/mason.nvim
   { 'mason-org/mason.nvim' },
   -- https://github.com/williamboman/mason-lspconfig.nvim
@@ -129,19 +134,16 @@ return {
           path = "~/obsidian",
         },
       },
-      completion = {
-        nvim_cmp = false,
-        blink = true,
-        min_chars = 2,
-      },
-      follow_url_func = function(url)
-        vim.fn.jobstart({ "open", url })
-        -- vim.fn.jobstart({"xdg-open", url})  -- linux
-      end,
-      follow_img_func = function(img)
-        vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
-        -- vim.fn.jobstart({"xdg-open", url})  -- linux
-      end,
+      -- vim.ui.open = (function(what)
+      --   return function(url)
+      --     vim.fn.jobstart({ "open", url })
+      --   -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      --   end
+      -- end)(vim.ui.open),
+      -- follow_img_func = function(img)
+      --   vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
+      --   -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      -- end,
       frontmatter =  {
         enabled = false,
       }
@@ -152,6 +154,7 @@ return {
     -- https://github.com/saghen/blink.cmp
     -- docs https://cmp.saghen.dev
     -- optional: provides snippets for the snippet source
+    version = "1.*",
     dependencies = {
       {
         'Kaiser-Yang/blink-cmp-dictionary',
