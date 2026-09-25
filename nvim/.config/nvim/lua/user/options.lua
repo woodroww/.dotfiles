@@ -34,18 +34,6 @@ local options = {
     undofile = true, -- enable persistent undo across saves and sessions
     ignorecase = true, -- ignore case in search patterns
     smartcase = true, -- smart case, use case sensitive if capital letters are used in search string
-    --[[
-  cindent = true,
-  cmdheight = 2,                          -- more space in the neovim command line for displaying messages
-  fileencoding = "utf-8",                 -- the encoding written to a file
-  pumheight = 10,                         -- pop up menu height
-  showtabline = 2,                        -- always show tabs
-  timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
-  updatetime = 300,                       -- faster completion (4000ms default)
-  writebackup = false,                    -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  numberwidth = 4,                        -- set number column width to 2 {default 4}
-  guifont = "monospace:h17",              -- the font used in graphical neovim applications
---]]
 }
 
 for k, v in pairs(options) do

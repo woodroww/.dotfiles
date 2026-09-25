@@ -123,41 +123,29 @@ return {
   },
 
   -- https://github.com/nvim-treesitter/nvim-treesitter
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   lazy = false,
-  --   build = ":TSUpdate",
-  --   config = function()
-  --     local treesitter = require("nvim-treesitter")
-  --     treesitter.setup()
-  --     vim.api.nvim_create_autocmd('FileType', {
-  --       pattern = { "markdown", "markdown_inline", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua", "glsl", "toml", "wgsl" },
-  --       callback = function()
-  --         -- syntax highlighting, provided by Neovim
-  --         vim.treesitter.start()
-  --         -- folds, provided by Neovim (I don't like folds)
-  --         -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-  --         -- vim.wo.foldmethod = 'expr'
-  --         -- indentation, provided by nvim-treesitter
-  --         -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-  --       end,
-  --     })
-  --   end,
-
-  --   opts_extend = { "ensure_installed" },
-  --   ---@alias lazyvim.TSFeat { enable?: boolean, disable?: string[] }
-  --   ---@class lazyvim.TSConfig: TSConfig
-  --   opts = {
-  --     -- LazyVim config for treesitter
-  --     indent = { enable = true }, ---@type lazyvim.TSFeat
-  --     highlight = { enable = true }, ---@type lazyvim.TSFeat
-  --     folds = { enable = true }, ---@type lazyvim.TSFeat
-  --     ensure_installed = {
-  --       "markdown", "markdown_inline", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp",
-  --       "lua", "glsl", "toml", "wgsl"
-  --     }
-  --   }
-  -- },
+  -- for compile errors check if cli is installed
+  -- cargo install tree-sitter-cli
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      local treesitter = require("nvim-treesitter")
+      treesitter.setup()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { "markdown", "markdown_inline", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua", "glsl", "toml", "wgsl" },
+        callback = function()
+          -- syntax highlighting, provided by Neovim
+          vim.treesitter.start()
+          -- folds, provided by Neovim (I don't like folds)
+          -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          -- vim.wo.foldmethod = 'expr'
+          -- indentation, provided by nvim-treesitter
+          -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+    end,
+  },
   {
     'saghen/blink.cmp',
     -- https://github.com/saghen/blink.cmp

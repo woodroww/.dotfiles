@@ -8,6 +8,9 @@ require "user.options"
 -- ~/.config/nvim/lua/plugins/init.lua
 require "config.lazy"
 
+require("nvim-treesitter").setup()
+require("nvim-treesitter").install { "markdown", "markdown_inline", "vim", "javascript", "rust", "c", "go", "html", "python", "yaml", "css", "cpp", "lua", "glsl", "toml", "wgsl" }
+
 -- ~/.config/nvim/lua/user/mason-config.lua
 -- calls ~/.dotfiles/nvim/.config/nvim/lua/user/lsp/init.lua
 require "user.mason-config"
